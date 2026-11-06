@@ -673,4 +673,14 @@ export const savePlaylistType = async (type: 'local' | 'online') => {
   await saveData(playlistTypeKey, type)
 }
 
+const autoSaveDailyRecIdsKey = storageDataPrefix.autoSaveDailyRecIds
+// 记录由“自动保存每日推荐”创建的歌单 id，用于精确识别这些歌单。
+// 返回 null 表示从未记录过（首次运行），返回 [] 表示记录过但都已不存在。
+export const getAutoSaveDailyRecIds = async (): Promise<string[] | null> => {
+  return (await getData<string[]>(autoSaveDailyRecIdsKey)) ?? null
+}
+export const saveAutoSaveDailyRecIds = async (ids: string[]) => {
+  await saveData(autoSaveDailyRecIdsKey, ids)
+}
+
 
