@@ -16,7 +16,7 @@
 
 基于 https://github.com/souvenp/lx-netease-music-mobile ，原始提交 `073ab03a3979590d3c9119bd128f4e49089a140d`，版本 1.8.87。
 
-本目录是独立本地修改副本，尚未在用户 GitHub 账户创建远程 fork；未创建提交、未推送。保留原项目及其依赖的版权和许可证声明。
+已发布到远程 fork：https://github.com/ruoyemu600/lx-netease-music-mobile （主体分支 `main`）。提交历史为 `073ab03`（上游 v1.8.87 基线）→ `feat(material)` 改版提交 → `docs` 合规提交，逐层可 diff。保留原项目及其依赖的版权和许可证声明。
 
 当前分支版本为 **1.8.89 / versionCode 72**（ARM64 APK版本码72003）。上轮已跑通本机原生构建，用户也已提供上轮实际运行截图。第二轮针对截图中的旧式搜索/抽屉导航和播放封面空白落实页面重构；本轮构建证据随安装包交付，安装及真机视觉/播放验收另行执行。此前概念图不是本版本运行截图。
 
@@ -119,9 +119,9 @@ bash scripts/build-local-apk.sh
 
 ## 云端构建（可选备份）
 
-[手动预览构建工作流](<.github/workflows/material-preview.yml>)仍保留：上传到自己的 fork 后，Actions → Material UI Preview APK → Run workflow，下载 `lx-n-material-preview-arm64` artifact。该工作流尚未远程运行验证。
+[手动预览构建工作流](<.github/workflows/material-preview.yml>)随本改版一并推送：在 fork 的 Actions → Material UI Preview APK → Run workflow 可手动触发，下载 `lx-n-material-preview-arm64` artifact。该工作流仅供云端预览构建使用，**尚未远程运行验证**，本版 APK 来自本机原生构建而非该工作流。
 
-原项目 [自动发布工作流](<.github/workflows/release.yml>)保留未改，依赖原作者发布密钥；上传到自己的仓库前先禁用。不要配置或索取上游私有签名密钥。
+原项目自动发布工作流（`release.yml`）依赖原作者私有签名密钥，在 fork 中无法运行；本 fork 已将其重命名为 `release.yml.disabled` 以停止 `push` 到 `main` 时触发失败构建。不要配置或索取上游私有签名密钥。
 
 
 ## 真机验收清单
