@@ -1,11 +1,8 @@
 name: Material UI Preview APK
-
 on:
   workflow_dispatch:
-
 permissions:
   contents: read
-
 jobs:
   preview:
     runs-on: ubuntu-22.04
@@ -20,9 +17,13 @@ jobs:
         with:
           distribution: temurin
           java-version: '17'
-      - uses: android-actions/setup-android@v3
+      # 不用 android-actions/setup-android@v3：它会执行 `sdkmanager tools`，
+      # 而 tools 包已从新版 SDK 仓库移除，固定失败于 "Failed to find package 'tools'"。
+      # ubuntu runner 已预装 Android SDK 且设置了 ANDROID_HOME，直接调 sdkmanager 即可。
       - name: Install Android SDK packages
-        run: sdkmanager 'platforms;android-35' 'build-tools;35.0.0' 'ndk;26.1.10909125'
+        run: |
+          yes | sdkmanager --licenses > /dev/null 2>&1 || true
+          sdkmanager 'platforms;android-35' 'build-tools;35.0.0' 'ndk;26.1.10909125'
       - name: Install locked JavaScript dependencies
         run: npm ci --no-audit --no-fund
       - name: Regenerate themes and check patch formatting
