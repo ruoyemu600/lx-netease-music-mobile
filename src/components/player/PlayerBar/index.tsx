@@ -1,11 +1,10 @@
-import {memo, useCallback, useMemo, useRef} from 'react'
-import { PanResponder, View, TouchableOpacity } from 'react-native'
+import {memo, useCallback, useRef} from 'react'
+import { PanResponder, View, TouchableOpacity, StyleSheet } from 'react-native'
 import { useKeyboard } from '@/utils/hooks'
 import Pic from './components/Pic'
 import Title from './components/Title'
 import PlayInfo from './components/PlayInfo'
 import ControlBtn from './components/ControlBtn'
-import { createStyle } from '@/utils/tools'
 import { useTheme } from '@/store/theme/hook'
 import { useSettingValue } from '@/store/setting/hook'
 import { Icon } from '@/components/common/Icon'
@@ -17,13 +16,15 @@ import MiniProgressBar from "@/components/player/PlayerBar/components/MiniProgre
 import playerState from '@/store/player/state'
 import { LIST_IDS } from '@/config/constant'
 
-export default memo(({ componentId, isHome = false }: { isHome?: boolean }) => {
+export default memo(({ isHome = false }: { componentId?: string; isHome?: boolean }) => {
   const { keyboardShown } = useKeyboard()
   const theme = useTheme()
   const musicInfo = usePlayerMusicInfo()
   const longPressedRef = useRef(false)
   const playlistRef = useRef<PlayerPlaylistType>(null)
   const drawerLayoutPosition = useSettingValue('common.drawerLayoutPosition')
+  const drawerPositionRef = useRef(drawerLayoutPosition)
+  drawerPositionRef.current = drawerLayoutPosition
 
   const handleLongPress = useCallback(() => {
     longPressedRef.current = true
@@ -52,11 +53,11 @@ export default memo(({ componentId, isHome = false }: { isHome?: boolean }) => {
       onMoveShouldSetPanResponder: (evt, gestureState) => {
         const { dx, dy } = gestureState
         if (Math.abs(dx) > Math.abs(dy) * 1.5) { // 水平滑动为主
-          if (drawerLayoutPosition === 'left' && dx > 10) {
+          if (drawerPositionRef.current === 'left' && dx > 10) {
             gestureAction.current = 'drawer'
             return true
           }
-          if (drawerLayoutPosition === 'right' && dx < -10) {
+          if (drawerPositionRef.current === 'right' && dx < -10) {
             gestureAction.current = 'drawer'
             return true
           }
@@ -71,9 +72,9 @@ export default memo(({ componentId, isHome = false }: { isHome?: boolean }) => {
       onPanResponderRelease: (evt, gestureState) => {
         const { dx, dy } = gestureState
         if (gestureAction.current === 'drawer') {
-          if (drawerLayoutPosition === 'left' && dx > 50) {
+          if (drawerPositionRef.current === 'left' && dx > 50) {
             global.app_event.changeMenuVisible(true)
-          } else if (drawerLayoutPosition === 'right' && dx < -50) {
+          } else if (drawerPositionRef.current === 'right' && dx < -50) {
             global.app_event.changeMenuVisible(true)
           }
         } else if (gestureAction.current === 'playlist' && dy < -50) {
@@ -87,8 +88,7 @@ export default memo(({ componentId, isHome = false }: { isHome?: boolean }) => {
     }),
   ).current
 
-  const playerComponent = useMemo(
-    () => (
+  const playerComponent = (
       <View style={{ ...styles.container, backgroundColor: theme['c-content-background'] }}
             {...panResponder.panHandlers}>
         <MiniProgressBar />
@@ -107,8 +107,6 @@ export default memo(({ componentId, isHome = false }: { isHome?: boolean }) => {
           </TouchableOpacity>
         </View>
       </View>
-    ),
-    [theme, isHome, handleShowPlaylist, panResponder.panHandlers, drawerLayoutPosition],
   )
 
   return (
@@ -119,23 +117,21 @@ export default memo(({ componentId, isHome = false }: { isHome?: boolean }) => {
   )
 })
 
-const styles = createStyle({
+// Keep touch targets in Android dp, independent of the app's font-size setting.
+const styles = StyleSheet.create({
   container: {
-    width: '100%',
-    // height: 100,
-    // paddingTop: progressContentPadding,
-    // marginTop: -progressContentPadding,
-    // backgroundColor: 'rgba(0, 0, 0, .1)',
-    // borderTopWidth: BorderWidths.normal2,
-    paddingVertical: 5,
-    paddingLeft: 5,
-    // backgroundColor: AppColors.primary,
-    // backgroundColor: 'red',
-    borderTopLeftRadius: 6,
-    borderTopRightRadius: 6,
+    alignSelf: 'stretch',
+    minHeight: 68,
+    marginHorizontal: 12,
+    marginTop: 8,
+    marginBottom: 8,
+    paddingVertical: 9,
+    paddingLeft: 10,
+    borderRadius: 20,
+    overflow: 'hidden',
     flexDirection: 'row',
     alignItems: 'center',
-    elevation: 10,
+    elevation: 0,
   },
   left: {
     flexGrow: 1,
@@ -147,8 +143,9 @@ const styles = createStyle({
     flexDirection: 'column',
     flexGrow: 1,
     flexShrink: 1,
-    paddingLeft: 5,
-    height: '100%',
+    paddingLeft: 10,
+    justifyContent: 'center',
+    minHeight: 48,
     // justifyContent: 'space-evenly',
     // height: 48,
     // backgroundColor: 'rgba(0, 0, 0, .1)',
@@ -162,8 +159,8 @@ const styles = createStyle({
     paddingRight: 5,
   },
   menuBtn: {
-    width: 46,
-    height: 46,
+    width: 48,
+    height: 48,
     justifyContent: 'center',
     alignItems: 'center',
   },

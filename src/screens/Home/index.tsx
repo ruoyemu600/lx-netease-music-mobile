@@ -20,6 +20,8 @@ import DownloadBall from "@/components/DownloadBall";
 import YouTubeLoginManager from "@/components/YouTubeLoginManager.tsx";
 import VideoPlayerManager from "@/components/VideoPlayerManager.tsx";
 import GlobalSearchSuggestions from '@/components/GlobalSearchSuggestions';
+import { getRootTab, isRootTab } from './materialNavigation'
+import { handleMaterialBack } from './materialBack'
 interface Props {
   componentId: string
 }
@@ -54,6 +56,9 @@ export default ({ componentId }: Props) => {
         return false;
       }
 
+      // Inline details always precede root navigation, independent of mount order.
+      if (handleMaterialBack(commonState.navActiveId)) return true
+
       // 如果当前在设置页面，让设置页面的返回逻辑优先处理
       if (commonState.navActiveId === 'nav_setting') {
         return false
@@ -61,6 +66,13 @@ export default ({ componentId }: Props) => {
 
       if (commonState.navActiveId === 'nav_play_history') {
         setNavActiveId(commonState.lastNavActiveId)
+        return true
+      }
+
+      if (!isHorizontalMode && commonState.navActiveId !== 'nav_home') {
+        const id = commonState.navActiveId
+        setNavActiveId(isRootTab(id) ? 'nav_home' : getRootTab(id))
+        lastBackPressed.current = 0
         return true
       }
 
@@ -73,7 +85,7 @@ export default ({ componentId }: Props) => {
       lastBackPressed.current = now
       toast(t('exit_app_tip_double_press'))
       return true
-    }, [t])
+    }, [t, isHorizontalMode])
   )
 
   return (

@@ -1,8 +1,7 @@
 import { memo, useRef } from 'react'
-import { View, TouchableOpacity } from 'react-native'
-import { LIST_ITEM_HEIGHT } from '@/config/constant'
+import { View, TouchableOpacity, StyleSheet } from 'react-native'
 import { Icon } from '@/components/common/Icon'
-import { createStyle, type RowInfo } from '@/utils/tools'
+import { type RowInfo } from '@/utils/tools'
 import { useTheme } from '@/store/theme/hook'
 import { useAssertApiSupport } from '@/store/common/hook'
 import { scaleSizeH } from '@/utils/pixelRatio'
@@ -12,7 +11,8 @@ import Image from '@/components/common/Image'
 import PlayingIcon from '@/components/common/PlayingIcon'
 import { useI18n } from '@/lang'
 
-export const ITEM_HEIGHT = scaleSizeH(LIST_ITEM_HEIGHT)
+// Shared by the virtualized list and local music; never shrink below 72dp.
+export const ITEM_HEIGHT = Math.max(72, scaleSizeH(72))
 
 const useQualityTag = (musicInfo: LX.Music.MusicInfo) => {
   const t = useI18n()
@@ -73,9 +73,7 @@ export default memo(
   }) => {
     const theme = useTheme()
     const isSelected = selectedList.includes(item)
-    const selectedBackground = theme.isDark
-      ? theme['c-primary-alpha-600']
-      : theme['c-primary-background-active']
+    const selectedBackground = theme['c-primary-background-active']
     const isSupported = useAssertApiSupport(item.source)
     const moreButtonRef = useRef<TouchableOpacity>(null)
 
@@ -103,16 +101,18 @@ export default memo(
       <View
         style={{
           ...styles.listItem,
-          // 隐藏更多按钮后保留其 38px 占位，让时长与其他歌单对齐而不贴右边。
-          paddingRight: hideMenu ? 40 : 2,
+          // 无菜单的本地行也保留相同尾部空间，让时长与歌单对齐。
+          paddingRight: hideMenu ? 52 : 4,
           width: rowInfo.rowWidth,
           height: ITEM_HEIGHT,
-          backgroundColor: isSelected ? selectedBackground : 'rgba(0,0,0,0)',
+          backgroundColor: isSelected ? selectedBackground : active ? theme['c-primary-background-hover'] : undefined,
           opacity: isSupported ? 1 : 0.5,
         }}
       >
         <TouchableOpacity
           style={styles.listItemLeft}
+          accessibilityRole="button"
+          accessibilityState={{ selected: isSelected }}
           onPress={() => {
             onPress(item, index)
           }}
@@ -136,7 +136,7 @@ export default memo(
           </View>
           <View style={styles.itemInfo}>
             {/* <View style={styles.listItemTitle}> */}
-            <Text color={active ? theme['c-primary-font'] : theme['c-font']} numberOfLines={1}>
+            <Text style={styles.title} size={15} color={active || isSelected ? theme['c-primary-font'] : theme['c-font']} numberOfLines={1}>
               {item.name}
               {item.alias ? <Text color={theme['c-font-label']}> ({item.alias})</Text> : null}
             </Text>
@@ -148,8 +148,8 @@ export default memo(
               {item.source === 'wy' && (item as LX.Music.MusicInfoOnline).meta.originCoverType === 2 ? <Badge type="normal">cover</Badge> : null}
               <Text
                 style={styles.listItemSingleText}
-                size={11}
-                color={active ? theme['c-primary-alpha-200'] : theme['c-500']}
+                size={12}
+                color={theme['c-font-label']}
                 numberOfLines={1}
               >
                 {singer}
@@ -158,8 +158,9 @@ export default memo(
           </View>
           {isShowInterval ? (
             <Text
+              style={styles.interval}
               size={11}
-              color={active ? theme['c-primary-alpha-400'] : theme['c-250']}
+              color={theme['c-font-label']}
               numberOfLines={1}
             >
               {item.interval}
@@ -167,8 +168,8 @@ export default memo(
           ) : null}
         </TouchableOpacity>
         {/* <View style={styles.listItemRight}> */}
-        {!hideMenu && <TouchableOpacity onPress={handleShowMenu} ref={moreButtonRef} style={styles.moreButton}>
-          <Icon name="dots-vertical" style={{ color: theme['c-350'] }} size={12} />
+        {!hideMenu && <TouchableOpacity accessibilityRole="button" onPress={handleShowMenu} ref={moreButtonRef} style={styles.moreButton}>
+          <Icon name="dots-vertical" color={theme['c-font-label']} size={20} />
         </TouchableOpacity>}
         {/* </View> */}
       </View>
@@ -193,85 +194,59 @@ export default memo(
   }
 )
 
-const styles = createStyle({
+// Native dp dimensions match the online row and retain a minimum 48dp menu target.
+const styles = StyleSheet.create({
   listItem: {
-    // width: '50%',
     flexDirection: 'row',
-    flexWrap: 'nowrap',
-    // paddingLeft: 10,
-    paddingRight: 2,
     alignItems: 'center',
-    // borderBottomWidth: BorderWidths.normal,
   },
   listItemLeft: {
     flex: 1,
-    flexGrow: 1,
-    flexShrink: 1,
+    minWidth: 0,
+    height: '100%',
     flexDirection: 'row',
     alignItems: 'center',
   },
   sn: {
-    width: 70,
+    width: 78,
     justifyContent: 'center',
     alignItems: 'center',
-    paddingLeft: 5,
-    paddingRight: 5,
   },
   snIndex: {
-    width: 40,
+    width: 48,
     justifyContent: 'center',
     alignItems: 'center',
-    paddingLeft: 5,
-    paddingRight: 5,
   },
   albumArt: {
-    width: 52,
-    height: 52,
-    borderRadius: 4,
+    width: 50,
+    height: 50,
+    borderRadius: 12,
   },
   itemInfo: {
-    flexGrow: 1,
-    flexShrink: 1,
-    // paddingTop: 10,
-    // paddingBottom: 10,
-    paddingRight: 2,
+    flex: 1,
+    minWidth: 0,
+    paddingRight: 8,
   },
-  // listItemTitle: {
-  //   flexGrow: 0,
-  //   flexShrink: 1,
-  // },
+  title: {
+    fontWeight: '500',
+  },
   listItemSingle: {
-    paddingTop: 3,
+    paddingTop: 4,
     flexDirection: 'row',
-    // alignItems: 'flex-end',
+    alignItems: 'center',
   },
   listItemSingleText: {
-    // backgroundColor: 'rgba(0,0,0,0.2)',
-    flexGrow: 0,
     flexShrink: 1,
-    fontWeight: '300',
-    // fontSize: 15,
+    fontWeight: '400',
   },
-  // listItemBadge: {
-  //   // fontSize: 10,
-  //   paddingLeft: 5,
-  //   paddingTop: 2,
-  //   alignSelf: 'flex-start',
-  // },
-  listItemRight: {
-    flexGrow: 0,
-    flexShrink: 0,
-    flexBasis: 'auto',
-    justifyContent: 'center',
+  interval: {
+    marginLeft: 4,
+    fontVariant: ['tabular-nums'],
   },
-
   moreButton: {
-    height: '80%',
-    paddingLeft: 10,
-    paddingRight: 16,
-    // paddingTop: 10,
-    // paddingBottom: 10,
-    // backgroundColor: 'rgba(0,0,0,0.2)',
+    width: 48,
+    height: 48,
     justifyContent: 'center',
+    alignItems: 'center',
   },
 })

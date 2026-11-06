@@ -1,195 +1,74 @@
-import {View, TouchableOpacity, PanResponder} from 'react-native'
-// import Button from '@/components/common/Button'
-// import { navigations } from '@/navigation'
-// import { BorderWidths } from '@/theme'
+import { StyleSheet, TouchableOpacity, View } from 'react-native'
 import { useTheme } from '@/store/theme/hook'
 import { useNavActiveId, useStatusbarHeight } from '@/store/common/hook'
 import { useI18n } from '@/lang'
-import { createStyle } from '@/utils/tools'
 import { Icon } from '@/components/common/Icon'
 import Text from '@/components/common/Text'
 import StatusBar from '@/components/common/StatusBar'
-import { useSettingValue } from '@/store/setting/hook'
-import { scaleSizeH } from '@/utils/pixelRatio'
-import { HEADER_HEIGHT } from '@/config/constant'
-import { type InitState as CommonState } from '@/store/common/state'
-import SearchTypeSelector from '@/screens/Home/Views/Search/SearchTypeSelector'
-import GlobalSearch from '@/components/GlobalSearch'
-import React, {useRef} from "react";
+import { setNavActiveId } from '@/core/common'
+import commonState from '@/store/common/state'
+import { getRootTab, isRootTab } from '../materialNavigation'
+import { handleMaterialBack } from '../materialBack'
 
-const headerComponents: Partial<Record<CommonState['navActiveId'], React.ReactNode>> = {
-  nav_search: <SearchTypeSelector />,
-}
-
-// const LeftTitle = () => {
-//   const id = useNavActiveId()
-//   const t = useI18n()
-
-//   return <Text style={styles.leftTitle} size={18}>{t(id)}</Text>
-// }
-const LeftHeader = () => {
-  const theme = useTheme()
-  const id = useNavActiveId()
-  const t = useI18n()
-  const statusBarHeight = useStatusbarHeight()
-
-  const isSearchPage = id === 'nav_search'
-  const openMenu = () => {
-    global.app_event.changeMenuVisible(true)
-  }
-
-  const panResponder = useRef(
-    PanResponder.create({
-      onMoveShouldSetPanResponder: (evt, gestureState) => {
-        // 仅在水平滑动时捕获手势
-        const { dx, dy } = gestureState;
-        return Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 10;
-      },
-      onPanResponderRelease: (evt, gestureState) => {
-        // 向右滑动超过40像素时打开菜单
-        if (gestureState.dx > 40) {
-          global.app_event.changeMenuVisible(true);
-        }
-      },
-    }),
-  ).current;
-  return (
-    <View
-      style={{
-        ...styles.container,
-        height: scaleSizeH(HEADER_HEIGHT) + statusBarHeight,
-        paddingTop: statusBarHeight,
-      }}
-      {...panResponder.panHandlers}
-    >
-      <View style={styles.left}>
-        <TouchableOpacity style={styles.btn} onPress={openMenu}>
-          <Icon color={theme['c-font']} name="menu" size={18} />
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.titleBtn} onPress={openMenu}>
-          <Text style={styles.leftTitle} size={18}>
-            {t(id)}
-          </Text>
-        </TouchableOpacity>
-      </View>
-      {isSearchPage ? headerComponents[id] : <GlobalSearch />}
-
-      {/* <TouchableOpacity style={styles.btn} onPress={openSetting}>
-        <Icon style={{ ...styles.btnText, color: theme['c-font'] }} name="setting" size={styles.btnText.fontSize} />
-      </TouchableOpacity> */}
-    </View>
-  )
-}
-
-// const RightTitle = () => {
-//   const id = useNavActiveId()
-//   const t = useI18n()
-
-//   return <Text style={styles.rightTitle} size={18}>{t(id)}</Text>
-// }
-const RightHeader = () => {
+export default () => {
   const theme = useTheme()
   const t = useI18n()
   const id = useNavActiveId()
-  const statusBarHeight = useStatusbarHeight()
-
-  const isSearchPage = id === 'nav_search'
-  const openMenu = () => {
-    global.app_event.changeMenuVisible(true)
+  const inset = useStatusbarHeight()
+  const root = isRootTab(id)
+  const openMenu = () => global.app_event.changeMenuVisible(true)
+  const back = () => {
+    if (handleMaterialBack(id)) return
+    setNavActiveId(id === 'nav_setting' ? commonState.lastNavActiveId : getRootTab(id))
   }
-  const panResponder = useRef(
-    PanResponder.create({
-      onMoveShouldSetPanResponder: (evt, gestureState) => {
-        // 仅在水平滑动时捕获手势
-        const { dx, dy } = gestureState;
-        return Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 10;
-      },
-      onPanResponderRelease: (evt, gestureState) => {
-        // 向左滑动超过40像素时打开菜单
-        if (gestureState.dx < -40) {
-          global.app_event.changeMenuVisible(true);
-        }
-      },
-    }),
-  ).current;
   return (
-    <View
-      style={{
-        ...styles.container,
-        height: scaleSizeH(HEADER_HEIGHT) + statusBarHeight,
-        paddingTop: statusBarHeight,
-      }}
-      {...panResponder.panHandlers}
-    >
-      <View style={styles.left}>
-        <TouchableOpacity style={styles.titleBtn} onPress={openMenu}>
-          <Text style={styles.rightTitle} size={18}>
-            {t(id)}
-          </Text>
-        </TouchableOpacity>
-      </View>
-
-      {isSearchPage ? headerComponents[id] : <GlobalSearch />}
-      <TouchableOpacity style={styles.btn} onPress={openMenu}>
-        <Icon color={theme['c-font']} name="menu" size={18} />
-      </TouchableOpacity>
-      {/* <TouchableOpacity style={styles.btn} onPress={openSetting}>
-        <Icon style={{ ...styles.btnText, color: theme['c-font'] }} name="setting" size={styles.btnText.fontSize} />
-      </TouchableOpacity> */}
-    </View>
-  )
-}
-
-const Header = () => {
-  const drawerLayoutPosition = useSettingValue('common.drawerLayoutPosition')
-
-  return (
-    <>
+    <View style={{ paddingTop: inset, backgroundColor: theme['c-main-background'] }}>
       <StatusBar />
-      {drawerLayoutPosition == 'left' ? <LeftHeader /> : <RightHeader />}
-    </>
+      <View style={styles.row}>
+        {root ? (
+          <TouchableOpacity accessibilityRole="button" accessibilityLabel="更多音乐功能" style={styles.brand} onPress={openMenu}>
+            <Icon name="logo" rawSize={20} color={theme['c-primary']} />
+            <Text size={13} style={styles.brandText}>LX-N</Text>
+            <Text size={9} color={theme['c-font-label']} style={styles.edition}>MATERIAL</Text>
+          </TouchableOpacity>
+        ) : (
+          <View style={styles.heading}>
+            <TouchableOpacity accessibilityRole="button" accessibilityLabel="返回" style={styles.button} onPress={back}>
+              <Icon name="chevron-left" rawSize={22} color={theme['c-font']} />
+            </TouchableOpacity>
+            <Text size={20} numberOfLines={1} style={styles.title}>{t(id)}</Text>
+          </View>
+        )}
+        {!root ? (
+          <TouchableOpacity accessibilityRole="button" accessibilityLabel={t('nav_search')} style={styles.button} onPress={() => setNavActiveId('nav_search')}>
+            <Icon name="search-2" rawSize={22} color={theme['c-font-label']} />
+          </TouchableOpacity>
+        ) : null}
+        <TouchableOpacity accessibilityRole="button" accessibilityLabel="更多音乐功能" style={styles.button} onPress={openMenu}>
+          <Icon name="menu" rawSize={21} color={theme['c-font-label']} />
+        </TouchableOpacity>
+        {root ? (
+          <TouchableOpacity
+            accessibilityRole="button"
+            accessibilityLabel={t('nav_setting')}
+            style={[styles.button, styles.settings, { backgroundColor: theme['c-content-background'] }]}
+            onPress={() => setNavActiveId('nav_setting')}
+          >
+            <Icon name="setting" rawSize={22} color={theme['c-primary']} />
+          </TouchableOpacity>
+        ) : null}
+      </View>
+    </View>
   )
 }
 
-const styles = createStyle({
-  container: {
-    // width: '100%',
-    paddingRight: 5,
-    flexDirection: 'row',
-    justifyContent: 'center',
-    alignItems: 'center',
-    // backgroundColor: 'rgba(0,0,0,0.1)',
-    zIndex: 10,
-  },
-  left: {
-    flex: 1,
-    flexDirection: 'row',
-    paddingLeft: 5,
-    alignItems: 'center',
-    height: '100%',
-  },
-  btn: {
-    // flex: 1,
-    width: HEADER_HEIGHT,
-    // backgroundColor: 'rgba(0,0,0,0.1)',
-    alignItems: 'center',
-    justifyContent: 'center',
-    height: '100%',
-  },
-  titleBtn: {
-    flex: 1,
-    // backgroundColor: 'rgba(0,0,0,0.1)',
-    height: '100%',
-    justifyContent: 'center',
-  },
-  leftTitle: {
-    paddingLeft: 14,
-    paddingRight: 16,
-  },
-  rightTitle: {
-    paddingLeft: 16,
-    paddingRight: 16,
-  },
+const styles = StyleSheet.create({
+  row: { minHeight: 56, paddingHorizontal: 12, paddingVertical: 4, flexDirection: 'row', alignItems: 'center' },
+  brand: { flex: 1, minHeight: 48, flexDirection: 'row', alignItems: 'center', paddingLeft: 8, gap: 9 },
+  brandText: { fontWeight: '600', letterSpacing: 1.5 },
+  edition: { letterSpacing: 1.2 },
+  heading: { flex: 1, flexDirection: 'row', alignItems: 'center' },
+  title: { flex: 1, marginLeft: 4, fontWeight: '500' },
+  button: { width: 48, height: 48, borderRadius: 24, alignItems: 'center', justifyContent: 'center' },
+  settings: { marginLeft: 4 },
 })
-
-export default Header

@@ -1,5 +1,6 @@
 import { memo, useRef, useState, useCallback, useEffect, useMemo } from 'react'
-import { TouchableOpacity, View, BackHandler, StyleSheet, PanResponder } from 'react-native'
+import { TouchableOpacity, View, StyleSheet, PanResponder } from 'react-native'
+import { registerMaterialBackHandler } from '@/screens/Home/materialBack'
 import Text from '@/components/common/Text'
 import { createStyle } from '@/utils/tools'
 import { useTheme } from '@/store/theme/hook'
@@ -159,8 +160,7 @@ export default memo(() => {
       return false
     }
 
-    const subscription = BackHandler.addEventListener('hardwareBackPress', onBackPress)
-    return () => subscription.remove()
+    return registerMaterialBackHandler('nav_daily_rec', onBackPress)
   }, [])
 
   return (

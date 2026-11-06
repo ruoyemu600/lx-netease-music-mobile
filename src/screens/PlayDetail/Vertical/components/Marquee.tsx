@@ -95,7 +95,8 @@ const styles = StyleSheet.create({
   container: {
     overflow: 'hidden',
     justifyContent: 'center',
-    flex: 1,
+    width: '100%',
+    flexShrink: 0,
   },
   marqueeWrapper: {
     flexDirection: 'row',

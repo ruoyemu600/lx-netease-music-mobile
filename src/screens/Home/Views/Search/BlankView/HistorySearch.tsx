@@ -1,9 +1,8 @@
 import { forwardRef, useCallback, useEffect, useImperativeHandle, useRef, useState } from 'react'
-import { TouchableOpacity, View } from 'react-native'
+import { TouchableOpacity, View, StyleSheet } from 'react-native'
 import { type InitState } from '@/store/hotSearch/state'
 import Button from '@/components/common/Button'
 import Text from '@/components/common/Text'
-import { createStyle } from '@/utils/tools'
 import { useTheme } from '@/store/theme/hook'
 import { useI18n } from '@/lang'
 import { clearHistoryList, getSearchHistory, removeHistoryWord } from '@/core/search/search'
@@ -23,6 +22,8 @@ const ListItem = ({
   const theme = useTheme()
   return (
     <Button
+      accessibilityRole="button"
+      accessibilityLabel={`搜索 ${keyword}，长按删除历史`}
       style={{ ...styles.button, backgroundColor: theme['c-button-background'] }}
       onPress={() => {
         onSearch(keyword)
@@ -90,7 +91,7 @@ export default forwardRef<HistorySearchType, HistorySearchProps>((props, ref) =>
     <View>
       <View style={styles.titleContent}>
         <Text size={16}>{t('search_history_search')}</Text>
-        <TouchableOpacity onPress={handleClear} style={styles.titleBtn}>
+        <TouchableOpacity accessibilityRole="button" accessibilityLabel="清空搜索历史" onPress={handleClear} style={styles.titleBtn}>
           <Icon name="eraser" color={theme['c-300']} size={14} />
         </TouchableOpacity>
       </View>
@@ -108,7 +109,7 @@ export default forwardRef<HistorySearchType, HistorySearchProps>((props, ref) =>
   ) : null
 })
 
-const styles = createStyle({
+const styles = StyleSheet.create({
   titleContent: {
     paddingTop: 15,
     flexDirection: 'row',
@@ -119,8 +120,11 @@ const styles = createStyle({
     // paddingBottom: 5,
   },
   titleBtn: {
-    marginLeft: 10,
-    padding: 5,
+    marginLeft: 'auto',
+    width: 48,
+    height: 48,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   list: {
     // paddingLeft: 15,
@@ -131,11 +135,11 @@ const styles = createStyle({
   },
   button: {
     textAlign: 'center',
-    paddingLeft: 10,
-    paddingRight: 10,
-    paddingTop: 5,
-    paddingBottom: 5,
-    borderRadius: 4,
+    minHeight: 48,
+    justifyContent: 'center',
+    paddingHorizontal: 18,
+    paddingVertical: 10,
+    borderRadius: 24,
     marginRight: 10,
     marginTop: 8,
   },

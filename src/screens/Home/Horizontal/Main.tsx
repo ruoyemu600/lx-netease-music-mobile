@@ -12,6 +12,8 @@ import FollowedArtists from "@/screens/Home/Views/FollowedArtists";
 import PlayHistory from '../Views/PlayHistory'
 import OneDrive from '../Views/OneDrive'
 import LocalMusic from '../Views/LocalMusic'
+import MaterialHome from '../Views/MaterialHome'
+import MaterialLibrary from '../Views/MaterialLibrary'
 
 const Main = () => {
   const [id, setId] = useState(commonState.navActiveId)
@@ -30,6 +32,10 @@ const Main = () => {
 
   const component = useMemo(() => {
     switch (id) {
+      case 'nav_home':
+        return <MaterialHome />
+      case 'nav_library':
+        return <MaterialLibrary />
       case 'nav_play_history':
         return <PlayHistory />
       case 'nav_daily_rec':

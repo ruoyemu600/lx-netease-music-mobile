@@ -1,19 +1,19 @@
 import { memo, useRef } from 'react'
-import { View, TouchableOpacity } from 'react-native'
+import { View, TouchableOpacity, StyleSheet } from 'react-native'
 import Text from '@/components/common/Text'
 import Badge, { type BadgeType } from '@/components/common/Badge'
 import { Icon } from '@/components/common/Icon'
 import { useI18n } from '@/lang'
 import { useTheme } from '@/store/theme/hook'
 import { scaleSizeH } from '@/utils/pixelRatio'
-import { LIST_ITEM_HEIGHT } from '@/config/constant'
-import { createStyle, type RowInfo } from '@/utils/tools'
+import { type RowInfo } from '@/utils/tools'
 import Image from '@/components/common/Image'
 import PlayingIcon from '@/components/common/PlayingIcon'
 import { useIsWyLiked } from '@/store/user/hook'
 import { handleLikeMusic } from './listAction'
 
-export const ITEM_HEIGHT = scaleSizeH(LIST_ITEM_HEIGHT)
+// Keep native dp targets comfortable on compact screens while honoring larger app text sizes.
+export const ITEM_HEIGHT = Math.max(72, scaleSizeH(72))
 
 const useQualityTag = (musicInfo: LX.Music.MusicInfoOnline) => {
   const t = useI18n()
@@ -84,9 +84,7 @@ export default memo(
     const isPlaying = playingId === item.id;
     const isSelected = selectedList.includes(item)
     const isLiked = useIsWyLiked(item.meta.songId)
-    const selectedBackground = theme.isDark
-      ? theme['c-primary-alpha-600']
-      : theme['c-primary-background-active']
+    const selectedBackground = theme['c-primary-background-active']
 
     const moreButtonRef = useRef<TouchableOpacity>(null)
     const handleShowMenu = () => {
@@ -122,11 +120,13 @@ export default memo(
             ? selectedBackground
             : isPlaying
               ? theme['c-primary-background-hover']
-              : 'rgba(0,0,0,0)',
+              : undefined,
         }}
       >
         <TouchableOpacity
           style={styles.listItemLeft}
+          accessibilityRole="button"
+          accessibilityState={{ selected: isSelected }}
           onPress={() => onPress(item, index)}
           onLongPress={() => onLongPress(item, index)}
         >
@@ -144,7 +144,7 @@ export default memo(
             )}
           </View>
           <View style={styles.itemInfo}>
-            <Text numberOfLines={1} color={isPlaying ? theme['c-primary-font'] : theme['c-font']}>
+            <Text style={styles.title} size={15} numberOfLines={1} color={isPlaying || isSelected ? theme['c-primary-font'] : theme['c-font']}>
               {item.name}
               {item.alias ? <Text color={theme['c-font-label']}> ({item.alias})</Text> : null}
             </Text>
@@ -156,8 +156,8 @@ export default memo(
               {historySource ? <Badge type="normal">{historySource}</Badge> : null}
               <Text
                 style={styles.listItemSingleText}
-                size={11}
-                color={isPlaying ? theme['c-primary-alpha-200'] : theme['c-500']}
+                size={12}
+                color={theme['c-font-label']}
                 numberOfLines={1}
               >
                 {singer}
@@ -165,21 +165,21 @@ export default memo(
             </View>
           </View>
           {isShowInterval ? (
-            <Text size={11} color={isPlaying ? theme['c-primary-alpha-200'] : theme['c-500']} numberOfLines={1}>
+            <Text style={styles.interval} size={11} color={theme['c-font-label']} numberOfLines={1}>
               {item.interval}
             </Text>
           ) : null}
         </TouchableOpacity>
 
         {showLikeButton ? (
-          <TouchableOpacity onPress={handleLike} style={styles.likeButton}>
+          <TouchableOpacity accessibilityRole="button" onPress={handleLike} style={styles.likeButton}>
             <Icon name={isLiked ? "love-filled" : "love"} size={16} color={isLiked ? theme['c-liked'] : theme['c-350']} />
           </TouchableOpacity>
         ) : null}
 
         {hideMenu ? null : (
-          <TouchableOpacity onPress={handleShowMenu} ref={moreButtonRef} style={styles.moreButton}>
-            <Icon name="dots-vertical" style={{ color: theme['c-350'] }} size={12} />
+          <TouchableOpacity accessibilityRole="button" onPress={handleShowMenu} ref={moreButtonRef} style={styles.moreButton}>
+            <Icon name="dots-vertical" color={theme['c-font-label']} size={20} />
           </TouchableOpacity>
         )}
       </View>
@@ -203,80 +203,66 @@ export default memo(
   }
 )
 
-const styles = createStyle({
+// Native dp dimensions keep artwork and action hit areas stable across screen sizes.
+const styles = StyleSheet.create({
   listItem: {
     flexDirection: 'row',
-    flexWrap: 'nowrap',
-    paddingRight: 2,
     alignItems: 'center',
+    paddingRight: 4,
   },
   listItemLeft: {
     flex: 1,
-    flexGrow: 1,
-    flexShrink: 1,
+    minWidth: 0,
+    height: '100%',
     flexDirection: 'row',
     alignItems: 'center',
   },
   sn: {
-    width: 70,
+    width: 78,
     justifyContent: 'center',
     alignItems: 'center',
-    paddingLeft: 5,
-    paddingRight: 5,
   },
   snIndex: {
-    width: 40,
+    width: 48,
     justifyContent: 'center',
     alignItems: 'center',
-    paddingLeft: 5,
-    paddingRight: 5,
   },
   albumArt: {
-    width: 52,
-    height: 52,
-    borderRadius: 4,
+    width: 50,
+    height: 50,
+    borderRadius: 12,
   },
   itemInfo: {
-    flexGrow: 1,
-    flexShrink: 1,
-    paddingLeft: 2,
-    paddingRight: 2,
+    flex: 1,
+    minWidth: 0,
+    paddingRight: 8,
+  },
+  title: {
+    fontWeight: '500',
   },
   listItemSingle: {
-    paddingTop: 2,
+    paddingTop: 4,
     flexDirection: 'row',
     alignItems: 'center',
   },
-  listItemTimeLabel: {
-    marginRight: 5,
+  listItemSingleText: {
+    flexShrink: 1,
     fontWeight: '400',
   },
-  listItemSingleText: {
-    flexGrow: 0,
-    flexShrink: 1,
-    fontWeight: '300',
-  },
-  listItemBadge: {
-    paddingLeft: 5,
-    paddingTop: 2,
-    alignSelf: 'flex-start',
-  },
-  listItemRight: {
-    flexGrow: 0,
-    flexShrink: 0,
-    flexBasis: 'auto',
-    justifyContent: 'center',
+  interval: {
+    marginLeft: 4,
+    fontVariant: ['tabular-nums'],
   },
   likeButton: {
-    height: '80%',
-    paddingHorizontal: 8,
+    width: 48,
+    height: 48,
     justifyContent: 'center',
     alignItems: 'center',
   },
   moreButton: {
-    height: '80%',
-    paddingLeft: 10,
-    paddingRight: 16,
+    width: 48,
+    height: 48,
     justifyContent: 'center',
+    alignItems: 'center',
   },
 })

@@ -1,5 +1,6 @@
 import { useRef, useEffect, useState, useCallback } from 'react'
-import { type LayoutChangeEvent, View, BackHandler } from 'react-native'
+import { type LayoutChangeEvent, View } from 'react-native'
+import { registerMaterialBackHandler } from '@/screens/Home/materialBack'
 import HeaderBar, { type HeaderBarProps, type HeaderBarType } from './HeaderBar'
 import searchState, { type SearchType } from '@/store/search/state'
 import commonState from '@/store/common/state'
@@ -8,6 +9,7 @@ import searchSonglistState, { type ListInfoItem } from '@/store/search/songlist/
 import { getSearchSetting, saveSearchSetting } from '@/utils/data'
 import {createStyle, toast} from '@/utils/tools'
 import TipList, { type TipListType } from './TipList'
+import SearchTypeSelector from './SearchTypeSelector'
 import List, { type ListType } from './List'
 import { addHistoryWord, setSearchText as setSearchState } from '@/core/search/search'
 import SonglistDetail from '../../../SonglistDetail'
@@ -35,6 +37,7 @@ export default () => {
 
   useEffect(() => {
     const onBackPress = () => {
+      if (commonState.navActiveId !== 'nav_search') return false
       if (selectedListRef.current) {
         // 获取状态管理中记录的最后一个（即最顶层）屏幕信息
         const lastScreen = commonState.componentIds[commonState.componentIds.length - 1]
@@ -52,9 +55,7 @@ export default () => {
       return false
     }
 
-    const subscription = BackHandler.addEventListener('hardwareBackPress', onBackPress)
-
-    return () => subscription.remove()
+    return registerMaterialBackHandler('nav_search', onBackPress)
   }, [])
 
   useEffect(() => {
@@ -180,6 +181,7 @@ export default () => {
           onShowTipList={handleShowTipList}
         />
       )}
+      {!selectedList && <SearchTypeSelector />}
       <View style={styles.content} onLayout={handleLayout}>
         { selectedList
           ? <SonglistDetail

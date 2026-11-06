@@ -1,7 +1,7 @@
 {
   "name": "lx-netease-music-mobile",
-  "version": "1.8.87",
-  "versionCode": 70,
+  "version": "1.8.89",
+  "versionCode": 72,
   "private": true,
   "scripts": {
     "dev": "react-native run-android --active-arch-only",
@@ -17,8 +17,12 @@
     "clear": "cd android && gradlew.bat clean",
     "clear:full": "git clean -fdx -e android/keystore.properties -e android/app/*.keystore",
     "build:theme": "node src/theme/themes/createThemes.js",
+    "check:ui": "node scripts/check-material-ui.cjs",
+    "check:material": "npm run check:ui && node scripts/check-material-shell.cjs && node scripts/check-material-cover-search.cjs && node src/screens/Home/Views/MaterialHome/__tests__/material.test.cjs && node scripts/check-material-seek.cjs && npm run check:listening",
+    "check:listening": "node scripts/test-listening-stats.cjs && python3 scripts/check-listening-storage.py && node scripts/check-listening-client.cjs && node src/screens/Home/Views/MaterialHome/__tests__/listeningStats.test.cjs",
+    "pack:android:material": "cd android && bash ./gradlew assembleMaterialPreview -PreactNativeArchitectures=arm64-v8a",
     "publish": "node publish",
-    "postinstall": "node patchMediaLayout.js && node patchRnFetchBlob.cjs"
+    "postinstall": "node patchMediaLayout.js && node patchRnFetchBlob.cjs && node scripts/patch-listening-stats.cjs"
   },
   "engines": {
     "node": ">= 18",

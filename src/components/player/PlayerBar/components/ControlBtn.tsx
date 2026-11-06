@@ -1,9 +1,8 @@
-import { TouchableOpacity } from 'react-native'
+import { StyleSheet, TouchableOpacity } from 'react-native'
 import { Icon } from '@/components/common/Icon'
 import { useIsPlay } from '@/store/player/hook'
 import { useTheme } from '@/store/theme/hook'
 import { playNext, playPrev, togglePlay } from '@/core/player/player'
-import { createStyle } from '@/utils/tools'
 import { useHorizontalMode } from '@/utils/hooks'
 
 const BTN_SIZE = 24
@@ -63,15 +62,13 @@ export default () => {
   )
 }
 
-const styles = createStyle({
+const styles = StyleSheet.create({
   cotrolBtn: {
-    width: 46,
-    height: 46,
+    width: 48,
+    height: 48,
     justifyContent: 'center',
     alignItems: 'center',
 
-    // backgroundColor: '#ccc',
-    shadowOpacity: 1,
-    textShadowRadius: 1,
+    borderRadius: 24,
   },
 })

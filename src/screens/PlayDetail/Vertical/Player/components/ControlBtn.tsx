@@ -1,106 +1,68 @@
-import { TouchableOpacity, View } from 'react-native'
+import { StyleSheet, TouchableOpacity, View } from 'react-native'
 import { Icon } from '@/components/common/Icon'
 import { useTheme } from '@/store/theme/hook'
-// import { useIsPlay } from '@/store/player/hook'
 import { playNext, playPrev, togglePlay } from '@/core/player/player'
 import { useIsPlay } from '@/store/player/hook'
-import { createStyle } from '@/utils/tools'
-import { useWindowSize } from '@/utils/hooks'
-import { BTN_WIDTH } from './MoreBtn/Btn'
-import { useMemo } from 'react'
-
-const PrevBtn = ({ size }: { size: number }) => {
-  const theme = useTheme()
-  const activeColor = theme.isDark ? theme['c-font'] : theme['c-primary'];
-  const handlePlayPrev = () => {
-    void playPrev()
-  }
-  return (
-    <TouchableOpacity
-      style={{ ...styles.cotrolBtn, width: size, height: size }}
-      activeOpacity={0.5}
-      onPress={handlePlayPrev}
-    >
-      <Icon name="prevMusic" color={activeColor} rawSize={size * 0.7} />
-    </TouchableOpacity>
-  )
-}
-const NextBtn = ({ size }: { size: number }) => {
-  const theme = useTheme()
-  const activeColor = theme.isDark ? theme['c-font'] : theme['c-primary'];
-  const handlePlayNext = () => {
-    void playNext()
-  }
-  return (
-    <TouchableOpacity
-      style={{ ...styles.cotrolBtn, width: size, height: size }}
-      activeOpacity={0.5}
-      onPress={handlePlayNext}
-    >
-      <Icon name="nextMusic" color={activeColor} rawSize={size * 0.7} />
-    </TouchableOpacity>
-  )
-}
-
-const TogglePlayBtn = ({ size }: { size: number }) => {
-  const theme = useTheme()
-  const activeColor = theme.isDark ? theme['c-font'] : theme['c-primary'];
-  const isPlay = useIsPlay()
-  return (
-    <TouchableOpacity
-      style={{ ...styles.cotrolBtn, width: size, height: size }}
-      activeOpacity={0.5}
-      onPress={togglePlay}
-    >
-      <Icon name={isPlay ? 'pause' : 'play'} color={activeColor} rawSize={size * 0.7} />
-    </TouchableOpacity>
-  )
-}
-
-const MAX_SIZE = BTN_WIDTH * 1.6
-const MIN_SIZE = BTN_WIDTH * 1.2
 
 export default () => {
-  const winSize = useWindowSize()
-  const maxHeight = Math.max(winSize.height * 0.11, MIN_SIZE)
-  const containerStyle = useMemo(() => {
-    return {
-      ...styles.conatiner,
-      maxHeight,
-    }
-  }, [maxHeight])
-  const size = Math.min(
-    Math.max(winSize.width * 0.33 * global.lx.fontSize * 0.4, MIN_SIZE),
-    MAX_SIZE,
-    maxHeight
-  )
-
+  const theme = useTheme()
+  const isPlay = useIsPlay()
   return (
-    <View style={containerStyle}>
-      <PrevBtn size={size} />
-      <TogglePlayBtn size={size} />
-      <NextBtn size={size} />
+    <View style={styles.container}>
+      <TouchableOpacity
+        accessibilityRole="button"
+        accessibilityLabel="上一首"
+        style={styles.skipButton}
+        activeOpacity={0.65}
+        onPress={() => { void playPrev() }}
+      >
+        <Icon name="prevMusic" color={theme['c-font']} rawSize={32} />
+      </TouchableOpacity>
+      <TouchableOpacity
+        accessibilityRole="button"
+        accessibilityLabel={isPlay ? '暂停' : '播放'}
+        style={[styles.playButton, { backgroundColor: theme['c-button-background-selected'] }]}
+        activeOpacity={0.8}
+        onPress={togglePlay}
+      >
+        <Icon name={isPlay ? 'pause' : 'play'} color={theme['c-button-font-selected']} rawSize={38} />
+      </TouchableOpacity>
+      <TouchableOpacity
+        accessibilityRole="button"
+        accessibilityLabel="下一首"
+        style={styles.skipButton}
+        activeOpacity={0.65}
+        onPress={() => { void playNext() }}
+      >
+        <Icon name="nextMusic" color={theme['c-font']} rawSize={32} />
+      </TouchableOpacity>
     </View>
   )
 }
 
-const styles = createStyle({
-  conatiner: {
+const styles = StyleSheet.create({
+  container: {
     flexDirection: 'row',
     justifyContent: 'space-evenly',
     alignItems: 'center',
-    flexGrow: 1,
-    flexShrink: 1,
-    paddingHorizontal: '4%',
-    paddingVertical: 22,
-    // backgroundColor: 'rgba(0, 0, 0, .1)',
+    paddingVertical: 12,
   },
-  cotrolBtn: {
+  skipButton: {
+    width: 56,
+    height: 56,
+    minWidth: 48,
+    minHeight: 48,
+    borderRadius: 28,
     justifyContent: 'center',
     alignItems: 'center',
-
-    // backgroundColor: '#ccc',
-    shadowOpacity: 1,
-    textShadowRadius: 1,
+  },
+  playButton: {
+    width: 88,
+    height: 72,
+    minWidth: 48,
+    minHeight: 48,
+    borderRadius: 28,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 })

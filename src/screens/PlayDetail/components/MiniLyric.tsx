@@ -1,20 +1,18 @@
 // src/screens/PlayDetail/components/MiniLyric.tsx
 
 import { memo, useMemo } from 'react';
-import { TouchableOpacity, View } from 'react-native';
+import { TouchableOpacity } from 'react-native';
 import { useLrcPlay, useLrcSet } from '@/plugins/lyric';
 import { createStyle } from '@/utils/tools';
 import { useTheme } from '@/store/theme/hook';
 import Text from '@/components/common/Text';
 import { useSettingValue } from '@/store/setting/hook';
-import { setSpText } from '@/utils/pixelRatio';
 
 const MiniLyric = ({ onPress, style }: { onPress?: () => void, style?: any }) => {
   const theme = useTheme();
   const { line: activeLine } = useLrcPlay();
   const lyricLines = useLrcSet();
   const textAlign = useSettingValue('playDetail.style.align');
-  const lrcFontSize = useSettingValue('playDetail.vertical.style.lrcFontSize');
 
   const { currentLine, translationLine } = useMemo(() => {
     if (activeLine < 0 || lyricLines.length <= activeLine) {
@@ -27,12 +25,9 @@ const MiniLyric = ({ onPress, style }: { onPress?: () => void, style?: any }) =>
     };
   }, [activeLine, lyricLines]);
 
-  const size = lrcFontSize / 16; // 缩小字体
-  const lineHeight = setSpText(size) * 1.3;
-
   const activeColor = theme.isDark ? theme['c-font'] : theme['c-primary'];
   return (
-    <TouchableOpacity onPress={onPress} activeOpacity={0.7} style={[styles.container, style]}>
+    <TouchableOpacity accessibilityRole="button" accessibilityLabel="查看完整歌词" onPress={onPress} activeOpacity={0.7} style={[styles.container, style]}>
       {currentLine ? (
         <>
           <Text
@@ -65,6 +60,8 @@ const MiniLyric = ({ onPress, style }: { onPress?: () => void, style?: any }) =>
 
 const styles = createStyle({
   container: {
+    minHeight: 48,
+    justifyContent: 'center',
     paddingVertical: 10,
     alignItems: 'flex-start',
     width: '100%',

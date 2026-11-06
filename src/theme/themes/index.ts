@@ -5,6 +5,7 @@ import themeState from '@/store/theme/state'
 import { isUrl } from '@/utils'
 import { privateStorageDirectoryPath } from '@/utils/fs'
 import { type ImageSourcePropType } from 'react-native'
+import { getMaterialThemeColors } from '../material'
 
 export const BG_IMAGES = {
   'china_ink.jpg': require('./images/china_ink.jpg') as ImageSourcePropType,
@@ -99,6 +100,8 @@ export const buildActiveThemeColors = (theme: LX.Theme): LX.ActiveTheme => {
     activeTheme['c-primary-font-active'] = activeTheme['c-000']; // 使用纯白色 (rgb(255,255,255))
   }
 
+  if (!theme.isCustom) Object.assign(activeTheme, getMaterialThemeColors(theme.id))
+
   return activeTheme as const;
 }
 
@@ -122,10 +125,11 @@ export const getTheme = async () => {
   //     : settingState.setting['theme.lightId']
   //   // : 'china_ink'
   //   : settingState.setting['theme.id']
-  let themeId =
-    settingState.setting['common.isAutoTheme'] && shouldUseDarkColors
-      ? 'black'
-      : settingState.setting['theme.id']
+  let themeId = settingState.setting['common.isAutoTheme']
+    ? shouldUseDarkColors
+      ? settingState.setting['theme.darkId']
+      : settingState.setting['theme.lightId']
+    : settingState.setting['theme.id']
   // themeId = 'naruto'
   // themeId = 'pink'
   // themeId = 'black'

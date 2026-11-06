@@ -7,10 +7,12 @@ import PlayInfo from './components/PlayInfo'
 import ControlBtn from './components/ControlBtn'
 import { createStyle } from '@/utils/tools'
 import { NAV_SHEAR_NATIVE_IDS } from '@/config/constant'
+import { Title } from '../components/Header'
 
 export default memo(({ componentId }: { componentId: string }) => {
   return (
     <View style={styles.container} nativeID={NAV_SHEAR_NATIVE_IDS.playDetail_player}>
+      <Title />
       <PlayInfo />
       <ControlBtn />
       <MoreBtn componentId={componentId} />
@@ -25,9 +27,9 @@ const styles = createStyle({
     // paddingTop: progressContentPadding,
     // marginTop: -progressContentPadding,
     // backgroundColor: 'rgba(0, 0, 0, .1)',
-    paddingHorizontal: 15,
-    paddingBottom: 15,
-    paddingTop: 5,
+    paddingHorizontal: 24,
+    paddingBottom: 12,
+    paddingTop: 8,
     // backgroundColor: AppColors.primary,
     // backgroundColor: 'red',
     flexDirection: 'column',

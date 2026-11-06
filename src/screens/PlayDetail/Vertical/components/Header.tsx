@@ -1,6 +1,5 @@
 import { memo, useRef, useCallback, useMemo } from 'react'
 import { View, StyleSheet, TouchableOpacity, ScrollView } from 'react-native'
-import { Icon } from '@/components/common/Icon'
 import { pop, navigations } from '@/navigation'
 import { useTheme } from '@/store/theme/hook'
 import { usePlayMusicInfo } from '@/store/player/hook'
@@ -15,9 +14,9 @@ import TimeoutExitBtn from './TimeoutExitBtn'
 import Marquee from './Marquee'
 import StatusBar from '@/components/common/StatusBar'
 
-export const HEADER_HEIGHT = scaleSizeH(_HEADER_HEIGHT)
+export const HEADER_HEIGHT = Math.max(56, scaleSizeH(_HEADER_HEIGHT))
 
-const Title = () => {
+export const Title = () => {
   const theme = useTheme()
   const playMusicInfo = usePlayMusicInfo()
   const musicInfo = playMusicInfo.musicInfo ? ('progress' in playMusicInfo.musicInfo ? playMusicInfo.musicInfo.metadata.musicInfo : playMusicInfo.musicInfo) : null
@@ -40,12 +39,12 @@ const Title = () => {
     if (!musicInfo.artists?.length || musicInfo.source == 'local') {
       return (
         <View style={styles.singerContainer}>
-          <Text numberOfLines={1} size={12} color={theme['c-font']}>
+          <Text numberOfLines={1} size={14} color={theme['c-font-label']}>
             {musicInfo.singer}
           </Text>
           {albumName ? (
-            <TouchableOpacity style={{ flexShrink: 1 }} onPress={handleAlbumPress} disabled={musicInfo.source !== 'wy' || !albumId}>
-              <Text numberOfLines={1} size={12} color={theme['c-font']}>
+            <TouchableOpacity style={styles.artistButton} onPress={handleAlbumPress} disabled={musicInfo.source !== 'wy' || !albumId}>
+              <Text numberOfLines={1} size={14} color={theme['c-font-label']}>
                 {` · ${albumName}`}
               </Text>
             </TouchableOpacity>
@@ -57,16 +56,16 @@ const Title = () => {
     return (
       <View style={styles.singerContainer}>
         {musicInfo.artists.map((artist, index) => (
-          <TouchableOpacity key={artist.id || index} onPress={() => handleArtistPress(artist)}>
-            <Text style={styles.singerText} size={12} color={theme['c-font']}>
+          <TouchableOpacity style={styles.artistButton} key={artist.id || index} onPress={() => handleArtistPress(artist)}>
+            <Text style={styles.singerText} size={14} color={theme['c-font-label']}>
               {artist.name}
               {(musicInfo.artists?.length ?? 0) > 0 && index < (musicInfo.artists?.length ?? 0) - 1 ? ' / ' : ''}
             </Text>
           </TouchableOpacity>
         ))}
         {albumName ? (
-          <TouchableOpacity style={{ flexShrink: 1 }} onPress={handleAlbumPress} disabled={musicInfo.source !== 'wy' || !albumId}>
-            <Text numberOfLines={1} size={12} color={theme['c-font']}>
+          <TouchableOpacity style={styles.artistButton} onPress={handleAlbumPress} disabled={musicInfo.source !== 'wy' || !albumId}>
+            <Text numberOfLines={1} size={14} color={theme['c-font-label']}>
               {` · ${albumName}`}
             </Text>
           </TouchableOpacity>
@@ -79,11 +78,15 @@ const Title = () => {
     <View style={styles.titleContent}>
       {musicInfo ? (
         <>
-          <Marquee style={styles.title} size={16}>
-            {musicInfo.name}
-            {musicInfo.alias ? <Text color={theme['c-font-label']}> ({musicInfo.alias})</Text> : null}
-          </Marquee>
-          {singerRender}
+          <View style={styles.titleLine}>
+            <Marquee style={styles.title} size={24}>
+              {musicInfo.name}
+              {musicInfo.alias ? <Text color={theme['c-font-label']}> ({musicInfo.alias})</Text> : null}
+            </Marquee>
+          </View>
+          <ScrollView horizontal showsHorizontalScrollIndicator={false} style={styles.artistScroll}>
+            {singerRender}
+          </ScrollView>
         </>
       ) : null}
     </View>
@@ -108,7 +111,9 @@ export default memo(() => {
       <StatusBar />
       <View style={styles.container}>
         <Btn icon="chevron-left" onPress={back} />
-        <Title />
+        <View style={styles.headerLabel}>
+          <Text size={13}>正在播放</Text>
+        </View>
         <TimeoutExitBtn />
         <Btn icon="slider" onPress={showSetting} />
       </View>
@@ -123,15 +128,33 @@ const styles = StyleSheet.create({
     // justifyContent: 'center',
     height: '100%',
   },
-  titleContent: {
+  headerLabel: {
     flex: 1,
-    paddingHorizontal: 5,
-    // alignItems: 'center',
     justifyContent: 'center',
+    paddingHorizontal: 8,
+  },
+  titleContent: {
+    width: '100%',
+    marginBottom: 2,
+  },
+  titleLine: {
+    minHeight: 36,
+    paddingVertical: 2,
   },
   title: {
-    // flex: 1,
-    // textAlign: 'center',
+    fontWeight: '600',
+    letterSpacing: -0.4,
+  },
+  artistScroll: {
+    flexGrow: 0,
+    flexShrink: 0,
+    minHeight: 48,
+  },
+  artistButton: {
+    minHeight: 48,
+    minWidth: 48,
+    justifyContent: 'center',
+    flexShrink: 1,
   },
   icon: {
     paddingLeft: 4,

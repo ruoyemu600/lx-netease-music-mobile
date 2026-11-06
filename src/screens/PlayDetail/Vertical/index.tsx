@@ -1,5 +1,5 @@
 import {memo, useState, useRef, useMemo, useEffect, useCallback} from 'react'
-import { View, AppState } from 'react-native'
+import { View, AppState, StyleSheet } from 'react-native'
 
 import Header from './components/Header'
 // import Aside from './components/Aside'
@@ -11,7 +11,6 @@ import Pic from './Pic'
 import Lyric from './Lyric'
 import { screenkeepAwake, screenUnkeepAwake } from '@/utils/nativeModules/utils'
 import commonState, { type InitState as CommonState } from '@/store/common/state'
-import { createStyle } from '@/utils/tools'
 import settingState from '@/store/setting/state'
 import { updateSetting } from '@/core/common'
 // import { useTheme } from '@/store/theme/hook'
@@ -94,16 +93,16 @@ export default memo(({ componentId }: { componentId: string }) => {
           style={styles.pagerView}
           ref={pagerViewRef}
         >
-          <View collapsable={false}>
+          <View collapsable={false} style={styles.page}>
             <View collapsable={false} style={styles.picPageContainer}>
               <Pic componentId={componentId} />
               <MiniLyric
                 onPress={handleSwitchToLyricPage}
-                style={styles.miniLyricContainer}
+                style={[styles.miniLyricContainer, { minHeight: 48 }]}
               />
             </View>
           </View>
-          <View collapsable={false}>
+          <View collapsable={false} style={styles.page}>
             <LyricPage activeIndex={pageIndex} />
           </View>
         </PagerView>
@@ -117,7 +116,11 @@ export default memo(({ componentId }: { componentId: string }) => {
   )
 })
 
-const styles = createStyle({
+const styles = StyleSheet.create({
+  page: {
+    width: '100%',
+    height: '100%',
+  },
   container: {
     flex: 1,
     flexDirection: 'column',
@@ -131,11 +134,10 @@ const styles = createStyle({
     position: 'relative',
   },
   miniLyricContainer: {
-    position: 'absolute',
-    bottom: '6%',
-    left: '10%',
-    right: '10%',
-    alignItems: 'flex-start',
+    minHeight: 56,
+    paddingHorizontal: 24,
+    paddingVertical: 8,
+    alignItems: 'center',
   },
   // pageIndicator: {
   //   flex: 0,

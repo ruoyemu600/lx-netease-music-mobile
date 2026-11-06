@@ -1,0 +1,332 @@
+src/app.ts(25,22): error TS7006: Parameter 'type' implicitly has an 'any' type.
+src/app.ts(25,28): error TS7019: Rest parameter 'args' implicitly has an 'any[]' type.
+src/components/ArtistSelectorManager.tsx(20,5): error TS2578: Unused '@ts-expect-error' directive.
+src/components/ArtistSelectorManager.tsx(24,7): error TS2578: Unused '@ts-expect-error' directive.
+src/components/DownloadBall/index.tsx(106,32): error TS7053: Element implicitly has an 'any' type because expression of type '"c-success"' can't be used to index type 'ActiveTheme'.
+  Property 'c-success' does not exist on type 'ActiveTheme'.
+src/components/DownloadBall/index.tsx(112,102): error TS7053: Element implicitly has an 'any' type because expression of type '"c-success"' can't be used to index type 'ActiveTheme'.
+  Property 'c-success' does not exist on type 'ActiveTheme'.
+src/components/MusicAddModal/CreateUserList.tsx(37,39): error TS7006: Parameter 'playlist' implicitly has an 'any' type.
+src/components/MusicAddModal/CreateUserList.tsx(46,16): error TS7006: Parameter 'err' implicitly has an 'any' type.
+src/components/MusicAddModal/List.tsx(103,13): error TS2322: Type 'MyDefaultListInfo | MyLoveListInfo | UserListInfo | SubscribedPlaylistInfo' is not assignable to type 'MyListInfo'.
+  Type 'SubscribedPlaylistInfo' is not assignable to type 'MyListInfo'.
+    Property 'locationUpdateTime' is missing in type 'SubscribedPlaylistInfo' but required in type 'UserListInfo'.
+src/components/MusicAddModal/MusicAddModal.tsx(43,28): error TS2345: Argument of type 'Dispatch<SetStateAction<"local" | "online">>' is not assignable to parameter of type '(value: string) => void | PromiseLike<void>'.
+  Types of parameters 'value' and 'value' are incompatible.
+    Type 'string' is not assignable to type 'SetStateAction<"local" | "online">'.
+src/components/MusicAddModal/MusicAddModal.tsx(78,42): error TS2339: Property 'creator' does not exist on type 'MyListInfo'.
+  Property 'creator' does not exist on type 'MyDefaultListInfo'.
+src/components/MusicAddModal/MusicAddModal.tsx(86,15): error TS18048: 'sourcePlaylist' is possibly 'undefined'.
+src/components/MusicAddModal/MusicAddModal.tsx(86,39): error TS18048: 'sourcePlaylist' is possibly 'undefined'.
+src/components/MusicAddModal/MusicAddModal.tsx(86,54): error TS2339: Property 'creator' does not exist on type 'SubscribedPlaylistInfo'.
+src/components/MusicAddModal/MusicAddModal.tsx(96,19): error TS7006: Parameter 'err' implicitly has an 'any' type.
+src/components/MusicAddModal/MusicAddModal.tsx(101,42): error TS2339: Property 'creator' does not exist on type 'MyListInfo'.
+  Property 'creator' does not exist on type 'MyDefaultListInfo'.
+src/components/MusicAddModal/MusicAddModal.tsx(109,19): error TS7006: Parameter 'err' implicitly has an 'any' type.
+src/components/MusicAddModal/MusicAddModal.tsx(154,21): error TS2769: No overload matches this call.
+  Overload 1 of 2, '(props: TextProps): Text', gave the following error.
+    Type '{ children: string; color: string; }' is not assignable to type 'IntrinsicAttributes & IntrinsicClassAttributes<Text> & Readonly<TextProps>'.
+      Property 'color' does not exist on type 'IntrinsicAttributes & IntrinsicClassAttributes<Text> & Readonly<TextProps>'.
+  Overload 2 of 2, '(props: TextProps, context: any): Text', gave the following error.
+    Type '{ children: string; color: string; }' is not assignable to type 'IntrinsicAttributes & IntrinsicClassAttributes<Text> & Readonly<TextProps>'.
+      Property 'color' does not exist on type 'IntrinsicAttributes & IntrinsicClassAttributes<Text> & Readonly<TextProps>'.
+src/components/MusicAddModal/MusicAddModal.tsx(157,21): error TS2769: No overload matches this call.
+  Overload 1 of 2, '(props: TextProps): Text', gave the following error.
+    Type '{ children: string; color: string; }' is not assignable to type 'IntrinsicAttributes & IntrinsicClassAttributes<Text> & Readonly<TextProps>'.
+      Property 'color' does not exist on type 'IntrinsicAttributes & IntrinsicClassAttributes<Text> & Readonly<TextProps>'.
+  Overload 2 of 2, '(props: TextProps, context: any): Text', gave the following error.
+    Type '{ children: string; color: string; }' is not assignable to type 'IntrinsicAttributes & IntrinsicClassAttributes<Text> & Readonly<TextProps>'.
+      Property 'color' does not exist on type 'IntrinsicAttributes & IntrinsicClassAttributes<Text> & Readonly<TextProps>'.
+src/components/MusicMultiAddModal/List.tsx(101,35): error TS2322: Type 'MyDefaultListInfo | MyLoveListInfo | UserListInfo | SubscribedPlaylistInfo' is not assignable to type 'MyListInfo'.
+  Type 'SubscribedPlaylistInfo' is not assignable to type 'MyListInfo'.
+    Property 'locationUpdateTime' is missing in type 'SubscribedPlaylistInfo' but required in type 'UserListInfo'.
+src/components/MusicMultiAddModal/MusicMultiAddModal.tsx(47,28): error TS2345: Argument of type 'Dispatch<SetStateAction<"local" | "online">>' is not assignable to parameter of type '(value: string) => void | PromiseLike<void>'.
+  Types of parameters 'value' and 'value' are incompatible.
+    Type 'string' is not assignable to type 'SetStateAction<"local" | "online">'.
+src/components/MusicMultiAddModal/MusicMultiAddModal.tsx(83,42): error TS2339: Property 'creator' does not exist on type 'MyListInfo'.
+  Property 'creator' does not exist on type 'MyDefaultListInfo'.
+src/components/MusicMultiAddModal/MusicMultiAddModal.tsx(94,15): error TS18048: 'sourcePlaylist' is possibly 'undefined'.
+src/components/MusicMultiAddModal/MusicMultiAddModal.tsx(94,39): error TS18048: 'sourcePlaylist' is possibly 'undefined'.
+src/components/MusicMultiAddModal/MusicMultiAddModal.tsx(94,54): error TS2339: Property 'creator' does not exist on type 'SubscribedPlaylistInfo'.
+src/components/MusicMultiAddModal/MusicMultiAddModal.tsx(108,19): error TS7006: Parameter 'err' implicitly has an 'any' type.
+src/components/MusicMultiAddModal/MusicMultiAddModal.tsx(113,42): error TS2339: Property 'creator' does not exist on type 'MyListInfo'.
+  Property 'creator' does not exist on type 'MyDefaultListInfo'.
+src/components/MusicMultiAddModal/MusicMultiAddModal.tsx(123,19): error TS7006: Parameter 'err' implicitly has an 'any' type.
+src/components/MusicMultiAddModal/MusicMultiAddModal.tsx(166,21): error TS2769: No overload matches this call.
+  Overload 1 of 2, '(props: TextProps): Text', gave the following error.
+    Type '{ children: string; color: string; }' is not assignable to type 'IntrinsicAttributes & IntrinsicClassAttributes<Text> & Readonly<TextProps>'.
+      Property 'color' does not exist on type 'IntrinsicAttributes & IntrinsicClassAttributes<Text> & Readonly<TextProps>'.
+  Overload 2 of 2, '(props: TextProps, context: any): Text', gave the following error.
+    Type '{ children: string; color: string; }' is not assignable to type 'IntrinsicAttributes & IntrinsicClassAttributes<Text> & Readonly<TextProps>'.
+      Property 'color' does not exist on type 'IntrinsicAttributes & IntrinsicClassAttributes<Text> & Readonly<TextProps>'.
+src/components/MusicMultiAddModal/MusicMultiAddModal.tsx(169,21): error TS2769: No overload matches this call.
+  Overload 1 of 2, '(props: TextProps): Text', gave the following error.
+    Type '{ children: string; color: string; }' is not assignable to type 'IntrinsicAttributes & IntrinsicClassAttributes<Text> & Readonly<TextProps>'.
+      Property 'color' does not exist on type 'IntrinsicAttributes & IntrinsicClassAttributes<Text> & Readonly<TextProps>'.
+  Overload 2 of 2, '(props: TextProps, context: any): Text', gave the following error.
+    Type '{ children: string; color: string; }' is not assignable to type 'IntrinsicAttributes & IntrinsicClassAttributes<Text> & Readonly<TextProps>'.
+      Property 'color' does not exist on type 'IntrinsicAttributes & IntrinsicClassAttributes<Text> & Readonly<TextProps>'.
+src/components/OnlineList/index.tsx(186,13): error TS18048: 'sourcePlaylist' is possibly 'undefined'.
+src/components/OnlineList/index.tsx(186,37): error TS18048: 'sourcePlaylist' is possibly 'undefined'.
+src/components/OnlineList/index.tsx(186,52): error TS2339: Property 'creator' does not exist on type 'SubscribedPlaylistInfo'.
+src/components/OnlineList/index.tsx(198,16): error TS7006: Parameter 'err' implicitly has an 'any' type.
+src/components/OnlineList/listAction.ts(158,37): error TS2339: Property 'code' does not exist on type 'string | Blob'.
+  Property 'code' does not exist on type 'string'.
+src/components/OnlineList/listAction.ts(160,79): error TS2339: Property 'data' does not exist on type 'string | Blob'.
+  Property 'data' does not exist on type 'string'.
+src/components/VideoPlayerModal.tsx(51,13): error TS2322: Type '{ ref: RefObject<VideoRef>; source: { uri: string; }; style: { position: "absolute"; top: number; left: number; bottom: number; right: number; }; controls: boolean; resizeMode: "contain"; onLoadStart: () => void; onLoad: () => void; onPress: (() => void) | undefined; onError: (e: Readonly<...>) => void; }' is not assignable to type 'IntrinsicAttributes & ReactVideoProps & RefAttributes<VideoRef>'.
+  Property 'onPress' does not exist on type 'IntrinsicAttributes & ReactVideoProps & RefAttributes<VideoRef>'.
+src/components/WebLoginManager.tsx(20,25): error TS2345: Argument of type '"showWebLogin"' is not assignable to parameter of type '"focus" | "pause" | "play" | "stop" | "mylistUpdated" | "mylistToggled" | "setProgress" | "musicToggled" | "setVolume" | "setVolumeIsMute" | "error" | "playerPlaying" | "playerPause" | ... 30 more ... | "jumpOneDrivePosition"'.
+src/components/WebLoginManager.tsx(22,28): error TS2345: Argument of type '"showWebLogin"' is not assignable to parameter of type '"focus" | "pause" | "play" | "stop" | "mylistUpdated" | "mylistToggled" | "setProgress" | "musicToggled" | "setVolume" | "setVolumeIsMute" | "error" | "playerPlaying" | "playerPause" | ... 30 more ... | "jumpOneDrivePosition"'.
+src/components/WebLoginModal.tsx(91,24): error TS2339: Property 'emit' does not exist on type 'AppEventTypes & { showArtistSelector: (artists: Artist[], onSelect: (artist: Artist) => void) => void; triggerSearch: (text: string) => void; 'wy-cookie-set': (cookie: string) => void; 'yt-cookie-set': (cookie: string) => void; showWebLogin: () => void; showYouTubeLogin: () => void; showVideoPlayer: (url: string) =>...'.
+src/components/YouTubeLoginManager.tsx(22,25): error TS2345: Argument of type '"showYouTubeLogin"' is not assignable to parameter of type '"focus" | "pause" | "play" | "stop" | "mylistUpdated" | "mylistToggled" | "setProgress" | "musicToggled" | "setVolume" | "setVolumeIsMute" | "error" | "playerPlaying" | "playerPause" | ... 30 more ... | "jumpOneDrivePosition"'.
+src/components/YouTubeLoginManager.tsx(24,28): error TS2345: Argument of type '"showYouTubeLogin"' is not assignable to parameter of type '"focus" | "pause" | "play" | "stop" | "mylistUpdated" | "mylistToggled" | "setProgress" | "musicToggled" | "setVolume" | "setVolumeIsMute" | "error" | "playerPlaying" | "playerPause" | ... 30 more ... | "jumpOneDrivePosition"'.
+src/components/YouTubeLoginModal.tsx(72,22): error TS2339: Property 'emit' does not exist on type 'AppEventTypes & { showArtistSelector: (artists: Artist[], onSelect: (artist: Artist) => void) => void; triggerSearch: (text: string) => void; 'wy-cookie-set': (cookie: string) => void; 'yt-cookie-set': (cookie: string) => void; showWebLogin: () => void; showYouTubeLogin: () => void; showVideoPlayer: (url: string) =>...'.
+src/components/YouTubeLoginModal.tsx(81,58): error TS7053: Element implicitly has an 'any' type because expression of type '"c-content-background"' can't be used to index type '(setting: AppSetting) => Promise<void>'.
+  Property 'c-content-background' does not exist on type '(setting: AppSetting) => Promise<void>'.
+src/components/player/PlayerPlaylist.tsx(283,9): error TS2322: Type '(musicInfo: SelectInfo["musicInfo"]) => void' is not assignable to type '(selectInfo: SelectInfo) => void'.
+  Types of parameters 'musicInfo' and 'selectInfo' are incompatible.
+    Type 'SelectInfo' is not assignable to type 'MusicInfo'.
+src/components/player/PlayerPlaylist.tsx(285,9): error TS2322: Type '(musicInfo: LX.Music.MusicInfoOnline, listId?: string) => Promise<void>' is not assignable to type '(selectInfo: SelectInfo) => void'.
+  Types of parameters 'musicInfo' and 'selectInfo' are incompatible.
+    Type 'SelectInfo' is not assignable to type 'MusicInfoOnline'.
+src/config/globalData.ts(77,1): error TS2322: Type 'AppEventTypes' is not assignable to type 'AppEventTypes & { showArtistSelector: (artists: Artist[], onSelect: (artist: Artist) => void) => void; triggerSearch: (text: string) => void; 'wy-cookie-set': (cookie: string) => void; 'yt-cookie-set': (cookie: string) => void; showWebLogin: () => void; showYouTubeLogin: () => void; showVideoPlayer: (url: string) =>...'.
+  Type 'AppEventTypes' is missing the following properties from type '{ showArtistSelector: (artists: Artist[], onSelect: (artist: Artist) => void) => void; triggerSearch: (text: string) => void; 'wy-cookie-set': (cookie: string) => void; 'yt-cookie-set': (cookie: string) => void; showWebLogin: () => void; showYouTubeLogin: () => void; showVideoPlayer: (url: string) => void; }': 'wy-cookie-set', 'yt-cookie-set', showWebLogin, showYouTubeLogin
+src/core/download.ts(182,18): error TS2339: Property 'level' does not exist on type '{ headers: any; body: string | Blob; statusCode: number; statusMessage: string; url: string; ok: boolean; }'.
+src/core/download.ts(343,44): error TS2322: Type 'MusicInfo' is not assignable to type 'MusicInfoOnline'.
+  Type 'MusicInfoLocal' is not assignable to type 'MusicInfoOnline'.
+    Type 'MusicInfoLocal' is not assignable to type 'MusicInfo_mg'.
+      Types of property 'meta' are incompatible.
+        Type 'MusicInfoMeta_local' is missing the following properties from type 'MusicInfoMeta_mg': copyrightId, qualitys, _qualitys
+src/core/download.ts(420,38): error TS2345: Argument of type '{ musicInfo: LX.Music.MusicInfoOnline; }' is not assignable to parameter of type '{ musicInfo: MusicInfoOnline; listId?: string | null | undefined; isRefresh: boolean; allowToggleSource?: boolean | undefined; onToggleSource?: ((musicInfo?: MusicInfoOnline | undefined) => void) | undefined; }'.
+  Property 'isRefresh' is missing in type '{ musicInfo: LX.Music.MusicInfoOnline; }' but required in type '{ musicInfo: MusicInfoOnline; listId?: string | null | undefined; isRefresh: boolean; allowToggleSource?: boolean | undefined; onToggleSource?: ((musicInfo?: MusicInfoOnline | undefined) => void) | undefined; }'.
+src/core/hotSearch.ts(37,14): error TS7006: Parameter 'data' implicitly has an 'any' type.
+src/core/init/common.ts(80,15): error TS7006: Parameter 'uid' implicitly has an 'any' type.
+src/core/init/common.ts(85,17): error TS7031: Binding element 'likedIds' implicitly has an 'any' type.
+src/core/init/common.ts(85,27): error TS7031: Binding element 'followedArtists' implicitly has an 'any' type.
+src/core/init/common.ts(85,44): error TS7031: Binding element 'subscribedAlbums' implicitly has an 'any' type.
+src/core/init/dataInit.ts(55,13): error TS7006: Parameter 'uid' implicitly has an 'any' type.
+src/core/init/dataInit.ts(58,57): error TS7006: Parameter 'ids' implicitly has an 'any' type.
+src/core/init/dataInit.ts(74,57): error TS7006: Parameter 'playlists' implicitly has an 'any' type.
+src/core/init/dataInit.ts(77,18): error TS7006: Parameter 'err' implicitly has an 'any' type.
+src/core/init/dataInit.ts(81,14): error TS7006: Parameter 'err' implicitly has an 'any' type.
+src/core/init/player/playInfo.ts(14,32): error TS2345: Argument of type '{ id?: string | undefined; }' is not assignable to parameter of type '{ id: string; }'.
+  Types of property 'id' are incompatible.
+    Type 'string | undefined' is not assignable to type 'string'.
+      Type 'undefined' is not assignable to type 'string'.
+src/core/music/online.ts(72,99): error TS2345: Argument of type 'string' is not assignable to parameter of type 'Quality'.
+src/core/music/utils.ts(450,6): error TS2339: Property 'then' does not exist on type 'Object'.
+src/core/music/utils.ts(485,6): error TS2339: Property 'then' does not exist on type 'Object'.
+src/core/networkLyric.ts(19,18): error TS2702: 'dgram' only refers to a type, but is being used as a namespace here.
+src/core/networkLyric.ts(20,20): error TS2702: 'dgram' only refers to a type, but is being used as a namespace here.
+src/core/networkLyric.ts(34,38): error TS2345: Argument of type 'string' is not assignable to parameter of type '{ type: string; reusePort?: boolean | undefined; debug?: boolean | undefined; }'.
+src/core/networkLyric.ts(35,32): error TS7006: Parameter 'msg' implicitly has an 'any' type.
+src/core/networkLyric.ts(35,37): error TS7006: Parameter 'rinfo' implicitly has an 'any' type.
+src/core/networkLyric.ts(56,30): error TS7006: Parameter 'err' implicitly has an 'any' type.
+src/core/networkLyric.ts(68,40): error TS2345: Argument of type 'string' is not assignable to parameter of type '{ type: string; reusePort?: boolean | undefined; debug?: boolean | undefined; }'.
+src/core/networkLyric.ts(69,34): error TS7006: Parameter 'msg' implicitly has an 'any' type.
+src/core/networkLyric.ts(95,32): error TS7006: Parameter 'err' implicitly has an 'any' type.
+src/core/networkLyric.ts(116,75): error TS7006: Parameter 'err' implicitly has an 'any' type.
+src/core/player/timeoutExit.ts(35,19): error TS2769: No overload matches this call.
+  The last overload gave the following error.
+    Argument of type 'Timer' is not assignable to parameter of type 'number'.
+src/plugins/player/hook.ts(126,21): error TS2769: No overload matches this call.
+  The last overload gave the following error.
+    Argument of type 'Timer' is not assignable to parameter of type 'number'.
+src/screens/AlbumDetail/index.tsx(34,45): error TS2345: Argument of type '() => void' is not assignable to parameter of type '() => Promise<void>'.
+  Type 'void' is not assignable to type 'Promise<void>'.
+src/screens/AlbumDetail/index.tsx(36,48): error TS2345: Argument of type '() => void' is not assignable to parameter of type '() => Promise<void>'.
+  Type 'void' is not assignable to type 'Promise<void>'.
+src/screens/AlbumDetail/index.tsx(41,20): error TS2345: Argument of type 'COMPONENT_IDS.ALBUM_DETAIL_SCREEN' is not assignable to parameter of type 'keyof { name: COMPONENT_IDS; id: string; }[]'.
+src/screens/AlbumDetail/index.tsx(43,39): error TS7006: Parameter 'data' implicitly has an 'any' type.
+src/screens/AlbumDetail/index.tsx(55,39): error TS7006: Parameter 'data' implicitly has an 'any' type.
+src/screens/AlbumDetail/index.tsx(72,20): error TS2345: Argument of type '(prev: { info: null; list: never[]; }) => { list: MusicInfoOnline[]; info: null; }' is not assignable to parameter of type 'SetStateAction<{ info: null; list: never[]; }>'.
+  Type '(prev: { info: null; list: never[]; }) => { list: MusicInfoOnline[]; info: null; }' is not assignable to type '(prevState: { info: null; list: never[]; }) => { info: null; list: never[]; }'.
+    Call signature return types '{ list: MusicInfoOnline[]; info: null; }' and '{ info: null; list: never[]; }' are incompatible.
+      The types of 'list' are incompatible between these types.
+        Type 'MusicInfoOnline[]' is not assignable to type 'never[]'.
+          Type 'MusicInfoOnline' is not assignable to type 'never'.
+            Type 'MusicInfo_online_common' is not assignable to type 'never'.
+src/screens/ArtistDetail/AlbumList.tsx(14,24): error TS2339: Property 'componentId' does not exist on type '{}'.
+src/screens/ArtistDetail/AlbumList.tsx(14,38): error TS2339: Property 'albums' does not exist on type '{}'.
+src/screens/ArtistDetail/AlbumList.tsx(14,46): error TS2339: Property 'loading' does not exist on type '{}'.
+src/screens/ArtistDetail/AlbumList.tsx(14,55): error TS2339: Property 'hasMore' does not exist on type '{}'.
+src/screens/ArtistDetail/AlbumList.tsx(14,64): error TS2339: Property 'onLoadMore' does not exist on type '{}'.
+src/screens/ArtistDetail/AlbumList.tsx(14,76): error TS2339: Property 'onRefresh' does not exist on type '{}'.
+src/screens/ArtistDetail/AlbumList.tsx(14,87): error TS2339: Property 'ListHeaderComponent' does not exist on type '{}'.
+src/screens/ArtistDetail/AlbumList.tsx(14,108): error TS2339: Property 'viewMode' does not exist on type '{}'.
+src/screens/ArtistDetail/AlbumListItem.tsx(56,14): error TS7006: Parameter 'err' implicitly has an 'any' type.
+src/screens/ArtistDetail/SongList.tsx(161,13): error TS2322: Type '{ componentId: string; albums: any[]; loading: boolean; hasMore: boolean; onRefresh: () => void; viewMode: "list" | "grid"; onLoadMore: () => void; }' is not assignable to type 'IntrinsicAttributes & object'.
+  Property 'componentId' does not exist on type 'IntrinsicAttributes & object'.
+src/screens/ArtistDetail/index.tsx(36,14): error TS2345: Argument of type '(prev: { list: never[]; hasMore: boolean; page: number; loading: boolean; sort: string; }) => { list: MusicInfoOnline[]; hasMore: boolean; page: number; loading: boolean; sort: string; }' is not assignable to parameter of type 'SetStateAction<{ list: never[]; hasMore: boolean; page: number; loading: boolean; sort: string; }>'.
+  Type '(prev: { list: never[]; hasMore: boolean; page: number; loading: boolean; sort: string; }) => { list: MusicInfoOnline[]; hasMore: boolean; page: number; loading: boolean; sort: string; }' is not assignable to type '(prevState: { list: never[]; hasMore: boolean; page: number; loading: boolean; sort: string; }) => { list: never[]; hasMore: boolean; page: number; loading: boolean; sort: string; }'.
+    Call signature return types '{ list: MusicInfoOnline[]; hasMore: boolean; page: number; loading: boolean; sort: string; }' and '{ list: never[]; hasMore: boolean; page: number; loading: boolean; sort: string; }' are incompatible.
+      The types of 'list' are incompatible between these types.
+        Type 'MusicInfoOnline[]' is not assignable to type 'never[]'.
+          Type 'MusicInfoOnline' is not assignable to type 'never'.
+            Type 'MusicInfo_online_common' is not assignable to type 'never'.
+src/screens/ArtistDetail/index.tsx(60,45): error TS2345: Argument of type '() => void' is not assignable to parameter of type '() => Promise<void>'.
+  Type 'void' is not assignable to type 'Promise<void>'.
+src/screens/ArtistDetail/index.tsx(62,48): error TS2345: Argument of type '() => void' is not assignable to parameter of type '() => Promise<void>'.
+  Type 'void' is not assignable to type 'Promise<void>'.
+src/screens/ArtistDetail/index.tsx(77,20): error TS2345: Argument of type '"ARTIST_DETAIL"' is not assignable to parameter of type 'keyof { name: COMPONENT_IDS; id: string; }[]'.
+src/screens/ArtistDetail/index.tsx(84,43): error TS7006: Parameter 'data' implicitly has an 'any' type.
+src/screens/ArtistDetail/index.tsx(91,34): error TS7006: Parameter 'sort' implicitly has an 'any' type.
+src/screens/ArtistDetail/index.tsx(91,40): error TS7006: Parameter 'page' implicitly has an 'any' type.
+src/screens/ArtistDetail/index.tsx(111,68): error TS7006: Parameter 'data' implicitly has an 'any' type.
+src/screens/ArtistDetail/index.tsx(131,35): error TS7006: Parameter 'page' implicitly has an 'any' type.
+src/screens/ArtistDetail/index.tsx(150,64): error TS7006: Parameter 'data' implicitly has an 'any' type.
+src/screens/ArtistDetail/index.tsx(196,29): error TS7006: Parameter 'newSort' implicitly has an 'any' type.
+src/screens/ArtistDetail/index.tsx(202,28): error TS7006: Parameter 'newTab' implicitly has an 'any' type.
+src/screens/ArtistDetail/index.tsx(210,41): error TS7006: Parameter 'data' implicitly has an 'any' type.
+src/screens/ArtistDetail/index.tsx(229,39): error TS2339: Property 'artist' does not exist on type 'never'.
+src/screens/ArtistDetail/index.tsx(238,11): error TS2322: Type 'string' is not assignable to type '"songs" | "albums"'.
+src/screens/Comment/CommentHot.tsx(90,51): error TS2339: Property 'comment' does not exist on type '{ _musicInfoRequestObj: null; _musicInfoPromiseCancelFn: null; _musicPicRequestObj: null; _musicPicPromiseCancelFn: null; tipSearch: { regExps: { relWord: RegExp; }; requestObj: null; tipSearchBySong(str: any): Promise<...>; handleResult(rawData: any): any; cancelTipSearch(): void; search(str: any): Promise<...>; };...'.
+  Property 'comment' does not exist on type '{ leaderboard: { list: { id: string; name: string; bangid: number; }[]; regExps: { mInfo: RegExp; }; limit: number; _requestBoardsObj: null; getBoardsData(): any; getData(url: any): Promise<{ headers: any; ... 4 more ...; ok: boolean; }>; filterData(rawList: any): any; filterBoardsData(rawList: any): { ...; }[]; get...'.
+src/screens/Comment/CommentNew.tsx(91,51): error TS2339: Property 'comment' does not exist on type '{ _musicInfoRequestObj: null; _musicInfoPromiseCancelFn: null; _musicPicRequestObj: null; _musicPicPromiseCancelFn: null; tipSearch: { regExps: { relWord: RegExp; }; requestObj: null; tipSearchBySong(str: any): Promise<...>; handleResult(rawData: any): any; cancelTipSearch(): void; search(str: any): Promise<...>; };...'.
+  Property 'comment' does not exist on type '{ leaderboard: { list: { id: string; name: string; bangid: number; }[]; regExps: { mInfo: RegExp; }; limit: number; _requestBoardsObj: null; getBoardsData(): any; getData(url: any): Promise<{ headers: any; ... 4 more ...; ok: boolean; }>; filterData(rawList: any): any; filterBoardsData(rawList: any): { ...; }[]; get...'.
+src/screens/Comment/components/Header.tsx(23,39): error TS2339: Property 'comment' does not exist on type '{ name: COMPONENT_IDS; id: string; }[]'.
+src/screens/Comment/index.tsx(144,20): error TS2345: Argument of type 'COMPONENT_IDS.comment' is not assignable to parameter of type 'keyof { name: COMPONENT_IDS; id: string; }[]'.
+src/screens/Comment/utils.ts(34,43): error TS2339: Property 'comment' does not exist on type '{ _musicInfoRequestObj: null; _musicInfoPromiseCancelFn: null; _musicPicRequestObj: null; _musicPicPromiseCancelFn: null; tipSearch: { regExps: { relWord: RegExp; }; requestObj: null; tipSearchBySong(str: any): Promise<...>; handleResult(rawData: any): any; cancelTipSearch(): void; search(str: any): Promise<...>; };...'.
+  Property 'comment' does not exist on type '{ leaderboard: { list: { id: string; name: string; bangid: number; }[]; regExps: { mInfo: RegExp; }; limit: number; _requestBoardsObj: null; getBoardsData(): any; getData(url: any): Promise<{ headers: any; ... 4 more ...; ok: boolean; }>; filterData(rawList: any): any; filterBoardsData(rawList: any): { ...; }[]; get...'.
+src/screens/Comment/utils.ts(55,43): error TS2339: Property 'comment' does not exist on type '{ _musicInfoRequestObj: null; _musicInfoPromiseCancelFn: null; _musicPicRequestObj: null; _musicPicPromiseCancelFn: null; tipSearch: { regExps: { relWord: RegExp; }; requestObj: null; tipSearchBySong(str: any): Promise<...>; handleResult(rawData: any): any; cancelTipSearch(): void; search(str: any): Promise<...>; };...'.
+  Property 'comment' does not exist on type '{ leaderboard: { list: { id: string; name: string; bangid: number; }[]; regExps: { mInfo: RegExp; }; limit: number; _requestBoardsObj: null; getBoardsData(): any; getData(url: any): Promise<{ headers: any; ... 4 more ...; ok: boolean; }>; filterData(rawList: any): any; filterBoardsData(rawList: any): { ...; }[]; get...'.
+src/screens/DownloadManager/index.tsx(23,20): error TS2345: Argument of type '"DOWNLOAD_MANAGER"' is not assignable to parameter of type 'keyof { name: COMPONENT_IDS; id: string; }[]'.
+src/screens/Home/Views/DailyRec/RecPlaylists.tsx(34,46): error TS7006: Parameter 'list' implicitly has an 'any' type.
+src/screens/Home/Views/DailyRec/RecPlaylists.tsx(37,14): error TS7006: Parameter 'item' implicitly has an 'any' type.
+src/screens/Home/Views/DailyRec/RecPlaylists.tsx(66,14): error TS7006: Parameter 'err' implicitly has an 'any' type.
+src/screens/Home/Views/DailyRec/RecSongs.tsx(63,45): error TS2345: Argument of type '() => void' is not assignable to parameter of type '() => Promise<void>'.
+  Type 'void' is not assignable to type 'Promise<void>'.
+src/screens/Home/Views/DailyRec/RecSongs.tsx(65,48): error TS2345: Argument of type '() => void' is not assignable to parameter of type '() => Promise<void>'.
+  Type 'void' is not assignable to type 'Promise<void>'.
+src/screens/Home/Views/DailyRec/RecSongs.tsx(109,49): error TS7006: Parameter 'result' implicitly has an 'any' type.
+src/screens/Home/Views/DailyRec/RecSongs.tsx(137,36): error TS7006: Parameter 'song' implicitly has an 'any' type.
+src/screens/Home/Views/DailyRec/RecSongs.tsx(158,57): error TS7006: Parameter 's' implicitly has an 'any' type.
+src/screens/Home/Views/DailyRec/RecSongs.tsx(189,65): error TS7006: Parameter 's' implicitly has an 'any' type.
+src/screens/Home/Views/DailyRec/RecSongs.tsx(190,42): error TS7006: Parameter 'ns' implicitly has an 'any' type.
+src/screens/Home/Views/DailyRec/RecSongs.tsx(215,16): error TS7006: Parameter 'err' implicitly has an 'any' type.
+src/screens/Home/Views/DailyRec/RecSongs.tsx(271,41): error TS7006: Parameter 'result' implicitly has an 'any' type.
+src/screens/Home/Views/DailyRec/RecSongs.tsx(277,14): error TS7006: Parameter 'err' implicitly has an 'any' type.
+src/screens/Home/Views/FollowedArtists/ListItem.tsx(21,25): error TS7006: Parameter 'event' implicitly has an 'any' type.
+src/screens/Home/Views/FollowedArtists/ListItem.tsx(39,14): error TS7006: Parameter 'err' implicitly has an 'any' type.
+src/screens/Home/Views/MyPlaylist/PlaylistEditModal.tsx(54,66): error TS7006: Parameter 'result' implicitly has an 'any' type.
+src/screens/Home/Views/MyPlaylist/PlaylistEditModal.tsx(79,14): error TS7006: Parameter 'err' implicitly has an 'any' type.
+src/screens/Home/Views/MyPlaylist/index.tsx(50,34): error TS2339: Property 'creator' does not exist on type 'SubscribedPlaylistInfo'.
+src/screens/Home/Views/MyPlaylist/index.tsx(52,38): error TS2339: Property 'playCount' does not exist on type 'SubscribedPlaylistInfo'.
+src/screens/Home/Views/MyPlaylist/index.tsx(58,41): error TS18047: 'playerState.playMusicInfo.musicInfo' is possibly 'null'.
+src/screens/Home/Views/MyPlaylist/index.tsx(66,45): error TS2345: Argument of type '() => void' is not assignable to parameter of type '() => Promise<void>'.
+  Type 'void' is not assignable to type 'Promise<void>'.
+src/screens/Home/Views/MyPlaylist/index.tsx(68,48): error TS2345: Argument of type '() => void' is not assignable to parameter of type '() => Promise<void>'.
+  Type 'void' is not assignable to type 'Promise<void>'.
+src/screens/Home/Views/MyPlaylist/index.tsx(84,13): error TS7006: Parameter 'playlists' implicitly has an 'any' type.
+src/screens/Home/Views/MyPlaylist/index.tsx(87,14): error TS7006: Parameter 'err' implicitly has an 'any' type.
+src/screens/Home/Views/MyPlaylist/index.tsx(103,13): error TS7006: Parameter 'playlists' implicitly has an 'any' type.
+src/screens/Home/Views/MyPlaylist/index.tsx(106,14): error TS7006: Parameter 'err' implicitly has an 'any' type.
+src/screens/Home/Views/Mylist/MusicList/List.tsx(193,47): error TS2345: Argument of type '() => void' is not assignable to parameter of type '() => Promise<void>'.
+  Type 'void' is not assignable to type 'Promise<void>'.
+src/screens/Home/Views/Mylist/MusicList/List.tsx(198,50): error TS2345: Argument of type '() => void' is not assignable to parameter of type '() => Promise<void>'.
+  Type 'void' is not assignable to type 'Promise<void>'.
+src/screens/Home/Views/Mylist/MusicList/List.tsx(300,13): error TS2322: Type '{ item: MusicInfo; index: number; activeIndex: number; onScrollBeginDrag: () => void; onPress: (item: MusicInfo, index: number) => void; onLongPress: (item: MusicInfo, index: number) => void; ... 5 more ...; showCover: boolean; }' is not assignable to type 'IntrinsicAttributes & { item: MusicInfo; index: number; activeIndex: number; onPress: (item: MusicInfo, index: number) => void; onLongPress?: ((item: MusicInfo, index: number) => void) | undefined; ... 8 more ...; qualityTag?: { ...; } | undefined; }'.
+  Property 'onScrollBeginDrag' does not exist on type 'IntrinsicAttributes & { item: MusicInfo; index: number; activeIndex: number; onPress: (item: MusicInfo, index: number) => void; onLongPress?: ((item: MusicInfo, index: number) => void) | undefined; ... 8 more ...; qualityTag?: { ...; } | undefined; }'.
+src/screens/Home/Views/Mylist/MusicList/index.tsx(106,38): error TS2339: Property 'mv' does not exist on type 'MusicInfoMeta_online | MusicInfoMeta_kg | MusicInfoMeta_tx | MusicInfoMeta_mg | MusicInfoMeta_local'.
+  Property 'mv' does not exist on type 'MusicInfoMeta_local'.
+src/screens/Home/Views/Mylist/MusicList/index.tsx(250,9): error TS2322: Type '{ ref: RefObject<ListMenuType>; onPlay: (info: any) => void; onPlayLater: (info: SelectInfo) => void; onRemove: (info: SelectInfo) => void; ... 12 more ...; onPlayMv: (info: SelectInfo) => void; }' is not assignable to type 'IntrinsicAttributes & ListMenuProps & RefAttributes<ListMenuType>'.
+  Property 'onPlay' does not exist on type 'IntrinsicAttributes & ListMenuProps & RefAttributes<ListMenuType>'. Did you mean 'onPlayMv'?
+src/screens/Home/Views/Mylist/MusicList/index.tsx(250,18): error TS7006: Parameter 'info' implicitly has an 'any' type.
+src/screens/Home/Views/Search/List.tsx(54,48): error TS2322: Type '{ ref: RefObject<MusicListType>; searchType: string; }' is not assignable to type 'IntrinsicAttributes & RefAttributes<unknown>'.
+  Property 'searchType' does not exist on type 'IntrinsicAttributes & RefAttributes<unknown>'.
+src/screens/Home/Views/Search/List.tsx(56,48): error TS2322: Type '{ ref: RefObject<MusicListType>; searchType: string; }' is not assignable to type 'IntrinsicAttributes & RefAttributes<unknown>'.
+  Property 'searchType' does not exist on type 'IntrinsicAttributes & RefAttributes<unknown>'.
+src/screens/Home/Views/Search/SearchResultList.tsx(8,30): error TS2339: Property 'searchType' does not exist on type '{}'.
+src/screens/Home/Views/Search/SearchResultList.tsx(20,35): error TS7006: Parameter 'text' implicitly has an 'any' type.
+src/screens/Home/Views/Search/SearchResultList.tsx(20,41): error TS7006: Parameter 'page' implicitly has an 'any' type.
+src/screens/Home/Views/Search/SearchResultList.tsx(34,24): error TS7006: Parameter 'result' implicitly has an 'any' type.
+src/screens/Home/Views/Search/SearchResultList.tsx(44,14): error TS7006: Parameter 'text' implicitly has an 'any' type.
+src/screens/Home/Views/Search/SearchResultList.tsx(50,25): error TS7031: Binding element 'item' implicitly has an 'any' type.
+src/screens/Home/Views/Search/index.tsx(142,30): error TS2322: Type '"kw" | "kg" | "tx" | "wy" | "mg" | "git" | "all"' is not assignable to type 'OnlineSource | undefined'.
+  Type '"all"' is not assignable to type 'OnlineSource | undefined'.
+src/screens/Home/Views/Search/index.tsx(188,13): error TS2322: Type '{ componentId: string | undefined; info: ListInfoItem; onBack: () => void; }' is not assignable to type 'IntrinsicAttributes & { info: ListInfoItem; onBack?: (() => void) | undefined; initialScrollToInfo: MusicInfoOnline | null; }'.
+  Property 'componentId' does not exist on type 'IntrinsicAttributes & { info: ListInfoItem; onBack?: (() => void) | undefined; initialScrollToInfo: MusicInfoOnline | null; }'.
+src/screens/Home/Views/Setting/Main.tsx(57,12): error TS2678: Type '"search"' is not comparable to type '"download" | "list" | "basic" | "version" | "about" | "sync" | "player" | "lyric_desktop" | "backup" | "other"'.
+src/screens/Home/Views/Setting/Vertical/Main.tsx(37,12): error TS2678: Type '"search"' is not comparable to type '"download" | "list" | "basic" | "version" | "about" | "sync" | "player" | "lyric_desktop" | "backup" | "other"'.
+src/screens/Home/Views/Setting/settings/Basic/WyCookie.tsx(67,22): error TS2339: Property 'emit' does not exist on type 'AppEventTypes & { showArtistSelector: (artists: Artist[], onSelect: (artist: Artist) => void) => void; triggerSearch: (text: string) => void; 'wy-cookie-set': (cookie: string) => void; 'yt-cookie-set': (cookie: string) => void; showWebLogin: () => void; showYouTubeLogin: () => void; showVideoPlayer: (url: string) =>...'.
+src/screens/Home/Views/Setting/settings/Basic/WyCookie.tsx(75,25): error TS2345: Argument of type '"wy-cookie-set"' is not assignable to parameter of type '"focus" | "pause" | "play" | "stop" | "mylistUpdated" | "mylistToggled" | "setProgress" | "musicToggled" | "setVolume" | "setVolumeIsMute" | "error" | "playerPlaying" | "playerPause" | ... 30 more ... | "jumpOneDrivePosition"'.
+src/screens/Home/Views/Setting/settings/Basic/WyCookie.tsx(77,28): error TS2345: Argument of type '"wy-cookie-set"' is not assignable to parameter of type '"focus" | "pause" | "play" | "stop" | "mylistUpdated" | "mylistToggled" | "setProgress" | "musicToggled" | "setVolume" | "setVolumeIsMute" | "error" | "playerPlaying" | "playerPause" | ... 30 more ... | "jumpOneDrivePosition"'.
+src/screens/Home/Views/Setting/settings/Basic/WyCookie.tsx(85,18): error TS2345: Argument of type '"setting_basic_wy_cookie"' is not assignable to parameter of type '"download" | "nav_home" | "nav_search" | "nav_library" | "nav_play_history" | "nav_songlist" | "nav_top" | "nav_love" | "nav_daily_rec" | "nav_followed_artists" | "nav_subscribed_albums" | ... 572 more ... | "setting_basic_nav_menu"'.
+src/screens/Home/Views/Setting/settings/Basic/WyCookie.tsx(87,24): error TS2345: Argument of type '"setting_basic_wy_cookie_placeholder"' is not assignable to parameter of type '"download" | "nav_home" | "nav_search" | "nav_library" | "nav_play_history" | "nav_songlist" | "nav_top" | "nav_love" | "nav_daily_rec" | "nav_followed_artists" | "nav_subscribed_albums" | ... 572 more ... | "setting_basic_nav_menu"'.
+src/screens/Home/Views/Setting/settings/List/IsAutoSaveDailyRec.tsx(22,18): error TS2345: Argument of type '"setting_list_auto_save_daily_rec"' is not assignable to parameter of type '"download" | "nav_home" | "nav_search" | "nav_library" | "nav_play_history" | "nav_songlist" | "nav_top" | "nav_love" | "nav_daily_rec" | "nav_followed_artists" | "nav_subscribed_albums" | ... 572 more ... | "setting_basic_nav_menu"'.
+src/screens/Home/Views/Setting/settings/List/IsAutoSaveDailyRec.tsx(23,21): error TS2345: Argument of type '"setting_list_auto_save_daily_rec_tip"' is not assignable to parameter of type '"download" | "nav_home" | "nav_search" | "nav_library" | "nav_play_history" | "nav_songlist" | "nav_top" | "nav_love" | "nav_daily_rec" | "nav_followed_artists" | "nav_subscribed_albums" | ... 572 more ... | "setting_basic_nav_menu"'.
+src/screens/Home/Views/Setting/settings/List/IsShowMyListSubMenu.tsx(22,18): error TS2345: Argument of type '"setting_list_show_my_list_sub_menu"' is not assignable to parameter of type '"download" | "nav_home" | "nav_search" | "nav_library" | "nav_play_history" | "nav_songlist" | "nav_top" | "nav_love" | "nav_daily_rec" | "nav_followed_artists" | "nav_subscribed_albums" | ... 572 more ... | "setting_basic_nav_menu"'.
+src/screens/Home/Views/Setting/settings/Version.tsx(87,19): error TS2322: Type '(silent?: boolean) => Promise<void>' is not assignable to type '(event: GestureResponderEvent) => void'.
+  Types of parameters 'silent' and 'event' are incompatible.
+    Type 'GestureResponderEvent' is not assignable to type 'boolean | undefined'.
+src/screens/Home/Views/SongList/Content.tsx(99,39): error TS18047: 'playerState.playMusicInfo.musicInfo' is possibly 'null'.
+src/screens/Home/Views/SongList/Content.tsx(105,45): error TS2345: Argument of type '() => void' is not assignable to parameter of type '() => Promise<void>'.
+  Type 'void' is not assignable to type 'Promise<void>'.
+src/screens/Home/Views/SongList/Content.tsx(107,48): error TS2345: Argument of type '() => void' is not assignable to parameter of type '() => Promise<void>'.
+  Type 'void' is not assignable to type 'Promise<void>'.
+src/screens/Home/Views/SongList/HeaderBar/SourceSelector.tsx(39,39): error TS2558: Expected 3 type arguments, but got 1.
+src/screens/Home/Views/SongList/List.tsx(17,11): error TS2741: Property 'onOpenDetail' is missing in type '{ loadList(source: OnlineSource, sortId: string, tagId: string): Promise<void>; }' but required in type 'ListType'.
+src/screens/Home/Views/SubscribedAlbums/ListItem.tsx(38,40): error TS7006: Parameter 'event' implicitly has an 'any' type.
+src/screens/Home/Views/SubscribedAlbums/ListItem.tsx(56,14): error TS7006: Parameter 'err' implicitly has an 'any' type.
+src/screens/Home/index.tsx(34,20): error TS2345: Argument of type 'COMPONENT_IDS.home' is not assignable to parameter of type 'keyof { name: COMPONENT_IDS; id: string; }[]'.
+src/screens/PlayDetail/Horizontal/Pic.tsx(109,13): error TS2322: Type '{ width: string; height: string; borderRadius: number; }' is not assignable to type 'StyleProp<ImageStyle>'.
+  Type '{ width: string; height: string; borderRadius: number; }' is not assignable to type 'ImageStyle'.
+    Types of property 'height' are incompatible.
+      Type 'string' is not assignable to type 'DimensionValue | undefined'.
+src/screens/PlayDetail/Horizontal/index.tsx(25,20): error TS2345: Argument of type 'COMPONENT_IDS.playDetail' is not assignable to parameter of type 'keyof { name: COMPONENT_IDS; id: string; }[]'.
+src/screens/PlayDetail/Horizontal/index.tsx(30,41): error TS2339: Property 'comment' does not exist on type '{ name: COMPONENT_IDS; id: string; }[]'.
+src/screens/PlayDetail/Horizontal/index.tsx(39,15): error TS2339: Property 'comment' does not exist on type '{ name: COMPONENT_IDS; id: string; }[]'.
+src/screens/PlayDetail/Vertical/Player/components/MoreBtn/index.tsx(108,38): error TS2339: Property 'mv' does not exist on type 'MusicInfoMeta_online | MusicInfoMeta_kg | MusicInfoMeta_tx | MusicInfoMeta_mg | MusicInfoMeta_local'.
+  Property 'mv' does not exist on type 'MusicInfoMeta_local'.
+src/screens/PlayDetail/Vertical/index.tsx(63,65): error TS2339: Property 'comment' does not exist on type '{ name: COMPONENT_IDS; id: string; }[]'.
+src/screens/PlayDetail/Vertical/index.tsx(72,15): error TS2339: Property 'comment' does not exist on type '{ name: COMPONENT_IDS; id: string; }[]'.
+src/screens/PlayDetail/index.tsx(16,20): error TS2345: Argument of type 'COMPONENT_IDS.playDetail' is not assignable to parameter of type 'keyof { name: COMPONENT_IDS; id: string; }[]'.
+src/screens/SimilarSongs/index.tsx(31,45): error TS2345: Argument of type '() => void' is not assignable to parameter of type '() => Promise<void>'.
+  Type 'void' is not assignable to type 'Promise<void>'.
+src/screens/SimilarSongs/index.tsx(33,48): error TS2345: Argument of type '() => void' is not assignable to parameter of type '() => Promise<void>'.
+  Type 'void' is not assignable to type 'Promise<void>'.
+src/screens/SimilarSongs/index.tsx(38,20): error TS2345: Argument of type '"SIMILAR_SONGS_SCREEN"' is not assignable to parameter of type 'keyof { name: COMPONENT_IDS; id: string; }[]'.
+src/screens/SonglistDetail/Header.tsx(138,10): error TS2741: Property 'onBack' is missing in type '{}' but required in type '{ onBack: () => void; }'.
+src/screens/SonglistDetail/MusicList.tsx(65,45): error TS2345: Argument of type '() => void' is not assignable to parameter of type '() => Promise<void>'.
+  Type 'void' is not assignable to type 'Promise<void>'.
+src/screens/SonglistDetail/MusicList.tsx(67,48): error TS2345: Argument of type '() => void' is not assignable to parameter of type '() => Promise<void>'.
+  Type 'void' is not assignable to type 'Promise<void>'.
+src/screens/SonglistDetail/index.tsx(61,11): error TS2322: Type 'string | number' is not assignable to type 'number'.
+  Type 'string' is not assignable to type 'number'.
+src/screens/SonglistDetail/index.tsx(66,14): error TS7006: Parameter 'err' implicitly has an 'any' type.
+src/screens/SonglistDetail/index.tsx(101,20): error TS7006: Parameter 'err' implicitly has an 'any' type.
+src/screens/SonglistDetail/index.tsx(152,11): error TS2322: Type '({ action }: { action: "edit" | "delete"; }) => void' is not assignable to type '(menu: { action: string; label: string; }) => void'.
+  Types of parameters '__0' and 'menu' are incompatible.
+    Type '{ action: string; label: string; }' is not assignable to type '{ action: "delete" | "edit"; }'.
+      Types of property 'action' are incompatible.
+        Type 'string' is not assignable to type '"delete" | "edit"'.
+src/screens/SonglistDetail/index.tsx(193,45): error TS2345: Argument of type '() => void' is not assignable to parameter of type '() => Promise<void>'.
+  Type 'void' is not assignable to type 'Promise<void>'.
+src/screens/SonglistDetail/index.tsx(195,48): error TS2345: Argument of type '() => void' is not assignable to parameter of type '() => Promise<void>'.
+  Type 'void' is not assignable to type 'Promise<void>'.
+src/screens/SonglistDetail/index.tsx(228,7): error TS2722: Cannot invoke an object which is possibly 'undefined'.
+src/screens/SonglistDetail/index.tsx(255,32): error TS18048: 'detailInfo.total' is possibly 'undefined'.
+src/screens/SonglistDetail/index.tsx(263,93): error TS2322: Type '(() => void) | undefined' is not assignable to type '() => void'.
+  Type 'undefined' is not assignable to type '() => void'.
+src/screens/SonglistDetail/index.tsx(282,150): error TS2322: Type 'string | number | boolean | undefined' is not assignable to type 'boolean'.
+  Type 'undefined' is not assignable to type 'boolean'.
+src/theme/themes/index.ts(66,10): error TS18048: 'v' is possibly 'undefined'.
+src/theme/themes/index.ts(67,56): error TS18048: 'v' is possibly 'undefined'.
+src/theme/themes/index.ts(105,10): error TS1355: A 'const' assertions can only be applied to references to enum members, or string, number, boolean, array, or object literals.
+src/utils/listManage.ts(280,33): error TS2345: Argument of type '{ meta: { fee?: number | undefined; qualitys: MusicQualityType[]; _qualitys: Partial<Record<Quality, { size: string | null; }>>; albumId?: string | ... 1 more ... | undefined; ... 7 more ...; toggleMusicInfo?: MusicInfoOnline | ... 1 more ... | undefined; } | ... 23 more ... | { ...; }; ... 7 more ...; releaseDate?:...' is not assignable to parameter of type 'MusicInfo'.
+  Type '{ meta: { fee?: number; qualitys: LX.Music.MusicQualityType[]; _qualitys: LX.Music._MusicQualityType; albumId?: string | number; originCoverType?: number; ... 6 more ...; toggleMusicInfo?: LX.Music.MusicInfoOnline | null; } | ... 23 more ... | { ...; }; ... 7 more ...; releaseDate?: string | null; }' is not assignable to type 'MusicInfo'.
+    Type '{ meta: { fee?: number; qualitys: LX.Music.MusicQualityType[]; _qualitys: LX.Music._MusicQualityType; albumId?: string | number; originCoverType?: number; ... 6 more ...; toggleMusicInfo?: LX.Music.MusicInfoOnline | null; } | ... 23 more ... | { ...; }; ... 7 more ...; releaseDate?: string | null; }' is not assignable to type 'MusicInfo_online_common'.
+      Types of property 'meta' are incompatible.
+        Type '{ fee?: number | undefined; qualitys: MusicQualityType[]; _qualitys: Partial<Record<Quality, { size: string | null; }>>; albumId?: string | number | undefined; ... 7 more ...; toggleMusicInfo?: MusicInfoOnline | ... 1 more ... | undefined; } | ... 23 more ... | { ...; }' is not assignable to type 'MusicInfoMeta_online'.
+          Type '{ filePath: string; ext: string; songId: string | number; albumName: string; picUrl?: string | null | undefined; toggleMusicInfo?: MusicInfoOnline | null | undefined; }' is missing the following properties from type 'MusicInfoMeta_online': qualitys, _qualitys
+src/utils/listManage.ts(327,49): error TS7006: Parameter 'l' implicitly has an 'any' type.
+src/utils/listManage.ts(331,34): error TS2339: Property 'list' does not exist on type '{}'.
+src/utils/listManage.ts(357,67): error TS2339: Property 'list' does not exist on type '{}'.
+src/utils/listManage.ts(371,28): error TS2345: Argument of type '{}' is not assignable to parameter of type 'UserListInfoFull'.
+  Type '{}' is missing the following properties from type 'UserListInfoFull': list, id, name, locationUpdateTime
+src/utils/listManage.ts(446,11): error TS2322: Type '{ meta: { fee?: number; qualitys: LX.Music.MusicQualityType[]; _qualitys: LX.Music._MusicQualityType; albumId?: string | number; originCoverType?: number; ... 6 more ...; toggleMusicInfo?: LX.Music.MusicInfoOnline | null; } | ... 23 more ... | { ...; }; ... 7 more ...; releaseDate?: string | null; }' is not assignable to type 'MusicInfo'.
+  Types of property 'meta' are incompatible.
+    Type '{ fee?: number | undefined; qualitys: MusicQualityType[]; _qualitys: Partial<Record<Quality, { size: string | null; }>>; albumId?: string | number | undefined; ... 7 more ...; toggleMusicInfo?: MusicInfoOnline | ... 1 more ... | undefined; } | ... 23 more ... | { ...; }' is not assignable to type 'MusicInfoMeta_online'.
+      Type '{ filePath: string; ext: string; songId: string | number; albumName: string; picUrl?: string | null | undefined; toggleMusicInfo?: MusicInfoOnline | null | undefined; }' is missing the following properties from type 'MusicInfoMeta_online': qualitys, _qualitys
+src/utils/tools.ts(243,19): error TS2345: Argument of type 'null' is not assignable to parameter of type 'boolean | PromiseLike<boolean>'.

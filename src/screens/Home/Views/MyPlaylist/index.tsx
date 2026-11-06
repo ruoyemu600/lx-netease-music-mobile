@@ -1,5 +1,6 @@
 import { memo, useEffect, useState, useCallback, useRef } from 'react'
-import {View, FlatList, RefreshControl, BackHandler, StyleSheet, Keyboard} from 'react-native'
+import {View, FlatList, RefreshControl, StyleSheet, Keyboard} from 'react-native'
+import { registerMaterialBackHandler } from '@/screens/Home/materialBack'
 import ListItem from './ListItem'
 import wyApi from '@/utils/musicSdk/wy/user'
 import wyDailyRecApi from '@/utils/musicSdk/wy/dailyRec'
@@ -132,8 +133,7 @@ export default memo(() => {
       return false;
     };
 
-    const subscription = BackHandler.addEventListener('hardwareBackPress', onBackPress);
-    return () => subscription.remove();
+    return registerMaterialBackHandler('nav_my_playlist', onBackPress);
   }, []); // 依然使用空依赖数组
 
   // 定义点击列表项的事件

@@ -4,6 +4,7 @@ import BackgroundTimer from 'react-native-background-timer'
 import { defaultUrl } from '@/config'
 // import { action as playerAction } from '@/store/modules/player'
 import settingState from '@/store/setting/state'
+import { getListeningTrackExtras } from '@/core/player/listeningIdentity'
 
 
 const list: LX.Player.Track[] = []
@@ -78,6 +79,7 @@ const buildTracks = (musicInfo: LX.Player.PlayMusic, url?: LX.Player.Track['url'
       album,
       artwork,
       ...extra,
+      ...getListeningTrackExtras(musicInfo),
       musicId: mInfo.id,
       // original: { ...musicInfo },
       duration,

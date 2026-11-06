@@ -6,6 +6,42 @@ const { createThemeColors } = require('./utils')
 
 const defaultThemes = [
   {
+    id: 'material_dark',
+    name: '静夜蓝紫',
+    isDark: true,
+    config: {
+      primary: 'rgb(189, 197, 255)',
+      font: 'rgb(230, 231, 239)',
+      'c-app-background': '#111318',
+      'c-main-background': '#111318',
+      'bg-image': '',
+      'bg-image-position': 'center',
+      'bg-image-size': 'cover',
+      'c-badge-primary': '#BDC5FF',
+      'c-badge-secondary': '#BBC7DB',
+      'c-badge-tertiary': '#E4BAD7',
+      'c-liked': '#F2B8C6',
+    },
+  },
+  {
+    id: 'material_light',
+    name: '晨光蓝紫',
+    isDark: false,
+    config: {
+      primary: 'rgb(79, 91, 146)',
+      font: 'rgb(26, 27, 35)',
+      'c-app-background': '#FAF8FF',
+      'c-main-background': '#FAF8FF',
+      'bg-image': '',
+      'bg-image-position': 'center',
+      'bg-image-size': 'cover',
+      'c-badge-primary': '#4F5B92',
+      'c-badge-secondary': '#526078',
+      'c-badge-tertiary': '#795570',
+      'c-liked': '#A03E62',
+    },
+  },
+  {
     id: 'green',
     name: '绿意盎然',
     isDark: false,

@@ -1,0 +1,46 @@
+name: Material UI Preview APK
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  preview:
+    runs-on: ubuntu-22.04
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+      - uses: android-actions/setup-android@v3
+      - name: Install Android SDK packages
+        run: sdkmanager 'platforms;android-35' 'build-tools;35.0.0' 'ndk;26.1.10909125'
+      - name: Install locked JavaScript dependencies
+        run: npm ci --no-audit --no-fund
+      - name: Regenerate themes and check patch formatting
+        run: |
+          npm run build:theme
+          npm run check:ui
+          node scripts/check-material-seek.cjs
+          git diff --exit-code -- src/theme/themes/themes.ts
+          git diff --check
+      - name: Build standalone ARM64 preview
+        working-directory: android
+        env:
+          DISABLE_SVG: '1'
+        run: bash ./gradlew assembleMaterialPreview -PreactNativeArchitectures=arm64-v8a --no-daemon --max-workers=2
+      - name: Upload preview APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: lx-n-material-preview-arm64
+          path: android/app/build/outputs/apk/materialPreview/*.apk
+          if-no-files-found: error
+          retention-days: 14

@@ -1,0 +1,11 @@
+{
+  "apk": "/sdcard/Download/DSH-Go/lx-n-local-apk/LX-N-Material-v1.8.89-arm64-20261106-074453.apk",
+  "bytes": 21661072,
+  "sha256": "9ef3c711020dd56bc39fb91615fa0f3deac0bba7decaffd11f61516ced21670f",
+  "version": "1.8.89-material-preview",
+  "versionCode": 72003,
+  "same_signer_as_1_8_88": true,
+  "native_stats_and_js_markers_present": true,
+  "native_libraries": 65,
+  "device_runtime_tested": false
+}

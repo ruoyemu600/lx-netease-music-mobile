@@ -51,7 +51,7 @@ export default ({ isHome }: { isHome: boolean }) => {
       onPress={handlePress}
       activeOpacity={0.7}
     >
-      <Text color={theme['c-font-label']} numberOfLines={1}>
+      <Text color={theme['c-font']} size={14} style={{ fontWeight: '500' }} numberOfLines={1}>
         {title}
       </Text>
     </TouchableOpacity>

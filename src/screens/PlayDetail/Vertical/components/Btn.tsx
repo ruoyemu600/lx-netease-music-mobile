@@ -1,10 +1,9 @@
-import { TouchableOpacity } from 'react-native'
+import { StyleSheet, TouchableOpacity } from 'react-native'
 import { Icon } from '@/components/common/Icon'
-import { createStyle } from '@/utils/tools'
 import { scaleSizeH } from '@/utils/pixelRatio'
 import { HEADER_HEIGHT as _HEADER_HEIGHT } from '@/config/constant'
 
-export const HEADER_HEIGHT = scaleSizeH(_HEADER_HEIGHT)
+export const HEADER_HEIGHT = Math.max(56, scaleSizeH(_HEADER_HEIGHT))
 
 export default ({
   icon,
@@ -22,11 +21,13 @@ export default ({
   )
 }
 
-const styles = createStyle({
+const styles = StyleSheet.create({
   button: {
     justifyContent: 'center',
     alignItems: 'center',
     height: '100%',
+    minHeight: 48,
+    minWidth: 48,
     flex: 0,
   },
 })

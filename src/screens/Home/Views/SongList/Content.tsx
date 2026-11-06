@@ -1,6 +1,7 @@
 import { getSongListSetting, saveSongListSetting } from '@/utils/data'
 import { useEffect, useRef, useState, useCallback } from 'react'
-import { StyleSheet, View, BackHandler } from 'react-native'
+import { StyleSheet, View } from 'react-native'
+import { registerMaterialBackHandler } from '@/screens/Home/materialBack'
 
 import HeaderBar, { type HeaderBarProps, type HeaderBarType } from './HeaderBar'
 import songlistState, { type InitState, type SortInfo, type ListInfoItem } from '@/store/songlist/state'
@@ -54,8 +55,7 @@ export default () => {
       return false;
     };
 
-    const subscription = BackHandler.addEventListener('hardwareBackPress', onBackPress);
-    return () => subscription.remove();
+    return registerMaterialBackHandler('nav_songlist', onBackPress);
   }, []);
 
   useEffect(() => {

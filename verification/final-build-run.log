@@ -1,0 +1,836 @@
+Build log: /root/workspace/lx-n-local-build/logs/build-20261106-074453.log
+Picked up JAVA_TOOL_OPTIONS: -Djavax.net.ssl.trustStore=/root/workspace/lx-n-local-build/system-ca.jks -Djavax.net.ssl.trustStorePassword=changeit
+openjdk version "17.0.20.1" 2026-08-18
+OpenJDK Runtime Environment (build 17.0.20.1+1-1-24.04-Ubuntu)
+OpenJDK 64-Bit Server VM (build 17.0.20.1+1-1-24.04-Ubuntu, mixed mode, sharing)
+Android Asset Packaging Tool (aapt) 2.19-compiler260529162410
+LLVM (http://llvm.org/):
+  LLVH version 8.0.0svn
+  Optimized build
+
+Hermes JavaScript compiler.
+  Hermes release version: 0.12.0
+  HBC bytecode version: 96
+
+  Features:
+    Debugger
+    Contiguous Heap
+    Zip file input
+
+> lx-netease-music-mobile@1.8.89 build:theme
+> node src/theme/themes/createThemes.js
+
+
+> lx-netease-music-mobile@1.8.89 check:material
+> npm run check:ui && node scripts/check-material-shell.cjs && node scripts/check-material-cover-search.cjs && node src/screens/Home/Views/MaterialHome/__tests__/material.test.cjs && node scripts/check-material-seek.cjs && npm run check:listening
+
+
+> lx-netease-music-mobile@1.8.89 check:ui
+> node scripts/check-material-ui.cjs
+
+PASS material_dark: generated theme and semantic colors
+PASS material_dark: labels exist in all supported languages
+PASS material_light: generated theme and semantic colors
+PASS material_light: labels exist in all supported languages
+PASS legacy/imported themes retain legacy palette mapping
+PASS mini-player uses physical dp for touch targets and current drawer setting
+PASS shared track rows preserve fixed-layout heights and 48dp menu targets
+  Parsed 30 source files
+PASS modified UI source parses as TypeScript/TSX
+PASS automatic theme chooses material_light
+PASS automatic theme chooses material_dark
+All Material UI static regression checks passed. Android runtime tests are still required.
+PASS three real primary route IDs and stable secondary grouping
+PASS new root routes appear in navigation and all translations
+PASS initial page mounts only the real homepage
+PASS search and library tabs mount actual pages and retain homepage
+PASS legacy routes remain reachable and cached without duplicates
+PASS hidden pages leave accessibility tree and listeners clean up
+PASS search category exists once per form factor and root keeps bottom nav
+PASS visible detail back dispatch is independent of page registration order
+PASS new icon literals resolve to packaged glyphs, not missing font symbols
+Material shell callback tests passed; real-device layout and playback remain separate.
+PASS resolved remote
+PASS short layout
+PASS download unwrap
+PASS stale resolved ignored
+PASS first layout fallback
+PASS empty cover placeholder
+PASS failed cover placeholder
+PASS search trim, keyboard/icon submit, clear, imperative API and touch sizing
+Cover/search mocked callbacks passed; real images and native layout need device checks.
+PASS playlist activation precedes navigation
+PASS history/local playback preserves source and uses real player APIs
+PASS download uses current native component and handles missing screen
+PASS history deduplicates latest tracks, sorts and removes event subscription
+PASS history async completion does not write after unmount
+PASS local music permission gating, real scanner result/cache and cleanup
+PASS scanner cancellation blocks stale cache/state writes
+PASS home empty-search and real-track playback branches without nested lists
+PASS library real allList grid, account empty states, categories and retained source routes
+PASS new layouts use native dp StyleSheet and semantic colors
+All 10 material checks passed.
+PASS native 48dp seek target
+PASS normal seek and drag preview
+PASS song change cancels drag
+PASS live identity protects stale React render
+PASS A -> B -> A remains cancelled
+PASS source change with same id cancels drag
+PASS responder termination cancels drag
+PASS zero and non-finite duration never seek
+PASS missing music never seeks
+PASS unmeasured track never seeks
+PASS live duration is used at release
+PASS seek stays within track bounds
+PASS downloaded music metadata identity is supported
+PASS listener cleanup
+14 seek checks passed (mocked callbacks; no native rendering)
+
+> lx-netease-music-mobile@1.8.89 check:listening
+> node scripts/test-listening-stats.cjs && python3 scripts/check-listening-storage.py && node scripts/check-listening-client.cjs && node src/screens/Home/Views/MaterialHome/__tests__/listeningStats.test.cjs
+
+PASS: pause/buffer/suppression/seek/speed/A-B-A/placeholder/duplicates/10s/failure-retry/restart/stop/wall-clock-jumps
+PASS read-only statistics use non-creating playback peek
+PASS: clean patch / repeated patch byte equality / unknown anchor atomic failure
+PASS production schema, millisecond increments, sum/count and stable pagination
+PASS failed transaction rollback, retry once, metadata update and reopen persistence
+PASS original/download identities merge; sources and files stay distinct
+PASS only real audio tracks get listening metadata; placeholders never counted
+PASS bridge reads real snapshots and bounds pagination arguments
+PASS missing API, storage errors and invalid snapshots never masquerade as zero
+PASS elapsed time formatting including totals beyond one day
+PASS initial loading, empty native snapshot, foreground 5-second read-only timer
+PASS native-unavailable failure and retry, real snapshot data
+PASS background and tab leave stop polling; return immediately refreshes
+PASS native screens covering Home stop reads; pop resumes fresh overview
+PASS 50-row native pages, concurrent end-reached lock, changing totals and unique keys
+PASS manual refresh and close cancel stale pagination responses
+PASS tab leave closes modal and removes timer/listener
+PASS unmounted overview promise never writes state
+PASS card loading/empty/data/error, modal entry/close/refresh/list, dark theme and large-font layout
+[patch-quick-base64] already patched
+Listening statistics native patch applied (Media3 preserved).
+Picked up JAVA_TOOL_OPTIONS: -Djavax.net.ssl.trustStore=/root/workspace/lx-n-local-build/system-ca.jks -Djavax.net.ssl.trustStorePassword=changeit
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/8.8/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build 
+Configuration on demand is an incubating feature.
+> Task :gradle-plugin:compileKotlin UP-TO-DATE
+> Task :gradle-plugin:compileJava NO-SOURCE
+> Task :gradle-plugin:pluginDescriptors UP-TO-DATE
+> Task :gradle-plugin:processResources UP-TO-DATE
+> Task :gradle-plugin:classes UP-TO-DATE
+> Task :gradle-plugin:jar UP-TO-DATE
+> Task :gradle-plugin:inspectClassesForKotlinIC UP-TO-DATE
+
+> Configure project :app
+WARNING: The option setting 'android.aapt2FromMavenOverride=/root/workspace/lx-n-local-build/android-sdk/build-tools/35.0.0/aapt2' is experimental.
+
+> Configure project :react-native-quick-md5
+react-native-quick-md5: node_modules/ found at: /root/workspace/lx-n-material/node_modules
+
+> Configure project :react-native-video
+Kotlin version is correct: 1.9.24
+AndroidX version is correct: 1.9.3
+useExoplayerIMA: false
+useExoplayerSmoothStreaming: true
+useExoplayerDash: true
+useExoplayerHls: true
+useExoplayerRtsp: false
+buildFromSource: false
+
+> Task :app:generateCodegenSchemaFromJavaScript SKIPPED
+> Task :app:generateCodegenArtifactsFromSchema SKIPPED
+> Task :app:generatePackageList
+> Task :app:preBuild
+> Task :app:preMaterialPreviewBuild
+> Task :app:mergeMaterialPreviewJniLibFolders UP-TO-DATE
+> Task :d11_react-native-fast-image:preBuild UP-TO-DATE
+> Task :d11_react-native-fast-image:preReleaseBuild UP-TO-DATE
+> Task :d11_react-native-fast-image:mergeReleaseJniLibFolders UP-TO-DATE
+> Task :d11_react-native-fast-image:mergeReleaseNativeLibs NO-SOURCE
+> Task :d11_react-native-fast-image:copyReleaseJniLibsProjectOnly UP-TO-DATE
+> Task :react-native-async-storage_async-storage:preBuild UP-TO-DATE
+> Task :react-native-async-storage_async-storage:preReleaseBuild UP-TO-DATE
+> Task :react-native-async-storage_async-storage:mergeReleaseJniLibFolders UP-TO-DATE
+> Task :react-native-async-storage_async-storage:mergeReleaseNativeLibs NO-SOURCE
+> Task :react-native-async-storage_async-storage:copyReleaseJniLibsProjectOnly UP-TO-DATE
+> Task :react-native-background-timer:preBuild UP-TO-DATE
+> Task :react-native-background-timer:preReleaseBuild UP-TO-DATE
+> Task :react-native-background-timer:mergeReleaseJniLibFolders UP-TO-DATE
+> Task :react-native-background-timer:mergeReleaseNativeLibs NO-SOURCE
+> Task :react-native-background-timer:copyReleaseJniLibsProjectOnly UP-TO-DATE
+> Task :react-native-clipboard_clipboard:preBuild UP-TO-DATE
+> Task :react-native-clipboard_clipboard:preReleaseBuild UP-TO-DATE
+> Task :react-native-clipboard_clipboard:mergeReleaseJniLibFolders UP-TO-DATE
+> Task :react-native-clipboard_clipboard:mergeReleaseNativeLibs NO-SOURCE
+> Task :react-native-clipboard_clipboard:copyReleaseJniLibsProjectOnly UP-TO-DATE
+> Task :react-native-community_slider:preBuild UP-TO-DATE
+> Task :react-native-community_slider:preReleaseBuild UP-TO-DATE
+> Task :react-native-community_slider:mergeReleaseJniLibFolders UP-TO-DATE
+> Task :react-native-community_slider:mergeReleaseNativeLibs NO-SOURCE
+> Task :react-native-community_slider:copyReleaseJniLibsProjectOnly UP-TO-DATE
+> Task :react-native-cookies_cookies:preBuild UP-TO-DATE
+> Task :react-native-cookies_cookies:preReleaseBuild UP-TO-DATE
+> Task :react-native-cookies_cookies:mergeReleaseJniLibFolders UP-TO-DATE
+> Task :react-native-cookies_cookies:mergeReleaseNativeLibs NO-SOURCE
+> Task :react-native-cookies_cookies:copyReleaseJniLibsProjectOnly UP-TO-DATE
+> Task :react-native-exception-handler:preBuild UP-TO-DATE
+> Task :react-native-exception-handler:preReleaseBuild UP-TO-DATE
+> Task :react-native-exception-handler:mergeReleaseJniLibFolders UP-TO-DATE
+> Task :react-native-exception-handler:mergeReleaseNativeLibs NO-SOURCE
+> Task :react-native-exception-handler:copyReleaseJniLibsProjectOnly UP-TO-DATE
+> Task :react-native-file-system:preBuild UP-TO-DATE
+> Task :react-native-file-system:preReleaseBuild UP-TO-DATE
+> Task :react-native-file-system:mergeReleaseJniLibFolders UP-TO-DATE
+> Task :react-native-file-system:mergeReleaseNativeLibs NO-SOURCE
+> Task :react-native-file-system:copyReleaseJniLibsProjectOnly UP-TO-DATE
+> Task :react-native-fs:preBuild UP-TO-DATE
+> Task :react-native-fs:preReleaseBuild UP-TO-DATE
+> Task :react-native-fs:mergeReleaseJniLibFolders UP-TO-DATE
+> Task :react-native-fs:mergeReleaseNativeLibs NO-SOURCE
+> Task :react-native-fs:copyReleaseJniLibsProjectOnly UP-TO-DATE
+> Task :react-native-local-media-metadata:preBuild UP-TO-DATE
+> Task :react-native-local-media-metadata:preReleaseBuild UP-TO-DATE
+> Task :react-native-local-media-metadata:mergeReleaseJniLibFolders UP-TO-DATE
+> Task :react-native-local-media-metadata:mergeReleaseNativeLibs NO-SOURCE
+> Task :react-native-local-media-metadata:copyReleaseJniLibsProjectOnly UP-TO-DATE
+> Task :react-native-navigation:preBuild UP-TO-DATE
+> Task :react-native-navigation:preReactNative71ReleaseBuild UP-TO-DATE
+> Task :react-native-navigation:mergeReactNative71ReleaseJniLibFolders UP-TO-DATE
+> Task :react-native-navigation:mergeReactNative71ReleaseNativeLibs NO-SOURCE
+> Task :react-native-navigation:copyReactNative71ReleaseJniLibsProjectOnly UP-TO-DATE
+> Task :react-native-pager-view:preBuild UP-TO-DATE
+> Task :react-native-pager-view:preReleaseBuild UP-TO-DATE
+> Task :react-native-pager-view:mergeReleaseJniLibFolders UP-TO-DATE
+> Task :react-native-pager-view:mergeReleaseNativeLibs NO-SOURCE
+> Task :react-native-pager-view:copyReleaseJniLibsProjectOnly UP-TO-DATE
+> Task :react-native-quick-base64:preBuild UP-TO-DATE
+> Task :react-native-quick-base64:preReleaseBuild UP-TO-DATE
+> Task :react-native-quick-base64:configureCMakeRelWithDebInfo[arm64-v8a]
+> Task :react-native-quick-base64:buildCMakeRelWithDebInfo[arm64-v8a]
+> Task :react-native-quick-base64:mergeReleaseJniLibFolders UP-TO-DATE
+> Task :react-native-quick-base64:mergeReleaseNativeLibs UP-TO-DATE
+> Task :react-native-quick-base64:copyReleaseJniLibsProjectOnly UP-TO-DATE
+> Task :react-native-quick-md5:preBuild UP-TO-DATE
+> Task :react-native-quick-md5:preReleaseBuild UP-TO-DATE
+> Task :react-native-quick-md5:configureCMakeRelWithDebInfo[arm64-v8a]
+> Task :react-native-quick-md5:buildCMakeRelWithDebInfo[arm64-v8a]
+> Task :react-native-quick-md5:configureCMakeRelWithDebInfo[armeabi-v7a]
+> Task :react-native-quick-md5:buildCMakeRelWithDebInfo[armeabi-v7a]
+> Task :react-native-quick-md5:configureCMakeRelWithDebInfo[x86]
+> Task :react-native-quick-md5:buildCMakeRelWithDebInfo[x86]
+> Task :react-native-quick-md5:configureCMakeRelWithDebInfo[x86_64]
+> Task :react-native-quick-md5:buildCMakeRelWithDebInfo[x86_64]
+> Task :react-native-quick-md5:mergeReleaseJniLibFolders UP-TO-DATE
+> Task :react-native-quick-md5:mergeReleaseNativeLibs UP-TO-DATE
+> Task :react-native-quick-md5:copyReleaseJniLibsProjectOnly UP-TO-DATE
+> Task :react-native-svg:preBuild UP-TO-DATE
+> Task :react-native-svg:preReleaseBuild UP-TO-DATE
+> Task :react-native-svg:mergeReleaseJniLibFolders UP-TO-DATE
+> Task :react-native-svg:mergeReleaseNativeLibs NO-SOURCE
+> Task :react-native-svg:copyReleaseJniLibsProjectOnly UP-TO-DATE
+> Task :react-native-track-player:preBuild UP-TO-DATE
+> Task :react-native-track-player:preReleaseBuild UP-TO-DATE
+> Task :react-native-track-player:mergeReleaseJniLibFolders UP-TO-DATE
+> Task :react-native-track-player:mergeReleaseNativeLibs NO-SOURCE
+> Task :react-native-track-player:copyReleaseJniLibsProjectOnly UP-TO-DATE
+> Task :react-native-udp:preBuild UP-TO-DATE
+> Task :react-native-udp:preReleaseBuild UP-TO-DATE
+> Task :react-native-udp:mergeReleaseJniLibFolders UP-TO-DATE
+> Task :react-native-udp:mergeReleaseNativeLibs NO-SOURCE
+> Task :react-native-udp:copyReleaseJniLibsProjectOnly UP-TO-DATE
+> Task :react-native-vector-icons:preBuild UP-TO-DATE
+> Task :react-native-vector-icons:preReleaseBuild UP-TO-DATE
+> Task :react-native-vector-icons:mergeReleaseJniLibFolders UP-TO-DATE
+> Task :react-native-vector-icons:mergeReleaseNativeLibs NO-SOURCE
+> Task :react-native-vector-icons:copyReleaseJniLibsProjectOnly UP-TO-DATE
+> Task :react-native-video:preBuild UP-TO-DATE
+> Task :react-native-video:preReleaseBuild UP-TO-DATE
+> Task :react-native-video:mergeReleaseJniLibFolders UP-TO-DATE
+> Task :react-native-video:mergeReleaseNativeLibs NO-SOURCE
+> Task :react-native-video:copyReleaseJniLibsProjectOnly UP-TO-DATE
+> Task :react-native-webview:preBuild UP-TO-DATE
+> Task :react-native-webview:preReleaseBuild UP-TO-DATE
+> Task :react-native-webview:mergeReleaseJniLibFolders UP-TO-DATE
+> Task :react-native-webview:mergeReleaseNativeLibs NO-SOURCE
+> Task :react-native-webview:copyReleaseJniLibsProjectOnly UP-TO-DATE
+> Task :rn-fetch-blob:preBuild UP-TO-DATE
+> Task :rn-fetch-blob:preReleaseBuild UP-TO-DATE
+> Task :rn-fetch-blob:mergeReleaseJniLibFolders UP-TO-DATE
+> Task :rn-fetch-blob:mergeReleaseNativeLibs NO-SOURCE
+> Task :rn-fetch-blob:copyReleaseJniLibsProjectOnly UP-TO-DATE
+> Task :app:mergeMaterialPreviewNativeLibs UP-TO-DATE
+> Task :app:stripMaterialPreviewDebugSymbols UP-TO-DATE
+> Task :app:extractMaterialPreviewNativeSymbolTables UP-TO-DATE
+> Task :app:mergeMaterialPreviewNativeDebugMetadata UP-TO-DATE
+> Task :react-native-async-storage_async-storage:checkKotlinGradlePluginConfigurationErrors
+> Task :react-native-async-storage_async-storage:generateReleaseBuildConfig UP-TO-DATE
+> Task :react-native-async-storage_async-storage:generateReleaseResValues UP-TO-DATE
+> Task :react-native-async-storage_async-storage:generateReleaseResources UP-TO-DATE
+> Task :react-native-async-storage_async-storage:packageReleaseResources UP-TO-DATE
+> Task :react-native-async-storage_async-storage:parseReleaseLocalResources UP-TO-DATE
+> Task :react-native-async-storage_async-storage:generateReleaseRFile UP-TO-DATE
+> Task :react-native-async-storage_async-storage:kspReleaseKotlin UP-TO-DATE
+> Task :react-native-async-storage_async-storage:compileReleaseKotlin UP-TO-DATE
+> Task :react-native-async-storage_async-storage:javaPreCompileRelease UP-TO-DATE
+> Task :react-native-async-storage_async-storage:compileReleaseJavaWithJavac UP-TO-DATE
+> Task :react-native-async-storage_async-storage:bundleLibRuntimeToJarRelease UP-TO-DATE
+> Task :react-native-pager-view:checkKotlinGradlePluginConfigurationErrors
+> Task :react-native-pager-view:generateReleaseBuildConfig UP-TO-DATE
+> Task :react-native-pager-view:generateReleaseResValues UP-TO-DATE
+> Task :react-native-pager-view:generateReleaseResources UP-TO-DATE
+> Task :react-native-pager-view:packageReleaseResources UP-TO-DATE
+> Task :react-native-pager-view:parseReleaseLocalResources UP-TO-DATE
+> Task :react-native-pager-view:generateReleaseRFile UP-TO-DATE
+> Task :react-native-pager-view:compileReleaseKotlin UP-TO-DATE
+> Task :react-native-pager-view:javaPreCompileRelease UP-TO-DATE
+> Task :react-native-pager-view:compileReleaseJavaWithJavac UP-TO-DATE
+> Task :react-native-pager-view:bundleLibRuntimeToJarRelease UP-TO-DATE
+> Task :react-native-video:checkKotlinGradlePluginConfigurationErrors
+> Task :react-native-video:generateReleaseBuildConfig UP-TO-DATE
+> Task :react-native-video:generateReleaseResValues UP-TO-DATE
+> Task :react-native-video:generateReleaseResources UP-TO-DATE
+> Task :react-native-video:packageReleaseResources UP-TO-DATE
+> Task :react-native-video:parseReleaseLocalResources UP-TO-DATE
+> Task :react-native-video:generateReleaseRFile UP-TO-DATE
+> Task :react-native-video:compileReleaseKotlin UP-TO-DATE
+> Task :react-native-video:javaPreCompileRelease UP-TO-DATE
+> Task :react-native-video:compileReleaseJavaWithJavac UP-TO-DATE
+> Task :react-native-video:bundleLibRuntimeToJarRelease UP-TO-DATE
+> Task :react-native-webview:checkKotlinGradlePluginConfigurationErrors
+> Task :react-native-webview:generateReleaseBuildConfig UP-TO-DATE
+> Task :react-native-webview:generateReleaseResValues UP-TO-DATE
+> Task :react-native-webview:generateReleaseResources UP-TO-DATE
+> Task :react-native-webview:packageReleaseResources UP-TO-DATE
+> Task :react-native-webview:parseReleaseLocalResources UP-TO-DATE
+> Task :react-native-webview:generateReleaseRFile UP-TO-DATE
+> Task :react-native-webview:compileReleaseKotlin UP-TO-DATE
+> Task :react-native-webview:javaPreCompileRelease UP-TO-DATE
+> Task :react-native-webview:compileReleaseJavaWithJavac UP-TO-DATE
+> Task :react-native-webview:bundleLibRuntimeToJarRelease UP-TO-DATE
+> Task :d11_react-native-fast-image:generateReleaseBuildConfig UP-TO-DATE
+> Task :d11_react-native-fast-image:generateReleaseResValues UP-TO-DATE
+> Task :d11_react-native-fast-image:generateReleaseResources UP-TO-DATE
+> Task :d11_react-native-fast-image:packageReleaseResources UP-TO-DATE
+> Task :d11_react-native-fast-image:parseReleaseLocalResources UP-TO-DATE
+> Task :d11_react-native-fast-image:generateReleaseRFile UP-TO-DATE
+> Task :d11_react-native-fast-image:javaPreCompileRelease UP-TO-DATE
+> Task :d11_react-native-fast-image:compileReleaseJavaWithJavac UP-TO-DATE
+> Task :d11_react-native-fast-image:bundleLibRuntimeToJarRelease UP-TO-DATE
+> Task :react-native-clipboard_clipboard:generateReleaseBuildConfig UP-TO-DATE
+> Task :react-native-clipboard_clipboard:generateReleaseResValues UP-TO-DATE
+> Task :react-native-clipboard_clipboard:generateReleaseResources UP-TO-DATE
+> Task :react-native-clipboard_clipboard:packageReleaseResources UP-TO-DATE
+> Task :react-native-clipboard_clipboard:parseReleaseLocalResources UP-TO-DATE
+> Task :react-native-clipboard_clipboard:generateReleaseRFile UP-TO-DATE
+> Task :react-native-clipboard_clipboard:javaPreCompileRelease UP-TO-DATE
+> Task :react-native-clipboard_clipboard:compileReleaseJavaWithJavac UP-TO-DATE
+> Task :react-native-clipboard_clipboard:bundleLibRuntimeToJarRelease UP-TO-DATE
+> Task :react-native-community_slider:generateReleaseBuildConfig UP-TO-DATE
+> Task :react-native-community_slider:generateReleaseResValues UP-TO-DATE
+> Task :react-native-community_slider:generateReleaseResources UP-TO-DATE
+> Task :react-native-community_slider:packageReleaseResources UP-TO-DATE
+> Task :react-native-community_slider:parseReleaseLocalResources UP-TO-DATE
+> Task :react-native-community_slider:generateReleaseRFile UP-TO-DATE
+> Task :react-native-community_slider:javaPreCompileRelease UP-TO-DATE
+> Task :react-native-community_slider:compileReleaseJavaWithJavac UP-TO-DATE
+> Task :react-native-community_slider:bundleLibRuntimeToJarRelease UP-TO-DATE
+> Task :react-native-cookies_cookies:generateReleaseBuildConfig UP-TO-DATE
+> Task :react-native-cookies_cookies:generateReleaseResValues UP-TO-DATE
+> Task :react-native-cookies_cookies:generateReleaseResources UP-TO-DATE
+> Task :react-native-cookies_cookies:packageReleaseResources UP-TO-DATE
+> Task :react-native-cookies_cookies:parseReleaseLocalResources UP-TO-DATE
+> Task :react-native-cookies_cookies:generateReleaseRFile UP-TO-DATE
+> Task :react-native-cookies_cookies:javaPreCompileRelease UP-TO-DATE
+> Task :react-native-cookies_cookies:compileReleaseJavaWithJavac UP-TO-DATE
+> Task :react-native-cookies_cookies:bundleLibRuntimeToJarRelease UP-TO-DATE
+> Task :react-native-background-timer:generateReleaseBuildConfig UP-TO-DATE
+> Task :react-native-background-timer:generateReleaseResValues UP-TO-DATE
+> Task :react-native-background-timer:generateReleaseResources UP-TO-DATE
+> Task :react-native-background-timer:packageReleaseResources UP-TO-DATE
+> Task :react-native-background-timer:parseReleaseLocalResources UP-TO-DATE
+> Task :react-native-background-timer:generateReleaseRFile UP-TO-DATE
+> Task :react-native-background-timer:javaPreCompileRelease UP-TO-DATE
+> Task :react-native-background-timer:compileReleaseJavaWithJavac UP-TO-DATE
+> Task :react-native-background-timer:bundleLibRuntimeToJarRelease UP-TO-DATE
+> Task :react-native-exception-handler:generateReleaseBuildConfig UP-TO-DATE
+> Task :react-native-exception-handler:generateReleaseResValues UP-TO-DATE
+> Task :react-native-exception-handler:generateReleaseResources UP-TO-DATE
+> Task :react-native-exception-handler:packageReleaseResources UP-TO-DATE
+> Task :react-native-exception-handler:parseReleaseLocalResources UP-TO-DATE
+> Task :react-native-exception-handler:generateReleaseRFile UP-TO-DATE
+> Task :react-native-exception-handler:javaPreCompileRelease UP-TO-DATE
+> Task :react-native-exception-handler:compileReleaseJavaWithJavac UP-TO-DATE
+> Task :react-native-exception-handler:bundleLibRuntimeToJarRelease UP-TO-DATE
+> Task :react-native-file-system:generateReleaseBuildConfig UP-TO-DATE
+> Task :react-native-file-system:generateReleaseResValues UP-TO-DATE
+> Task :react-native-file-system:generateReleaseResources UP-TO-DATE
+> Task :react-native-file-system:packageReleaseResources UP-TO-DATE
+> Task :react-native-file-system:parseReleaseLocalResources UP-TO-DATE
+> Task :react-native-file-system:generateReleaseRFile UP-TO-DATE
+> Task :react-native-file-system:javaPreCompileRelease UP-TO-DATE
+> Task :react-native-file-system:compileReleaseJavaWithJavac UP-TO-DATE
+> Task :react-native-file-system:bundleLibRuntimeToJarRelease UP-TO-DATE
+> Task :react-native-fs:generateReleaseBuildConfig UP-TO-DATE
+> Task :react-native-fs:generateReleaseResValues UP-TO-DATE
+> Task :react-native-fs:generateReleaseResources UP-TO-DATE
+> Task :react-native-fs:packageReleaseResources UP-TO-DATE
+> Task :react-native-fs:parseReleaseLocalResources UP-TO-DATE
+> Task :react-native-fs:generateReleaseRFile UP-TO-DATE
+> Task :react-native-fs:javaPreCompileRelease UP-TO-DATE
+> Task :react-native-fs:compileReleaseJavaWithJavac UP-TO-DATE
+> Task :react-native-fs:bundleLibRuntimeToJarRelease UP-TO-DATE
+> Task :react-native-local-media-metadata:generateReleaseBuildConfig UP-TO-DATE
+> Task :react-native-local-media-metadata:generateReleaseResValues UP-TO-DATE
+> Task :react-native-local-media-metadata:generateReleaseResources UP-TO-DATE
+> Task :react-native-local-media-metadata:packageReleaseResources UP-TO-DATE
+> Task :react-native-local-media-metadata:parseReleaseLocalResources UP-TO-DATE
+> Task :react-native-local-media-metadata:generateReleaseRFile UP-TO-DATE
+> Task :react-native-local-media-metadata:javaPreCompileRelease UP-TO-DATE
+> Task :react-native-local-media-metadata:compileReleaseJavaWithJavac UP-TO-DATE
+> Task :react-native-local-media-metadata:bundleLibRuntimeToJarRelease UP-TO-DATE
+> Task :react-native-navigation:checkKotlinGradlePluginConfigurationErrors
+> Task :react-native-navigation:generateReactNative71ReleaseBuildConfig UP-TO-DATE
+> Task :react-native-navigation:generateReactNative71ReleaseResValues UP-TO-DATE
+> Task :react-native-navigation:generateReactNative71ReleaseResources UP-TO-DATE
+> Task :react-native-navigation:packageReactNative71ReleaseResources UP-TO-DATE
+> Task :react-native-navigation:parseReactNative71ReleaseLocalResources UP-TO-DATE
+> Task :react-native-navigation:generateReactNative71ReleaseRFile UP-TO-DATE
+> Task :react-native-navigation:compileReactNative71ReleaseKotlin UP-TO-DATE
+> Task :react-native-navigation:javaPreCompileReactNative71Release UP-TO-DATE
+> Task :react-native-navigation:compileReactNative71ReleaseJavaWithJavac UP-TO-DATE
+> Task :react-native-navigation:bundleLibRuntimeToJarReactNative71Release UP-TO-DATE
+> Task :react-native-quick-base64:generateReleaseBuildConfig UP-TO-DATE
+> Task :react-native-quick-base64:generateReleaseResValues UP-TO-DATE
+> Task :react-native-quick-base64:generateReleaseResources UP-TO-DATE
+> Task :react-native-quick-base64:packageReleaseResources UP-TO-DATE
+> Task :react-native-quick-base64:parseReleaseLocalResources UP-TO-DATE
+> Task :react-native-quick-base64:generateReleaseRFile UP-TO-DATE
+> Task :react-native-quick-base64:javaPreCompileRelease UP-TO-DATE
+> Task :react-native-quick-base64:compileReleaseJavaWithJavac UP-TO-DATE
+> Task :react-native-quick-base64:bundleLibRuntimeToJarRelease UP-TO-DATE
+> Task :react-native-quick-md5:generateReleaseBuildConfig UP-TO-DATE
+> Task :react-native-quick-md5:generateReleaseResValues UP-TO-DATE
+> Task :react-native-quick-md5:generateReleaseResources UP-TO-DATE
+> Task :react-native-quick-md5:packageReleaseResources UP-TO-DATE
+> Task :react-native-quick-md5:parseReleaseLocalResources UP-TO-DATE
+> Task :react-native-quick-md5:generateReleaseRFile UP-TO-DATE
+> Task :react-native-quick-md5:javaPreCompileRelease UP-TO-DATE
+> Task :react-native-quick-md5:compileReleaseJavaWithJavac UP-TO-DATE
+> Task :react-native-quick-md5:bundleLibRuntimeToJarRelease UP-TO-DATE
+> Task :react-native-svg:generateReleaseBuildConfig UP-TO-DATE
+> Task :react-native-svg:generateReleaseResValues UP-TO-DATE
+> Task :react-native-svg:generateReleaseResources UP-TO-DATE
+> Task :react-native-svg:packageReleaseResources UP-TO-DATE
+> Task :react-native-svg:parseReleaseLocalResources UP-TO-DATE
+> Task :react-native-svg:generateReleaseRFile UP-TO-DATE
+> Task :react-native-svg:javaPreCompileRelease UP-TO-DATE
+> Task :react-native-svg:compileReleaseJavaWithJavac UP-TO-DATE
+> Task :react-native-svg:bundleLibRuntimeToJarRelease UP-TO-DATE
+> Task :react-native-track-player:generateReleaseBuildConfig UP-TO-DATE
+> Task :react-native-track-player:generateReleaseResValues UP-TO-DATE
+> Task :react-native-track-player:generateReleaseResources UP-TO-DATE
+> Task :react-native-track-player:packageReleaseResources UP-TO-DATE
+> Task :react-native-track-player:parseReleaseLocalResources UP-TO-DATE
+> Task :react-native-track-player:generateReleaseRFile UP-TO-DATE
+> Task :react-native-track-player:javaPreCompileRelease UP-TO-DATE
+
+> Task :react-native-track-player:compileReleaseJavaWithJavac
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+Note: /root/workspace/lx-n-material/node_modules/react-native-track-player/android/src/main/java/com/guichaguri/trackplayer/module/MusicModule.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+
+> Task :react-native-udp:generateReleaseBuildConfig UP-TO-DATE
+> Task :react-native-udp:generateReleaseResValues UP-TO-DATE
+> Task :react-native-udp:generateReleaseResources UP-TO-DATE
+> Task :react-native-udp:packageReleaseResources UP-TO-DATE
+> Task :react-native-udp:parseReleaseLocalResources UP-TO-DATE
+> Task :react-native-udp:generateReleaseRFile UP-TO-DATE
+> Task :react-native-udp:javaPreCompileRelease UP-TO-DATE
+> Task :react-native-udp:compileReleaseJavaWithJavac UP-TO-DATE
+> Task :react-native-udp:bundleLibRuntimeToJarRelease UP-TO-DATE
+> Task :react-native-vector-icons:generateReleaseBuildConfig UP-TO-DATE
+> Task :react-native-vector-icons:generateReleaseResValues UP-TO-DATE
+> Task :react-native-track-player:bundleLibRuntimeToJarRelease
+> Task :react-native-vector-icons:generateReleaseResources UP-TO-DATE
+> Task :react-native-vector-icons:packageReleaseResources UP-TO-DATE
+> Task :react-native-vector-icons:parseReleaseLocalResources UP-TO-DATE
+> Task :react-native-vector-icons:generateReleaseRFile UP-TO-DATE
+> Task :react-native-vector-icons:javaPreCompileRelease UP-TO-DATE
+> Task :react-native-vector-icons:compileReleaseJavaWithJavac UP-TO-DATE
+> Task :react-native-vector-icons:bundleLibRuntimeToJarRelease UP-TO-DATE
+> Task :rn-fetch-blob:generateReleaseBuildConfig UP-TO-DATE
+> Task :rn-fetch-blob:generateReleaseResValues UP-TO-DATE
+> Task :rn-fetch-blob:generateReleaseResources UP-TO-DATE
+> Task :rn-fetch-blob:packageReleaseResources UP-TO-DATE
+> Task :rn-fetch-blob:parseReleaseLocalResources UP-TO-DATE
+> Task :rn-fetch-blob:generateReleaseRFile UP-TO-DATE
+> Task :rn-fetch-blob:javaPreCompileRelease UP-TO-DATE
+> Task :rn-fetch-blob:compileReleaseJavaWithJavac UP-TO-DATE
+> Task :rn-fetch-blob:bundleLibRuntimeToJarRelease UP-TO-DATE
+> Task :app:checkMaterialPreviewDuplicateClasses UP-TO-DATE
+> Task :app:buildKotlinToolingMetadata UP-TO-DATE
+> Task :app:checkKotlinGradlePluginConfigurationErrors
+> Task :app:generateMaterialPreviewBuildConfig UP-TO-DATE
+> Task :d11_react-native-fast-image:writeReleaseAarMetadata UP-TO-DATE
+> Task :react-native-async-storage_async-storage:writeReleaseAarMetadata UP-TO-DATE
+> Task :react-native-background-timer:writeReleaseAarMetadata UP-TO-DATE
+> Task :react-native-clipboard_clipboard:writeReleaseAarMetadata UP-TO-DATE
+> Task :react-native-community_slider:writeReleaseAarMetadata UP-TO-DATE
+> Task :react-native-cookies_cookies:writeReleaseAarMetadata UP-TO-DATE
+> Task :react-native-exception-handler:writeReleaseAarMetadata UP-TO-DATE
+> Task :react-native-file-system:writeReleaseAarMetadata UP-TO-DATE
+> Task :react-native-fs:writeReleaseAarMetadata UP-TO-DATE
+> Task :react-native-local-media-metadata:writeReleaseAarMetadata UP-TO-DATE
+> Task :react-native-navigation:writeReactNative71ReleaseAarMetadata UP-TO-DATE
+> Task :react-native-pager-view:writeReleaseAarMetadata UP-TO-DATE
+> Task :react-native-quick-base64:writeReleaseAarMetadata UP-TO-DATE
+> Task :react-native-quick-md5:writeReleaseAarMetadata UP-TO-DATE
+> Task :react-native-svg:writeReleaseAarMetadata UP-TO-DATE
+> Task :react-native-track-player:writeReleaseAarMetadata UP-TO-DATE
+> Task :react-native-udp:writeReleaseAarMetadata UP-TO-DATE
+> Task :react-native-vector-icons:writeReleaseAarMetadata UP-TO-DATE
+> Task :react-native-video:writeReleaseAarMetadata UP-TO-DATE
+> Task :react-native-webview:writeReleaseAarMetadata UP-TO-DATE
+> Task :rn-fetch-blob:writeReleaseAarMetadata UP-TO-DATE
+> Task :app:checkMaterialPreviewAarMetadata UP-TO-DATE
+> Task :app:createBundleMaterialPreviewJsAndAssets UP-TO-DATE
+> Task :app:generateMaterialPreviewResValues UP-TO-DATE
+> Task :app:mapMaterialPreviewSourceSetPaths UP-TO-DATE
+> Task :app:generateMaterialPreviewResources UP-TO-DATE
+> Task :app:mergeMaterialPreviewResources UP-TO-DATE
+> Task :app:packageMaterialPreviewResources UP-TO-DATE
+> Task :app:parseMaterialPreviewLocalResources UP-TO-DATE
+> Task :app:createMaterialPreviewCompatibleScreenManifests UP-TO-DATE
+> Task :app:extractDeepLinksMaterialPreview UP-TO-DATE
+> Task :d11_react-native-fast-image:extractDeepLinksRelease UP-TO-DATE
+> Task :d11_react-native-fast-image:processReleaseManifest UP-TO-DATE
+> Task :react-native-async-storage_async-storage:extractDeepLinksRelease UP-TO-DATE
+> Task :react-native-async-storage_async-storage:processReleaseManifest UP-TO-DATE
+> Task :react-native-background-timer:extractDeepLinksRelease UP-TO-DATE
+> Task :react-native-background-timer:processReleaseManifest UP-TO-DATE
+> Task :react-native-clipboard_clipboard:extractDeepLinksRelease UP-TO-DATE
+> Task :react-native-clipboard_clipboard:processReleaseManifest UP-TO-DATE
+> Task :react-native-community_slider:extractDeepLinksRelease UP-TO-DATE
+> Task :react-native-community_slider:processReleaseManifest UP-TO-DATE
+> Task :react-native-cookies_cookies:extractDeepLinksRelease UP-TO-DATE
+> Task :react-native-cookies_cookies:processReleaseManifest UP-TO-DATE
+> Task :react-native-exception-handler:extractDeepLinksRelease UP-TO-DATE
+> Task :react-native-exception-handler:processReleaseManifest UP-TO-DATE
+> Task :react-native-file-system:extractDeepLinksRelease UP-TO-DATE
+> Task :react-native-file-system:processReleaseManifest UP-TO-DATE
+> Task :react-native-fs:extractDeepLinksRelease UP-TO-DATE
+> Task :react-native-fs:processReleaseManifest UP-TO-DATE
+> Task :react-native-local-media-metadata:extractDeepLinksRelease UP-TO-DATE
+> Task :react-native-local-media-metadata:processReleaseManifest UP-TO-DATE
+> Task :react-native-navigation:extractDeepLinksReactNative71Release UP-TO-DATE
+> Task :react-native-navigation:processReactNative71ReleaseManifest UP-TO-DATE
+> Task :react-native-pager-view:extractDeepLinksRelease UP-TO-DATE
+> Task :react-native-pager-view:processReleaseManifest UP-TO-DATE
+> Task :react-native-quick-base64:extractDeepLinksRelease UP-TO-DATE
+> Task :react-native-quick-base64:processReleaseManifest UP-TO-DATE
+> Task :react-native-quick-md5:extractDeepLinksRelease UP-TO-DATE
+> Task :react-native-quick-md5:processReleaseManifest UP-TO-DATE
+> Task :react-native-svg:extractDeepLinksRelease UP-TO-DATE
+> Task :react-native-svg:processReleaseManifest UP-TO-DATE
+> Task :react-native-track-player:extractDeepLinksRelease UP-TO-DATE
+> Task :react-native-track-player:processReleaseManifest UP-TO-DATE
+> Task :react-native-udp:extractDeepLinksRelease UP-TO-DATE
+> Task :react-native-udp:processReleaseManifest UP-TO-DATE
+> Task :react-native-vector-icons:extractDeepLinksRelease UP-TO-DATE
+> Task :react-native-vector-icons:processReleaseManifest UP-TO-DATE
+> Task :react-native-video:extractDeepLinksRelease UP-TO-DATE
+> Task :react-native-video:processReleaseManifest UP-TO-DATE
+> Task :react-native-webview:extractDeepLinksRelease UP-TO-DATE
+> Task :react-native-webview:processReleaseManifest UP-TO-DATE
+> Task :rn-fetch-blob:extractDeepLinksRelease UP-TO-DATE
+> Task :rn-fetch-blob:processReleaseManifest UP-TO-DATE
+> Task :app:processMaterialPreviewMainManifest UP-TO-DATE
+> Task :app:processMaterialPreviewManifest UP-TO-DATE
+> Task :app:processMaterialPreviewManifestForPackage UP-TO-DATE
+> Task :d11_react-native-fast-image:compileReleaseLibraryResources UP-TO-DATE
+> Task :react-native-async-storage_async-storage:compileReleaseLibraryResources UP-TO-DATE
+> Task :react-native-background-timer:compileReleaseLibraryResources UP-TO-DATE
+> Task :react-native-clipboard_clipboard:compileReleaseLibraryResources UP-TO-DATE
+> Task :react-native-community_slider:compileReleaseLibraryResources UP-TO-DATE
+> Task :react-native-cookies_cookies:compileReleaseLibraryResources UP-TO-DATE
+> Task :react-native-exception-handler:compileReleaseLibraryResources UP-TO-DATE
+> Task :react-native-file-system:compileReleaseLibraryResources UP-TO-DATE
+> Task :react-native-fs:compileReleaseLibraryResources UP-TO-DATE
+> Task :react-native-local-media-metadata:compileReleaseLibraryResources UP-TO-DATE
+> Task :react-native-navigation:compileReactNative71ReleaseLibraryResources UP-TO-DATE
+> Task :react-native-pager-view:compileReleaseLibraryResources UP-TO-DATE
+> Task :react-native-quick-base64:compileReleaseLibraryResources UP-TO-DATE
+> Task :react-native-quick-md5:compileReleaseLibraryResources UP-TO-DATE
+> Task :react-native-svg:compileReleaseLibraryResources UP-TO-DATE
+> Task :react-native-track-player:compileReleaseLibraryResources UP-TO-DATE
+> Task :react-native-udp:compileReleaseLibraryResources UP-TO-DATE
+> Task :react-native-vector-icons:compileReleaseLibraryResources UP-TO-DATE
+> Task :react-native-video:compileReleaseLibraryResources UP-TO-DATE
+> Task :react-native-webview:compileReleaseLibraryResources UP-TO-DATE
+> Task :rn-fetch-blob:compileReleaseLibraryResources UP-TO-DATE
+> Task :app:processMaterialPreviewResources UP-TO-DATE
+> Task :d11_react-native-fast-image:bundleLibCompileToJarRelease UP-TO-DATE
+> Task :react-native-async-storage_async-storage:bundleLibCompileToJarRelease UP-TO-DATE
+> Task :react-native-background-timer:bundleLibCompileToJarRelease UP-TO-DATE
+> Task :react-native-clipboard_clipboard:bundleLibCompileToJarRelease UP-TO-DATE
+> Task :react-native-community_slider:bundleLibCompileToJarRelease UP-TO-DATE
+> Task :react-native-cookies_cookies:bundleLibCompileToJarRelease UP-TO-DATE
+> Task :react-native-exception-handler:bundleLibCompileToJarRelease UP-TO-DATE
+> Task :react-native-file-system:bundleLibCompileToJarRelease UP-TO-DATE
+> Task :react-native-fs:bundleLibCompileToJarRelease UP-TO-DATE
+> Task :react-native-local-media-metadata:bundleLibCompileToJarRelease UP-TO-DATE
+> Task :react-native-navigation:bundleLibCompileToJarReactNative71Release UP-TO-DATE
+> Task :react-native-pager-view:bundleLibCompileToJarRelease UP-TO-DATE
+> Task :react-native-quick-base64:bundleLibCompileToJarRelease UP-TO-DATE
+> Task :react-native-quick-md5:bundleLibCompileToJarRelease UP-TO-DATE
+> Task :react-native-svg:bundleLibCompileToJarRelease UP-TO-DATE
+> Task :react-native-udp:bundleLibCompileToJarRelease UP-TO-DATE
+> Task :react-native-vector-icons:bundleLibCompileToJarRelease UP-TO-DATE
+> Task :react-native-video:bundleLibCompileToJarRelease UP-TO-DATE
+> Task :react-native-webview:bundleLibCompileToJarRelease UP-TO-DATE
+> Task :rn-fetch-blob:bundleLibCompileToJarRelease UP-TO-DATE
+> Task :app:javaPreCompileMaterialPreview UP-TO-DATE
+> Task :react-native-track-player:bundleLibCompileToJarRelease
+> Task :app:desugarMaterialPreviewFileDependencies UP-TO-DATE
+> Task :app:compileMaterialPreviewKotlin NO-SOURCE
+> Task :app:compileMaterialPreviewJavaWithJavac UP-TO-DATE
+> Task :app:dexBuilderMaterialPreview
+> Task :app:mergeMaterialPreviewStartupProfile UP-TO-DATE
+> Task :app:mergeExtDexMaterialPreview UP-TO-DATE
+> Task :d11_react-native-fast-image:prepareReleaseArtProfile UP-TO-DATE
+> Task :react-native-async-storage_async-storage:prepareReleaseArtProfile UP-TO-DATE
+> Task :react-native-background-timer:prepareReleaseArtProfile UP-TO-DATE
+> Task :react-native-clipboard_clipboard:prepareReleaseArtProfile UP-TO-DATE
+> Task :react-native-community_slider:prepareReleaseArtProfile UP-TO-DATE
+> Task :react-native-cookies_cookies:prepareReleaseArtProfile UP-TO-DATE
+> Task :react-native-exception-handler:prepareReleaseArtProfile UP-TO-DATE
+> Task :react-native-file-system:prepareReleaseArtProfile UP-TO-DATE
+> Task :react-native-fs:prepareReleaseArtProfile UP-TO-DATE
+> Task :react-native-local-media-metadata:prepareReleaseArtProfile UP-TO-DATE
+> Task :react-native-navigation:prepareReactNative71ReleaseArtProfile UP-TO-DATE
+> Task :react-native-pager-view:prepareReleaseArtProfile UP-TO-DATE
+> Task :react-native-quick-base64:prepareReleaseArtProfile UP-TO-DATE
+> Task :react-native-quick-md5:prepareReleaseArtProfile UP-TO-DATE
+> Task :react-native-svg:prepareReleaseArtProfile UP-TO-DATE
+> Task :react-native-track-player:prepareReleaseArtProfile UP-TO-DATE
+> Task :react-native-udp:prepareReleaseArtProfile UP-TO-DATE
+> Task :react-native-vector-icons:prepareReleaseArtProfile UP-TO-DATE
+> Task :react-native-video:prepareReleaseArtProfile UP-TO-DATE
+> Task :react-native-webview:prepareReleaseArtProfile UP-TO-DATE
+> Task :rn-fetch-blob:prepareReleaseArtProfile UP-TO-DATE
+> Task :app:mergeMaterialPreviewArtProfile UP-TO-DATE
+> Task :app:mergeMaterialPreviewGlobalSynthetics UP-TO-DATE
+> Task :app:mergeMaterialPreviewShaders UP-TO-DATE
+> Task :app:compileMaterialPreviewShaders NO-SOURCE
+> Task :app:generateMaterialPreviewAssets UP-TO-DATE
+> Task :d11_react-native-fast-image:mergeReleaseShaders UP-TO-DATE
+> Task :d11_react-native-fast-image:compileReleaseShaders NO-SOURCE
+> Task :d11_react-native-fast-image:generateReleaseAssets UP-TO-DATE
+> Task :d11_react-native-fast-image:packageReleaseAssets UP-TO-DATE
+> Task :react-native-async-storage_async-storage:mergeReleaseShaders UP-TO-DATE
+> Task :react-native-async-storage_async-storage:compileReleaseShaders NO-SOURCE
+> Task :react-native-async-storage_async-storage:generateReleaseAssets UP-TO-DATE
+> Task :react-native-async-storage_async-storage:packageReleaseAssets UP-TO-DATE
+> Task :react-native-background-timer:mergeReleaseShaders UP-TO-DATE
+> Task :react-native-background-timer:compileReleaseShaders NO-SOURCE
+> Task :react-native-background-timer:generateReleaseAssets UP-TO-DATE
+> Task :react-native-background-timer:packageReleaseAssets UP-TO-DATE
+> Task :react-native-clipboard_clipboard:mergeReleaseShaders UP-TO-DATE
+> Task :react-native-clipboard_clipboard:compileReleaseShaders NO-SOURCE
+> Task :react-native-clipboard_clipboard:generateReleaseAssets UP-TO-DATE
+> Task :react-native-clipboard_clipboard:packageReleaseAssets UP-TO-DATE
+> Task :react-native-community_slider:mergeReleaseShaders UP-TO-DATE
+> Task :react-native-community_slider:compileReleaseShaders NO-SOURCE
+> Task :react-native-community_slider:generateReleaseAssets UP-TO-DATE
+> Task :react-native-community_slider:packageReleaseAssets UP-TO-DATE
+> Task :react-native-cookies_cookies:mergeReleaseShaders UP-TO-DATE
+> Task :react-native-cookies_cookies:compileReleaseShaders NO-SOURCE
+> Task :react-native-cookies_cookies:generateReleaseAssets UP-TO-DATE
+> Task :react-native-cookies_cookies:packageReleaseAssets UP-TO-DATE
+> Task :react-native-exception-handler:mergeReleaseShaders UP-TO-DATE
+> Task :react-native-exception-handler:compileReleaseShaders NO-SOURCE
+> Task :react-native-exception-handler:generateReleaseAssets UP-TO-DATE
+> Task :react-native-exception-handler:packageReleaseAssets UP-TO-DATE
+> Task :react-native-file-system:mergeReleaseShaders UP-TO-DATE
+> Task :react-native-file-system:compileReleaseShaders NO-SOURCE
+> Task :react-native-file-system:generateReleaseAssets UP-TO-DATE
+> Task :react-native-file-system:packageReleaseAssets UP-TO-DATE
+> Task :react-native-fs:mergeReleaseShaders UP-TO-DATE
+> Task :react-native-fs:compileReleaseShaders NO-SOURCE
+> Task :react-native-fs:generateReleaseAssets UP-TO-DATE
+> Task :react-native-fs:packageReleaseAssets UP-TO-DATE
+> Task :react-native-local-media-metadata:mergeReleaseShaders UP-TO-DATE
+> Task :react-native-local-media-metadata:compileReleaseShaders NO-SOURCE
+> Task :react-native-local-media-metadata:generateReleaseAssets UP-TO-DATE
+> Task :react-native-local-media-metadata:packageReleaseAssets UP-TO-DATE
+> Task :react-native-navigation:mergeReactNative71ReleaseShaders UP-TO-DATE
+> Task :react-native-navigation:compileReactNative71ReleaseShaders NO-SOURCE
+> Task :react-native-navigation:generateReactNative71ReleaseAssets UP-TO-DATE
+> Task :react-native-navigation:packageReactNative71ReleaseAssets UP-TO-DATE
+> Task :react-native-pager-view:mergeReleaseShaders UP-TO-DATE
+> Task :react-native-pager-view:compileReleaseShaders NO-SOURCE
+> Task :react-native-pager-view:generateReleaseAssets UP-TO-DATE
+> Task :react-native-pager-view:packageReleaseAssets UP-TO-DATE
+> Task :react-native-quick-base64:mergeReleaseShaders UP-TO-DATE
+> Task :react-native-quick-base64:compileReleaseShaders NO-SOURCE
+> Task :react-native-quick-base64:generateReleaseAssets UP-TO-DATE
+> Task :react-native-quick-base64:packageReleaseAssets UP-TO-DATE
+> Task :react-native-quick-md5:mergeReleaseShaders UP-TO-DATE
+> Task :react-native-quick-md5:compileReleaseShaders NO-SOURCE
+> Task :react-native-quick-md5:generateReleaseAssets UP-TO-DATE
+> Task :react-native-quick-md5:packageReleaseAssets UP-TO-DATE
+> Task :react-native-svg:mergeReleaseShaders UP-TO-DATE
+> Task :react-native-svg:compileReleaseShaders NO-SOURCE
+> Task :react-native-svg:generateReleaseAssets UP-TO-DATE
+> Task :react-native-svg:packageReleaseAssets UP-TO-DATE
+> Task :react-native-track-player:mergeReleaseShaders UP-TO-DATE
+> Task :react-native-track-player:compileReleaseShaders NO-SOURCE
+> Task :react-native-track-player:generateReleaseAssets UP-TO-DATE
+> Task :react-native-track-player:packageReleaseAssets UP-TO-DATE
+> Task :react-native-udp:mergeReleaseShaders UP-TO-DATE
+> Task :react-native-udp:compileReleaseShaders NO-SOURCE
+> Task :react-native-udp:generateReleaseAssets UP-TO-DATE
+> Task :react-native-udp:packageReleaseAssets UP-TO-DATE
+> Task :react-native-vector-icons:mergeReleaseShaders UP-TO-DATE
+> Task :react-native-vector-icons:compileReleaseShaders NO-SOURCE
+> Task :react-native-vector-icons:generateReleaseAssets UP-TO-DATE
+> Task :react-native-vector-icons:packageReleaseAssets UP-TO-DATE
+> Task :react-native-video:mergeReleaseShaders UP-TO-DATE
+> Task :react-native-video:compileReleaseShaders NO-SOURCE
+> Task :react-native-video:generateReleaseAssets UP-TO-DATE
+> Task :react-native-video:packageReleaseAssets UP-TO-DATE
+> Task :react-native-webview:mergeReleaseShaders UP-TO-DATE
+> Task :react-native-webview:compileReleaseShaders NO-SOURCE
+> Task :react-native-webview:generateReleaseAssets UP-TO-DATE
+> Task :react-native-webview:packageReleaseAssets UP-TO-DATE
+> Task :rn-fetch-blob:mergeReleaseShaders UP-TO-DATE
+> Task :rn-fetch-blob:compileReleaseShaders NO-SOURCE
+> Task :rn-fetch-blob:generateReleaseAssets UP-TO-DATE
+> Task :rn-fetch-blob:packageReleaseAssets UP-TO-DATE
+> Task :app:mergeMaterialPreviewAssets UP-TO-DATE
+> Task :app:compressMaterialPreviewAssets UP-TO-DATE
+> Task :app:extractMaterialPreviewVersionControlInfo UP-TO-DATE
+> Task :app:processMaterialPreviewJavaRes UP-TO-DATE
+> Task :d11_react-native-fast-image:processReleaseJavaRes UP-TO-DATE
+> Task :react-native-async-storage_async-storage:processReleaseJavaRes UP-TO-DATE
+> Task :react-native-background-timer:processReleaseJavaRes NO-SOURCE
+> Task :react-native-clipboard_clipboard:processReleaseJavaRes NO-SOURCE
+> Task :react-native-community_slider:processReleaseJavaRes NO-SOURCE
+> Task :react-native-cookies_cookies:processReleaseJavaRes NO-SOURCE
+> Task :react-native-exception-handler:processReleaseJavaRes NO-SOURCE
+> Task :react-native-file-system:processReleaseJavaRes NO-SOURCE
+> Task :react-native-fs:processReleaseJavaRes NO-SOURCE
+> Task :react-native-local-media-metadata:processReleaseJavaRes NO-SOURCE
+> Task :react-native-navigation:processReactNative71ReleaseJavaRes UP-TO-DATE
+> Task :react-native-pager-view:processReleaseJavaRes UP-TO-DATE
+> Task :react-native-quick-base64:processReleaseJavaRes NO-SOURCE
+> Task :react-native-quick-md5:processReleaseJavaRes NO-SOURCE
+> Task :react-native-svg:processReleaseJavaRes NO-SOURCE
+> Task :react-native-track-player:processReleaseJavaRes NO-SOURCE
+> Task :react-native-udp:processReleaseJavaRes NO-SOURCE
+> Task :react-native-vector-icons:processReleaseJavaRes NO-SOURCE
+> Task :react-native-video:processReleaseJavaRes UP-TO-DATE
+> Task :react-native-webview:processReleaseJavaRes UP-TO-DATE
+> Task :rn-fetch-blob:processReleaseJavaRes NO-SOURCE
+> Task :app:mergeMaterialPreviewJavaResource UP-TO-DATE
+> Task :app:optimizeMaterialPreviewResources UP-TO-DATE
+> Task :app:collectMaterialPreviewDependencies
+> Task :app:sdkMaterialPreviewDependencyData UP-TO-DATE
+> Task :app:validateSigningMaterialPreview UP-TO-DATE
+> Task :app:writeMaterialPreviewAppMetadata UP-TO-DATE
+> Task :app:writeMaterialPreviewSigningConfigVersions UP-TO-DATE
+> Task :app:mergeDexMaterialPreview
+> Task :app:compileMaterialPreviewArtProfile
+> Task :app:packageMaterialPreview
+> Task :app:createMaterialPreviewApkListingFileRedirect UP-TO-DATE
+> Task :app:assembleMaterialPreview
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 9.0.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/8.8/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+
+BUILD SUCCESSFUL in 2m 26s
+481 actionable tasks: 25 executed, 456 up-to-date
+Picked up JAVA_TOOL_OPTIONS: -Djavax.net.ssl.trustStore=/root/workspace/lx-n-local-build/system-ca.jks -Djavax.net.ssl.trustStorePassword=changeit
+Verifies
+Verified using v1 scheme (JAR signing): true
+Verified using v2 scheme (APK Signature Scheme v2): true
+Verified using v3 scheme (APK Signature Scheme v3): false
+Verified using v3.1 scheme (APK Signature Scheme v3.1): false
+Verified using v4 scheme (APK Signature Scheme v4): false
+Verified for SourceStamp: false
+Number of signers: 1
+WARNING: META-INF/com/android/build/gradle/app-metadata.properties not protected by signature. Unauthorized modifications to this JAR entry will not be detected. Delete or move the entry outside of META-INF/.
+WARNING: META-INF/version-control-info.textproto not protected by signature. Unauthorized modifications to this JAR entry will not be detected. Delete or move the entry outside of META-INF/.
+WARNING: META-INF/androidx.activity_activity-ktx.version not protected by signature. Unauthorized modifications to this JAR entry will not be detected. Delete or move the entry outside of META-INF/.
+WARNING: META-INF/androidx.activity_activity.version not protected by signature. Unauthorized modifications to this JAR entry will not be detected. Delete or move the entry outside of META-INF/.
+WARNING: META-INF/androidx.annotation_annotation-experimental.version not protected by signature. Unauthorized modifications to this JAR entry will not be detected. Delete or move the entry outside of META-INF/.
+WARNING: META-INF/androidx.appcompat_appcompat-resources.version not protected by signature. Unauthorized modifications to this JAR entry will not be detected. Delete or move the entry outside of META-INF/.
+WARNING: META-INF/androidx.appcompat_appcompat.version not protected by signature. Unauthorized modifications to this JAR entry will not be detected. Delete or move the entry outside of META-INF/.
+WARNING: META-INF/androidx.arch.core_core-runtime.version not protected by signature. Unauthorized modifications to this JAR entry will not be detected. Delete or move the entry outside of META-INF/.
+WARNING: META-INF/androidx.asynclayoutinflater_asynclayoutinflater.version not protected by signature. Unauthorized modifications to this JAR entry will not be detected. Delete or move the entry outside of META-INF/.
+WARNING: META-INF/androidx.autofill_autofill.version not protected by signature. Unauthorized modifications to this JAR entry will not be detected. Delete or move the entry outside of META-INF/.
+WARNING: META-INF/androidx.cardview_cardview.version not protected by signature. Unauthorized modifications to this JAR entry will not be detected. Delete or move the entry outside of META-INF/.
+WARNING: META-INF/androidx.coordinatorlayout_coordinatorlayout.version not protected by signature. Unauthorized modifications to this JAR entry will not be detected. Delete or move the entry outside of META-INF/.
+WARNING: META-INF/androidx.core_core-ktx.version not protected by signature. Unauthorized modifications to this JAR entry will not be detected. Delete or move the entry outside of META-INF/.
+WARNING: META-INF/androidx.core_core-viewtree.version not protected by signature. Unauthorized modifications to this JAR entry will not be detected. Delete or move the entry outside of META-INF/.
+WARNING: META-INF/androidx.core_core.version not protected by signature. Unauthorized modifications to this JAR entry will not be detected. Delete or move the entry outside of META-INF/.
+WARNING: META-INF/androidx.cursoradapter_cursoradapter.version not protected by signature. Unauthorized modifications to this JAR entry will not be detected. Delete or move the entry outside of META-INF/.
+WARNING: META-INF/androidx.customview_customview-poolingcontainer.version not protected by signature. Unauthorized modifications to this JAR entry will not be detected. Delete or move the entry outside of META-INF/.
+WARNING: META-INF/androidx.customview_customview.version not protected by signature. Unauthorized modifications to this JAR entry will not be detected. Delete or move the entry outside of META-INF/.
+WARNING: META-INF/androidx.documentfile_documentfile.version not protected by signature. Unauthorized modifications to this JAR entry will not be detected. Delete or move the entry outside of META-INF/.
+WARNING: META-INF/androidx.drawerlayout_drawerlayout.version not protected by signature. Unauthorized modifications to this JAR entry will not be detected. Delete or move the entry outside of META-INF/.
+WARNING: META-INF/androidx.emoji2_emoji2-views-helper.version not protected by signature. Unauthorized modifications to this JAR entry will not be detected. Delete or move the entry outside of META-INF/.
+WARNING: META-INF/androidx.emoji2_emoji2.version not protected by signature. Unauthorized modifications to this JAR entry will not be detected. Delete or move the entry outside of META-INF/.
+WARNING: META-INF/androidx.exifinterface_exifinterface.version not protected by signature. Unauthorized modifications to this JAR entry will not be detected. Delete or move the entry outside of META-INF/.
+WARNING: META-INF/androidx.fragment_fragment.version not protected by signature. Unauthorized modifications to this JAR entry will not be detected. Delete or move the entry outside of META-INF/.
+WARNING: META-INF/androidx.interpolator_interpolator.version not protected by signature. Unauthorized modifications to this JAR entry will not be detected. Delete or move the entry outside of META-INF/.
+WARNING: META-INF/androidx.legacy_legacy-support-core-ui.version not protected by signature. Unauthorized modifications to this JAR entry will not be detected. Delete or move the entry outside of META-INF/.
+WARNING: META-INF/androidx.legacy_legacy-support-core-utils.version not protected by signature. Unauthorized modifications to this JAR entry will not be detected. Delete or move the entry outside of META-INF/.
+WARNING: META-INF/androidx.legacy_legacy-support-v4.version not protected by signature. Unauthorized modifications to this JAR entry will not be detected. Delete or move the entry outside of META-INF/.
+WARNING: META-INF/androidx.lifecycle_lifecycle-livedata-core.version not protected by signature. Unauthorized modifications to this JAR entry will not be detected. Delete or move the entry outside of META-INF/.
+WARNING: META-INF/androidx.lifecycle_lifecycle-livedata.version not protected by signature. Unauthorized modifications to this JAR entry will not be detected. Delete or move the entry outside of META-INF/.
+WARNING: META-INF/androidx.lifecycle_lifecycle-process.version not protected by signature. Unauthorized modifications to this JAR entry will not be detected. Delete or move the entry outside of META-INF/.
+WARNING: META-INF/androidx.lifecycle_lifecycle-runtime-ktx.version not protected by signature. Unauthorized modifications to this JAR entry will not be detected. Delete or move the entry outside of META-INF/.
+WARNING: META-INF/androidx.lifecycle_lifecycle-runtime.version not protected by signature. Unauthorized modifications to this JAR entry will not be detected. Delete or move the entry outside of META-INF/.
+WARNING: META-INF/androidx.lifecycle_lifecycle-viewmodel-ktx.version not protected by signature. Unauthorized modifications to this JAR entry will not be detected. Delete or move the entry outside of META-INF/.
+WARNING: META-INF/androidx.lifecycle_lifecycle-viewmodel-savedstate.version not protected by signature. Unauthorized modifications to this JAR entry will not be detected. Delete or move the entry outside of META-INF/.
+WARNING: META-INF/androidx.lifecycle_lifecycle-viewmodel.version not protected by signature. Unauthorized modifications to this JAR entry will not be detected. Delete or move the entry outside of META-INF/.
+WARNING: META-INF/androidx.loader_loader.version not protected by signature. Unauthorized modifications to this JAR entry will not be detected. Delete or move the entry outside of META-INF/.
+WARNING: META-INF/androidx.localbroadcastmanager_localbroadcastmanager.version not protected by signature. Unauthorized modifications to this JAR entry will not be detected. Delete or move the entry outside of META-INF/.
+WARNING: META-INF/androidx.media_media.version not protected by signature. Unauthorized modifications to this JAR entry will not be detected. Delete or move the entry outside of META-INF/.
+WARNING: META-INF/androidx.print_print.version not protected by signature. Unauthorized modifications to this JAR entry will not be detected. Delete or move the entry outside of META-INF/.
+WARNING: META-INF/androidx.profileinstaller_profileinstaller.version not protected by signature. Unauthorized modifications to this JAR entry will not be detected. Delete or move the entry outside of META-INF/.
+WARNING: META-INF/androidx.recyclerview_recyclerview.version not protected by signature. Unauthorized modifications to this JAR entry will not be detected. Delete or move the entry outside of META-INF/.
+WARNING: META-INF/androidx.room_room-ktx.version not protected by signature. Unauthorized modifications to this JAR entry will not be detected. Delete or move the entry outside of META-INF/.
+WARNING: META-INF/androidx.room_room-runtime.version not protected by signature. Unauthorized modifications to this JAR entry will not be detected. Delete or move the entry outside of META-INF/.
+WARNING: META-INF/androidx.savedstate_savedstate-ktx.version not protected by signature. Unauthorized modifications to this JAR entry will not be detected. Delete or move the entry outside of META-INF/.
+WARNING: META-INF/androidx.savedstate_savedstate.version not protected by signature. Unauthorized modifications to this JAR entry will not be detected. Delete or move the entry outside of META-INF/.
+WARNING: META-INF/androidx.slidingpanelayout_slidingpanelayout.version not protected by signature. Unauthorized modifications to this JAR entry will not be detected. Delete or move the entry outside of META-INF/.
+WARNING: META-INF/androidx.sqlite_sqlite-framework.version not protected by signature. Unauthorized modifications to this JAR entry will not be detected. Delete or move the entry outside of META-INF/.
+WARNING: META-INF/androidx.sqlite_sqlite.version not protected by signature. Unauthorized modifications to this JAR entry will not be detected. Delete or move the entry outside of META-INF/.
+WARNING: META-INF/androidx.startup_startup-runtime.version not protected by signature. Unauthorized modifications to this JAR entry will not be detected. Delete or move the entry outside of META-INF/.
+WARNING: META-INF/androidx.swiperefreshlayout_swiperefreshlayout.version not protected by signature. Unauthorized modifications to this JAR entry will not be detected. Delete or move the entry outside of META-INF/.
+WARNING: META-INF/androidx.tracing_tracing.version not protected by signature. Unauthorized modifications to this JAR entry will not be detected. Delete or move the entry outside of META-INF/.
+WARNING: META-INF/androidx.transition_transition.version not protected by signature. Unauthorized modifications to this JAR entry will not be detected. Delete or move the entry outside of META-INF/.
+WARNING: META-INF/androidx.vectordrawable_vectordrawable-animated.version not protected by signature. Unauthorized modifications to this JAR entry will not be detected. Delete or move the entry outside of META-INF/.
+WARNING: META-INF/androidx.vectordrawable_vectordrawable.version not protected by signature. Unauthorized modifications to this JAR entry will not be detected. Delete or move the entry outside of META-INF/.
+WARNING: META-INF/androidx.versionedparcelable_versionedparcelable.version not protected by signature. Unauthorized modifications to this JAR entry will not be detected. Delete or move the entry outside of META-INF/.
+WARNING: META-INF/androidx.viewpager2_viewpager2.version not protected by signature. Unauthorized modifications to this JAR entry will not be detected. Delete or move the entry outside of META-INF/.
+WARNING: META-INF/androidx.viewpager_viewpager.version not protected by signature. Unauthorized modifications to this JAR entry will not be detected. Delete or move the entry outside of META-INF/.
+WARNING: META-INF/androidx.webkit_webkit.version not protected by signature. Unauthorized modifications to this JAR entry will not be detected. Delete or move the entry outside of META-INF/.
+WARNING: META-INF/com.google.android.material_material.version not protected by signature. Unauthorized modifications to this JAR entry will not be detected. Delete or move the entry outside of META-INF/.
+WARNING: META-INF/kotlinx_coroutines_android.version not protected by signature. Unauthorized modifications to this JAR entry will not be detected. Delete or move the entry outside of META-INF/.
+WARNING: META-INF/kotlinx_coroutines_core.version not protected by signature. Unauthorized modifications to this JAR entry will not be detected. Delete or move the entry outside of META-INF/.
+WARNING: META-INF/services/kotlinx.coroutines.CoroutineExceptionHandler not protected by signature. Unauthorized modifications to this JAR entry will not be detected. Delete or move the entry outside of META-INF/.
+WARNING: META-INF/services/kotlinx.coroutines.internal.MainDispatcherFactory not protected by signature. Unauthorized modifications to this JAR entry will not be detected. Delete or move the entry outside of META-INF/.
+WARNING: META-INF/versions/9/OSGI-INF/MANIFEST.MF not protected by signature. Unauthorized modifications to this JAR entry will not be detected. Delete or move the entry outside of META-INF/.
+PASS application ID, label, ZIP CRC, DEX/resources, ARM64 native libraries, Hermes HBC96
+9ef3c711020dd56bc39fb91615fa0f3deac0bba7decaffd11f61516ced21670f  /sdcard/Download/DSH-Go/lx-n-local-apk/LX-N-Material-v1.8.89-arm64-20261106-074453.apk
+
+Verified APK: /sdcard/Download/DSH-Go/lx-n-local-apk/LX-N-Material-v1.8.89-arm64-20261106-074453.apk
+Signature/structure checks passed; device launch and playback require separate testing.

@@ -1,0 +1,87 @@
+
+> lx-netease-music-mobile@1.8.89 check:material
+> npm run check:ui && node scripts/check-material-shell.cjs && node scripts/check-material-cover-search.cjs && node src/screens/Home/Views/MaterialHome/__tests__/material.test.cjs && node scripts/check-material-seek.cjs && npm run check:listening
+
+
+> lx-netease-music-mobile@1.8.89 check:ui
+> node scripts/check-material-ui.cjs
+
+PASS material_dark: generated theme and semantic colors
+PASS material_dark: labels exist in all supported languages
+PASS material_light: generated theme and semantic colors
+PASS material_light: labels exist in all supported languages
+PASS legacy/imported themes retain legacy palette mapping
+PASS mini-player uses physical dp for touch targets and current drawer setting
+PASS shared track rows preserve fixed-layout heights and 48dp menu targets
+  Parsed 30 source files
+PASS modified UI source parses as TypeScript/TSX
+PASS automatic theme chooses material_light
+PASS automatic theme chooses material_dark
+All Material UI static regression checks passed. Android runtime tests are still required.
+PASS three real primary route IDs and stable secondary grouping
+PASS new root routes appear in navigation and all translations
+PASS initial page mounts only the real homepage
+PASS search and library tabs mount actual pages and retain homepage
+PASS legacy routes remain reachable and cached without duplicates
+PASS hidden pages leave accessibility tree and listeners clean up
+PASS search category exists once per form factor and root keeps bottom nav
+PASS visible detail back dispatch is independent of page registration order
+PASS new icon literals resolve to packaged glyphs, not missing font symbols
+Material shell callback tests passed; real-device layout and playback remain separate.
+PASS resolved remote
+PASS short layout
+PASS download unwrap
+PASS stale resolved ignored
+PASS first layout fallback
+PASS empty cover placeholder
+PASS failed cover placeholder
+PASS search trim, keyboard/icon submit, clear, imperative API and touch sizing
+Cover/search mocked callbacks passed; real images and native layout need device checks.
+PASS playlist activation precedes navigation
+PASS history/local playback preserves source and uses real player APIs
+PASS download uses current native component and handles missing screen
+PASS history deduplicates latest tracks, sorts and removes event subscription
+PASS history async completion does not write after unmount
+PASS local music permission gating, real scanner result/cache and cleanup
+PASS scanner cancellation blocks stale cache/state writes
+PASS home empty-search and real-track playback branches without nested lists
+PASS library real allList grid, account empty states, categories and retained source routes
+PASS new layouts use native dp StyleSheet and semantic colors
+All 10 material checks passed.
+PASS native 48dp seek target
+PASS normal seek and drag preview
+PASS song change cancels drag
+PASS live identity protects stale React render
+PASS A -> B -> A remains cancelled
+PASS source change with same id cancels drag
+PASS responder termination cancels drag
+PASS zero and non-finite duration never seek
+PASS missing music never seeks
+PASS unmeasured track never seeks
+PASS live duration is used at release
+PASS seek stays within track bounds
+PASS downloaded music metadata identity is supported
+PASS listener cleanup
+14 seek checks passed (mocked callbacks; no native rendering)
+
+> lx-netease-music-mobile@1.8.89 check:listening
+> node scripts/test-listening-stats.cjs && python3 scripts/check-listening-storage.py && node scripts/check-listening-client.cjs && node src/screens/Home/Views/MaterialHome/__tests__/listeningStats.test.cjs
+
+PASS: pause/buffer/suppression/seek/speed/A-B-A/placeholder/duplicates/10s/failure-retry/restart/stop/wall-clock-jumps
+PASS: clean patch / repeated patch byte equality / unknown anchor atomic failure
+PASS production schema, millisecond increments, sum/count and stable pagination
+PASS failed transaction rollback, retry once, metadata update and reopen persistence
+PASS original/download identities merge; sources and files stay distinct
+PASS only real audio tracks get listening metadata; placeholders never counted
+PASS bridge reads real snapshots and bounds pagination arguments
+PASS missing API, storage errors and invalid snapshots never masquerade as zero
+PASS elapsed time formatting including totals beyond one day
+PASS initial loading, empty native snapshot, foreground 5-second read-only timer
+PASS native-unavailable failure and retry, real snapshot data
+PASS background and tab leave stop polling; return immediately refreshes
+PASS native screens covering Home stop reads; pop resumes fresh overview
+PASS 50-row native pages, concurrent end-reached lock, changing totals and unique keys
+PASS manual refresh and close cancel stale pagination responses
+PASS tab leave closes modal and removes timer/listener
+PASS unmounted overview promise never writes state
+PASS card loading/empty/data/error, modal entry/close/refresh/list, dark theme and large-font layout

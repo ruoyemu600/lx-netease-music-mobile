@@ -1,6 +1,7 @@
 const defaultSetting: LX.AppSetting = {
   version: '2.0',
-  'version.autoCheckUpdate': true,
+  // Preview builds are distributed separately from upstream releases.
+  'version.autoCheckUpdate': false,
   'common.isAutoTheme': false,
   'common.langId': null,
   'common.apiSource': '',
@@ -51,7 +52,7 @@ const defaultSetting: LX.AppSetting = {
   'player.isS2t': true,
   'player.isShowBluetoothLyric': false,
 
-  'playDetail.isCoverSpin': true,
+  'playDetail.isCoverSpin': false,
   // 详情页停留位置对所有歌曲生效：0 封面，1 歌词。
   'playDetail.lastPage': 0,
   'playDetail.style.align': 'center',
@@ -119,21 +120,17 @@ const defaultSetting: LX.AppSetting = {
   'sync.webdav.path': '/LX_Music/',
   'sync.webdav.lastSyncTimeLists': 0,
 
-  'theme.id': 'green',
-  'theme.lightId': 'green',
-  'theme.darkId': 'black',
+  'theme.id': 'material_dark',
+  'theme.lightId': 'material_light',
+  'theme.darkId': 'material_dark',
   'theme.hideBgDark': false,
-  'theme.dynamicBg': true,
+  'theme.dynamicBg': false,
   'theme.blur': 18,
   'theme.fontShadow': false,
   'theme.customBgPicPath': '',
   'theme.picOpacity': 76,
 }
 
-// 使用新年皮肤
-if (new Date().getMonth() < 2) {
-  defaultSetting['theme.id'] = 'happy_new_year'
-  defaultSetting['desktopLyric.style.lyricPlayedColor'] = 'rgba(255, 18, 34, 1)'
-}
+// Keep the chosen default consistent throughout the year. Seasonal themes remain selectable.
 
 export default defaultSetting

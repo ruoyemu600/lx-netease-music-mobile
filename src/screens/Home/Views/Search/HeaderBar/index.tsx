@@ -1,15 +1,15 @@
 import { useRef, forwardRef, useImperativeHandle } from 'react'
-import { View } from 'react-native'
+import { View, StyleSheet } from 'react-native'
+import Text from '@/components/common/Text'
 
 // import music from '@/utils/musicSdk'
-import { BorderWidths } from '@/theme'
+
 // import InsetShadow from 'react-native-inset-shadow'
 import SourceSelector, {
   type SourceSelectorType as _SourceSelectorType,
   type SourceSelectorProps as _SourceSelectorProps,
 } from '@/components/SourceSelector'
 import SearchInput, { type SearchInputType, type SearchInputProps } from './SearchInput'
-import { createStyle } from '@/utils/tools'
 import { useTheme } from '@/store/theme/hook'
 import { type Source as MusicSource } from '@/store/search/music/state'
 import { type Source as SonglistSource } from '@/store/search/songlist/state'
@@ -55,31 +55,30 @@ export default forwardRef<HeaderBarType, HeaderBarProps>(
     )
 
     return (
-      <View style={{ ...styles.searchBar, borderBottomColor: theme['c-border-background'] }}>
-        <View style={styles.selector}>
-          <SourceSelector ref={sourceSelectorRef} onSourceChange={onSourceChange} center />
+      <View style={styles.searchBar}>
+        <View style={styles.inputRow}>
+          <SearchInput
+            ref={searchInputRef}
+            onChangeText={onTipSearch}
+            onSubmit={onSearch}
+            onBlur={onHideTipList}
+            onTouchStart={onShowTipList}
+          />
         </View>
-        <SearchInput
-          ref={searchInputRef}
-          onChangeText={onTipSearch}
-          onSubmit={onSearch}
-          onBlur={onHideTipList}
-          onTouchStart={onShowTipList}
-        />
+        <View style={styles.filterRow}>
+          <Text size={13} color={theme['c-font-label']}>音源</Text>
+          <View style={[styles.selector, { backgroundColor: theme['c-button-background'], borderColor: theme['c-border-background'] }]}>
+            <SourceSelector ref={sourceSelectorRef} onSourceChange={onSourceChange} center />
+          </View>
+        </View>
       </View>
     )
   }
 )
 
-const styles = createStyle({
-  searchBar: {
-    flexDirection: 'row',
-    height: 38,
-    zIndex: 2,
-    paddingRight: 10,
-    borderBottomWidth: BorderWidths.normal,
-  },
-  selector: {
-    // width: 86,
-  },
+const styles = StyleSheet.create({
+  searchBar: { zIndex: 2, paddingHorizontal: 16, paddingTop: 12 },
+  inputRow: { flexDirection: 'row' },
+  filterRow: { flexDirection: 'row', alignItems: 'center', marginTop: 8, gap: 12 },
+  selector: { height: 48, minWidth: 96, borderRadius: 24 },
 })
