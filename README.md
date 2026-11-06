@@ -1,11 +1,11 @@
-<p align="center"><a href="https://github.com/lyswhut/lx-music-mobile"><img width="200" src="https://github.com/lyswhut/lx-music-mobile/blob/master/doc/images/icon.png" alt="lx-music logo"></a></p>
+<p align="center"><b>LX-N Material</b> — 第三方界面改版，非官方发布</p>
 
 <h1 align="center">LX-N Music 移动版</h1>
 
 <p align="center">
-  <a href="https://github.com/souvenp/lx-netease-music-mobile/releases"><img src="https://img.shields.io/github/release/souvenp/lx-netease-music-mobile" alt="Release version"></a>
-  <a href="https://github.com/souvenp/lx-netease-music-mobile/actions/workflows/release.yml"><img src="https://github.com/souvenp/lx-netease-music-mobile/workflows/Build/badge.svg" alt="Build status"></a>
-  <a href="https://github.com/facebook/react-native"><img src="https://img.shields.io/github/package-json/dependency-version/souvenp/lx-netease-music-mobile/react-native/master" alt="React native version"></a>
+  <a href="https://github.com/ruoyemu600/lx-netease-music-mobile/releases"><img src="https://img.shields.io/github/v/release/ruoyemu600/lx-netease-music-mobile" alt="Release version"></a>
+  <a href="https://github.com/ruoyemu600/lx-netease-music-mobile/actions/workflows/material-preview.yml"><img src="https://github.com/ruoyemu600/lx-netease-music-mobile/actions/workflows/material-preview.yml/badge.svg" alt="Build status"></a>
+  <a href="https://github.com/facebook/react-native"><img src="https://img.shields.io/github/package-json/dependency-version/ruoyemu600/lx-netease-music-mobile/react-native" alt="React native version"></a>
 </p>
 
 <p align="center">一个基于 React Native 开发的音乐软件</p>
