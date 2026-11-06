@@ -1,0 +1,91 @@
+LX-N Material
+=============
+
+本项目（LX-N Material）是 LX-N Music 移动版的第三方界面改版，非上游作者官方发布，
+与 LX Music / LX-N Music 的原作者及维护者无隶属、代理或背书关系。
+
+本项目依据 Apache License 2.0 分发，随附 LICENSE 文件为许可证完整副本。
+
+Copyright (C) 2026 nugg nest (@ruoyemu600)
+（本版权声明仅就本改版的修改与新增部分主张；上游代码的版权归其各自作者所有。）
+
+
+一、来源说明
+------------
+
+本项目的绝大部分代码来自以下上游项目，按 Apache License 2.0 授权：
+
+1. lx-music-mobile
+   https://github.com/lyswhut/lx-music-mobile
+   License: Apache-2.0
+
+2. ikun-music-mobile
+   https://github.com/ikunshare/ikun-music-mobile
+   License: Apache-2.0（继承自 lx-music-mobile；原仓库当前已不可访问，
+   无法直接核验其 LICENSE 文件）
+
+3. lx-netease-music-mobile
+   https://github.com/souvenp/lx-netease-music-mobile
+   License: Apache-2.0
+   基线提交：073ab03a3979590d3c9119bd128f4e49089a140d（版本 1.8.87）
+
+
+上述上游项目均未提供 NOTICE 文件，因此本项目不继承任何上游 NOTICE 中的
+归属声明。本 NOTICE 为本改版新增，仅用于记录衍生关系与修改范围。
+
+
+二、修改声明（Apache License 2.0 第 4(b) 条）
+---------------------------------------------
+
+本项目相对基线提交 073ab03a3979590d3c9119bd128f4e49089a140d 存在修改。
+修改范围共 78 个文件，按目录分布如下：
+
+  src/                     57 个文件（主题、歌曲列表、迷你播放器、播放详情页、
+                           首页、搜索、音乐库、底部标签导航、听歌统计等）
+  scripts/                 10 个文件（专项检查与验证脚本）
+  android/                  7 个文件（Material 预览构建类型、Media3 听歌计时、
+                           清单与资源）
+  .github/                  1 个文件（手动预览构建工作流）
+  package.json              1 个文件
+  package-lock.json         1 个文件
+  README-MATERIAL.md        1 个文件
+
+逐文件差异见随附补丁 lx-n-material-v1.8.89.patch，或本仓库的 Git 提交历史。
+所有被修改文件均保留其原有的版权、专利、商标与归属声明；
+本项目未删除任何上游 Copyright / Licensed under / SPDX-License 声明行。
+
+
+三、本改版新增部分的授权
+------------------------
+
+本改版新增的代码与文档，由改版作者保留版权，同样以 Apache License 2.0 授权，
+以便与本项目整体许可证保持一致。
+
+版权所有者：nugg nest (@ruoyemu600)
+本行用于 Apache License 2.0 的归属声明。
+
+
+四、商标（Apache License 2.0 第 6 条）
+--------------------------------------
+
+Apache License 2.0 不授予商标权。本项目使用 "LX-N"、"LX Music" 等名称
+仅用于指明代码来源与衍生关系，不构成对上述商标的任何权利主张，
+也不表示获得原作者的授权、认可或背书。
+
+本项目未使用上游项目的官方图标、应用品牌资产或发布签名密钥作为自己的标识。
+
+
+五、其他第三方组件
+------------------
+
+本项目依赖大量第三方开源库（React Native 及其依赖、Media3/ExoPlayer 等），
+各自按其自身许可证授权，详见 package.json / android 构建依赖及各自仓库。
+src/utils/simplify-chinese-main/ 目录下另有其自带 LICENSE.md，请一并遵守。
+
+
+六、免责声明
+------------
+
+本项目按 Apache License 2.0 第 7、8 条"现状"提供，不附带任何明示或默示担保。
+本改版仅涉及代码与界面，不提供、不分发任何音频内容，不对通过本软件访问的
+第三方音乐服务的可用性、合法性或内容版权承担责任。

@@ -1,5 +1,17 @@
 # LX-N Material：界面改版与真实听歌统计（1.8.89）
 
+> **非官方声明**
+>
+> 本项目是 [lx-netease-music-mobile](https://github.com/souvenp/lx-netease-music-mobile)
+> 的第三方界面改版，**非上游作者官方发布**，与 LX Music / LX-N Music 的原作者及
+> 维护者无隶属、代理或背书关系。本项目不以官方名义分发，也不使用上游的官方图标、
+> 品牌资产或发布签名密钥。
+>
+> 许可证：**Apache License 2.0**（见 `LICENSE`）。本项目的衍生来源与修改范围详见
+> `NOTICE`。使用、修改、分发前请一并阅读这两个文件。
+>
+> 本改版仅涉及代码与界面，不提供、不分发任何音频内容。
+
 ## 项目与状态
 
 基于 https://github.com/souvenp/lx-netease-music-mobile ，原始提交 `073ab03a3979590d3c9119bd128f4e49089a140d`，版本 1.8.87。
