@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- LX-N Material 主题图标（Android 13+ monochrome）
+     单色剪影：实心圆盘，中心沿 -40° 轴挖出播放三角。系统按壁纸取色渲染。 -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <path
+        android:fillColor="#FFFFFF"
+        android:fillType="evenOdd"
+        android:pathData="M54,21 a33,33 0 1,1 0,66 a33,33 0 1,1 0,-66 Z M43.106,52.568 L53.519,64.978 L60.102,48.880 Z" />
+</vector>
